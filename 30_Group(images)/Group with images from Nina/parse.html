@@ -1,0 +1,350 @@
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html140/DTD/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+<!--===============================================================================================-->
+<!--==============================  Change Title   ================================================-->
+ <title>3F 1a Classification of matter</title>
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+ <style>
+ 
+ body {
+margin: 30px;
+font-family: Arial, Helvetica, sans-serif;
+
+height:850px;
+width:850px;
+border:8px solid #AC5643;
+margin-left:10%
+
+}
+ sub{
+ font-size:70%;
+ vertical-align:sub;
+ }
+ sup
+ {
+  font-size:70%;
+ vertical-align:sup;
+ }
+ 
+  
+ #qes{
+		 width:800px;
+		 height:auto;
+		 float:left;
+		
+		 
+     }
+ #qes div
+ {
+  width:320px;
+  height:200px;
+  float :left;
+  margin-top:3px;
+  margin-left:3px;
+  border: 1px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 3px;
+    margin: 10 0 11 48px;
+    background: #fff;
+  
+ }
+ #ans
+ {
+	 width:686px;
+	 height:auto;
+	 float :left;
+	 top : 44px;
+     padding :12px;
+	 border: 1px solid #333;
+     -moz-border-radius: 10px;
+     -webkit-border-radius: 10px;
+     border-radius: 5px;
+     margin: 30 10 0 50px;
+     background: #fff;
+ }
+ #ans div
+ {
+	 width:auto;
+	 float:left;
+	 margin-top:4px;
+     margin-left:3px;
+ }
+ 
+ 
+ #ans div.ui-draggable-dragging {
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+#qes div.hovered {
+  background: #aaa;
+}
+
+#qes div {
+  border: 3px solid #8CB3E4;
+  background-color: #FCD5B5;
+}
+ 
+ </style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+ 
+ <script>
+ 
+	 var description=[];
+	 var answers=[];
+	 var qno=0;
+	 var ano=0;
+	 var incorrect=0;
+ $(document).ready(function()
+      {
+
+  
+			
+			
+			// load xml file using jquery ajax
+    $.ajax({
+        type: "GET",
+        url: "store.xml",
+        dataType: "xml",
+        success: function(d) {
+        
+        $(d).find('block').each(function(){
+        var $book = $(this); 
+     
+        var q=0;
+    	 $book.find('box').each(function(){
+		$("#qes").append('<div id=q'+q+'><p style="text-align:center;background:#ffd;">'+$(this).text()+'</p></div>');
+		description.push($(this).text());
+		var iid=$(this).text();
+	     q++;
+		
+		});
+		console.log(q);
+					var a=0;
+		 $book.find('question').each(function(){
+			 var ele=$('<div id=a'+a+'><p style="text-align:center;margin-left:8px;margin-right:8px;"><img src='+$(this).text()+'></p></div>');
+			// console.log($(this).text());
+			 $("#ans").append(ele);
+			 var id=$(this).text();
+			 answers.push($(this).text());
+			 console.log(answers);
+			 a++;
+			
+		});	
+      
+           console.log(description.length);
+                   
+        });
+		
+		
+	$(function () {
+    var parent = $("#ans");
+    var divs = parent.children();
+    while (divs.length) {
+        parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+    }
+	qno=$("#qes > div").length;
+	ano=$("#ans > div").length;
+	console.log(qno);
+	console.log(ano);
+	
+});
+	
+	   }
+});	
+		
+$.get('store.xml', function(d){
+		var n=0;
+		var aa=0;
+$('block', d).children().each(function(){
+	var x=$(this).find('box').text();
+	$('#q'+n).droppable( {
+      accept: '#ans div',
+      hoverClass: 'hovered',
+      drop: handleCardDrop
+    } );
+	
+	$(this).find('question').each(function(){
+	var y = $(this).text();
+	console.log($(this).text());
+	
+	$('#a'+aa).attr('e','q'+n );
+	$('#a'+aa).draggable({
+    containment: 'body',
+    stack: '#ans div',
+    cursor: 'move',
+    revert: true
+    });
+	
+	//console.log(aa);
+	aa++;
+	
+	});
+
+	
+	
+	
+	
+   // alert($(this).text());
+n++;
+   });
+
+});
+
+	
+
+
+
+});
+
+
+
+
+var correct=0;
+function handleCardDrop(event,ui){
+  var slotNumber = $(this).prop( 'id' );
+  var cardNumber = ui.draggable.attr("e");
+ 
+  
+  
+   if ( slotNumber == cardNumber ) {
+        
+correct++;
+   console.log(correct); 
+   ui.draggable.addClass( 'correct' );
+   ui.draggable.draggable( 'disable');
+   //$(this).droppable( 'disable' );
+   //ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+   ui.draggable.draggable( 'option', 'revert', false);
+  } 
+  else
+  {
+   incorrect++;
+  }
+}
+
+
+
+
+function coun(){
+	
+var url=$(location).attr('href');
+var tech= url.substring(url.indexOf('=')+1);
+console.log(tech);
+
+
+
+
+
+	
+console.log('inc'+incorrect);
+
+console.log('an'+ano);
+
+console.log('ques'+qno);
+var cid=$('#4').val();
+console.log('break');
+console.log('the course id'+cid);
+
+
+var unplaced=ano-correct;
+var aqminus=ano*(qno-1);
+console.log('unp'+unplaced);
+var score=100 - (200*incorrect/aqminus) - (100 * unplaced/ano);
+
+
+var sc=$('#region-main', window.parent.document).find('input[name="mark"]').attr('value',score);;
+console.log('scoe'+sc);
+
+
+console.log(score);
+  $.ajax({
+            url: 'score.php', //This is the current doc
+            type: "POST",
+            data: 'event='+tech+'&score='+score,
+            success: function(data){
+				console.log(data);
+           }
+        })
+
+
+$('#res').show();
+$('#res').append('<div><h1>Your Score: '+Math.round(score) +' %</h1></div>');
+$('#res').append('<div><h1>Passing Score: 80% </h1></div>');
+$('#res').append('<hr></hr><div><h2>Result:</h2><br></div>');
+if(score>80)
+{$('#res').append('</hr><div><h2>To save this score in Moodle click "Continue at the bottom of this screen. If you do not return to the course  page, use your back button. To redo this activity without saving the score, click "Try Again". </h2><br></div>');
+
+}
+else
+{
+$('#res').append('<div><h2>To save this score in Moodle click "Continue at the bottom of this screen. If you do not return to the course  page, use your back button. To redo this activity without saving the score, click "Try Again". </h2><br></div>');
+
+}
+$('#res').append('<div><button onclick=hide();>Try again</button><br></div>');
+}
+
+function hide()
+{
+	$('#res').hide();
+	location.reload();
+	
+}
+function saveScore(){
+var url=$(location).attr('href');
+var tech= url.substring(url.indexOf('=')+1);
+console.log(tech);
+console.log('inc'+incorrect);
+
+console.log('an'+ano);
+
+console.log('ques'+qno);
+var cid=$('#4').val();
+console.log('break');
+console.log('the course id'+cid);
+
+var unplaced=ano-correct;
+var aqminus=ano*(qno-1);
+console.log('unp'+unplaced);
+var score=100 - (200*incorrect/aqminus) - (100 * unplaced/ano);
+
+
+var sc=$('#region-main', window.parent.document).find('input[name="mark"]').attr('value',score);;
+console.log('scoe'+sc);
+
+console.log(score);
+  $.ajax({
+            url: 'score.php', //This is the current doc
+            type: "POST",
+            data: 'event='+tech+'&score='+score,
+            success: function(data){
+				console.log(data);
+           }
+        });
+}
+</script>
+
+</head>
+
+<body onLoad="="saveScore()"">
+<div id=res style="position:absolute;width:800px;height:500px;border:8px solid #8CB3E4;display:none;background:white;z-index:99; margin-left: 38px;
+margin-top: 0px;"></div>
+	
+<div id=qes>
+</div>
+
+<div id=ans>
+
+</div>
+<input style="margin-top: 7px; float:right;margin-right:72px; background-color:#BBD6EC; font-weight:bold; border:2px solid #8CB3E4; height: 35px; width: 100px; border-radius:8px; margin-right: %;" type="button" value="Submit" onclick=coun();>
+
+
+</body>
+</html>
