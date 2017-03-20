@@ -4,8 +4,8 @@
 
 <title>3E 1 Reading chemical formulas</title>
 <meta http-equiv="Content-Type" content="charset=UTF-8" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script  type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script  type="text/javascript" src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script>
 		var tScore = 0;
 	var url=$(location).attr('href');
@@ -28,14 +28,14 @@
             success: function(data){
 				console.log("HHH = "+data);
            }
-		   
+
         });
 	var HPNStartTime = (new Date()).getTime();
 var SubmissionTimeout = 30000;
 var Detail = 'DETAILS Ha-Ha SOME AMAIZING ELEPHANT';
 var Frm;
 function saveTheScore(){
-	
+
 		if (document.store != null){
 		Frm = document.store;
 				console.log("HHH IN saveTheScore Form");
@@ -86,11 +86,11 @@ Type your answers to the questions in the fields provided.
    It is possible for you to click all the boxes and give yourself a score of 100%, even when you could not answer the questions correctly. If you do this though, your teacher will think you understand and you will not get the help you need.
 <p/>
         <button onClick="hideInstructn()">Hide instructions</button>
-        </div>	
-	
+        </div>
+
 <h1>3E 1 Reading chemical formulas</h1>
 <div style="float:right"><img src="3E 1 Reagent jars.png" alt="3E 1 Reagent jars.png" title="3E 1 Reagent jars" width="404" height="514"></img></div>
-<ol ><li> 
+<ol ><li>
 <ol type=a >
 <li> <span class="question">Study the collection of laboratory reagent jars shown on the right and use it to complete this table.</span>
 <table border="1" cellpadding="5" cellspacing="0"><tbody>
@@ -178,7 +178,7 @@ Type your answers to the questions in the fields provided.
       					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
                         <span class="answer">The formula ends in oxygen and contains 2 (or more) other elements.</span>
                 	</div>
-				
+
 </li>
 <li> <span class="question">Why is MgO called magnesium oxide and not magnesium oxate?</span>
 <p name="1txt" style="width:450; height:50;"class="answerField" contenteditable="true"/>
@@ -186,7 +186,7 @@ Type your answers to the questions in the fields provided.
       					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
                         <span class="answer">Compounds containing only two types of atoms end in -ide, not -ate.</span>
                 	</div>
-					
+
 </li>
 	<button id="1Button" type="button" onClick="SwitchToMark(this)">Show answer</button><p/>
 
@@ -350,8 +350,8 @@ Type your answers to the questions in the fields provided.
 
 
 
-		
-		
+
+
 	<button id="3Button" type="button" onClick="SwitchToMark(this)">Show answer</button>
 
 	<!--This code is for the popup box that shows when Submit is pressed.-->
@@ -365,11 +365,3 @@ Type your answers to the questions in the fields provided.
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-

@@ -1,15 +1,15 @@
- 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html140/DTD/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
 <!--===============================================================================================-->
 <!--==============================  Change Title   ================================================-->
  <title>3F 1a Classification of matter</title>
- 
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
  <style>
- 
+
  body {
 margin: 30px;
 font-family: Arial, Helvetica, sans-serif;
@@ -29,14 +29,14 @@ margin-left:10%
   font-size:70%;
  vertical-align:sup;
  }
- 
-  
+
+
  #qes{
 		 width:800px;
 		 height:auto;
 		 float:left;
-		
-		 
+
+
      }
  #qes div
  {
@@ -51,7 +51,7 @@ margin-left:10%
     border-radius: 3px;
     margin: 10 0 11 48px;
     background: #fff;
-  
+
  }
  #ans
  {
@@ -74,8 +74,8 @@ margin-left:10%
 	 margin-top:4px;
      margin-left:3px;
  }
- 
- 
+
+
  #ans div.ui-draggable-dragging {
   -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
   -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
@@ -91,12 +91,12 @@ margin-left:10%
 }
  
  </style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
- 
+
  <script>
- 
+
 	 var description=[];
 	 var answers=[];
 	 var qno=0;
@@ -105,26 +105,26 @@ margin-left:10%
  $(document).ready(function()
       {
 
-  
-			
-			
+
+
+
 			// load xml file using jquery ajax
     $.ajax({
         type: "GET",
         url: "store.xml",
         dataType: "xml",
         success: function(d) {
-        
+
         $(d).find('block').each(function(){
-        var $book = $(this); 
-     
+        var $book = $(this);
+
         var q=0;
     	 $book.find('box').each(function(){
 		$("#qes").append('<div id=q'+q+'><p style="text-align:center;background:#ffd;">'+$(this).text()+'</p></div>');
 		description.push($(this).text());
 		var iid=$(this).text();
 	     q++;
-		
+
 		});
 		console.log(q);
 					var a=0;
@@ -136,14 +136,14 @@ margin-left:10%
 			 answers.push($(this).text());
 			 console.log(answers);
 			 a++;
-			
-		});	
-      
+
+		});
+
            console.log(description.length);
-                   
+
         });
-		
-		
+
+
 	$(function () {
     var parent = $("#ans");
     var divs = parent.children();
@@ -154,12 +154,12 @@ margin-left:10%
 	ano=$("#ans > div").length;
 	console.log(qno);
 	console.log(ano);
-	
+
 });
-	
+
 	   }
-});	
-		
+});
+
 $.get('store.xml', function(d){
 		var n=0;
 		var aa=0;
@@ -170,11 +170,11 @@ $('block', d).children().each(function(){
       hoverClass: 'hovered',
       drop: handleCardDrop
     } );
-	
+
 	$(this).find('question').each(function(){
 	var y = $(this).text();
 	console.log($(this).text());
-	
+
 	$('#a'+aa).attr('e','q'+n );
 	$('#a'+aa).draggable({
     containment: 'body',
@@ -182,23 +182,23 @@ $('block', d).children().each(function(){
     cursor: 'move',
     revert: true
     });
-	
+
 	//console.log(aa);
 	aa++;
-	
+
 	});
 
-	
-	
-	
-	
+
+
+
+
    // alert($(this).text());
 n++;
    });
 
 });
 
-	
+
 
 
 
@@ -211,19 +211,19 @@ var correct=0;
 function handleCardDrop(event,ui){
   var slotNumber = $(this).prop( 'id' );
   var cardNumber = ui.draggable.attr("e");
- 
-  
-  
+
+
+
    if ( slotNumber == cardNumber ) {
-        
+
 correct++;
-   console.log(correct); 
+   console.log(correct);
    ui.draggable.addClass( 'correct' );
    ui.draggable.draggable( 'disable');
    //$(this).droppable( 'disable' );
    //ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
    ui.draggable.draggable( 'option', 'revert', false);
-  } 
+  }
   else
   {
    incorrect++;
@@ -234,7 +234,7 @@ correct++;
 
 
 function coun(){
-	
+
 var url=$(location).attr('href');
 var tech= url.substring(url.indexOf('=')+1);
 console.log(tech);
@@ -243,7 +243,7 @@ console.log(tech);
 
 
 
-	
+
 console.log('inc'+incorrect);
 
 console.log('an'+ano);
@@ -295,7 +295,7 @@ function hide()
 {
 	$('#res').hide();
 	location.reload();
-	
+
 }
 function saveScore(){
 var url=$(location).attr('href');
@@ -336,7 +336,7 @@ console.log(score);
 <body onLoad="="saveScore()"">
 <div id=res style="position:absolute;width:800px;height:500px;border:8px solid #8CB3E4;display:none;background:white;z-index:99; margin-left: 38px;
 margin-top: 0px;"></div>
-	
+
 <div id=qes>
 </div>
 

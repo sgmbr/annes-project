@@ -112,10 +112,10 @@ h1, h2, h3, h4 {
 {
 height:30px;
 width:100px;
-font-family:sans-serif; 
-font-size:30px; 
-float: left; 
-margin-top: 0px; 
+font-family:sans-serif;
+font-size:30px;
+float: left;
+margin-top: 0px;
 margin-left: 50px;
 }
 
@@ -123,37 +123,37 @@ margin-left: 50px;
 {
 height:30px;
 width:150px;
-font-family:sans-serif; 
-font-size:30px; 
-text-align:center; 
-margin-top: 10px; 
+font-family:sans-serif;
+font-size:30px;
+text-align:center;
+margin-top: 10px;
 margin-left: 206px;
 }
-	
+
 #textdiv2
 {
 height:30px;
 width:150px;
 float: right;
-font-family:sans-serif; 
-font-size:30px; 
-text-align:center; 
-margin-top: -28px; 
+font-family:sans-serif;
+font-size:30px;
+text-align:center;
+margin-top: -28px;
 margin-right: 205px;
-}	
-	
+}
+
 #textdiv3
 {
 height:30px;
 width:100px;
 float: right;
-font-family:sans-serif; 
-font-size:30px; 
+font-family:sans-serif;
+font-size:30px;
 
-margin-top: -28px; 
+margin-top: -28px;
 margin-right: -325px;
-}	
-	
+}
+
 
 
 #cardSlots div:first-child, #cardPile div:first-child {
@@ -175,11 +175,11 @@ margin-right: -325px;
 }
 
 #cardPile div {
-    
+
     color: #005575;
     font-size: 11px;
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 0.3;    
+    line-height: 0.3;
 	margin-left: 14px;
     width: 70px;
 	 margin-top: 8px;
@@ -208,8 +208,8 @@ margin-right: -325px;
 
 </style>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <script>
 $(init);
@@ -250,84 +250,84 @@ function init() {
       cursor: 'move',
       revert: true
     } );
-    
+
         $('#element_2').data( 'number', 4 ).attr( 'id', 'card'+2 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
         $('#element_3').data( 'number', 1 ).attr( 'id', 'card'+3 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
         $('#element_4').data( 'number', 2 ).attr( 'id', 'card'+2 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
         $('#element_5').data( 'number', 1 ).attr( 'id', 'card'+5 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
         $('#element_6').data( 'number', 3 ).attr( 'id', 'card'+2 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
         $('#element_7').data( 'number', 2 ).attr( 'id', 'card'+7 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
         $('#element_8').data( 'number', 2 ).attr( 'id', 'card'+2 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
         $('#element_9').data( 'number', 1 ).attr( 'id', 'card'+9 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
      $('#element_10').data( 'number', 3 ).attr( 'id', 'card'+9 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
      $('#element_11').data( 'number', 4 ).attr( 'id', 'card'+9 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
      $('#element_12').data( 'number', 3 ).attr( 'id', 'card'+9 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
       cursor: 'move',
       revert: true
     } );
-    
+
      $('#element_13').data( 'number', 4 ).attr( 'id', 'card'+9 ).draggable( {
       containment: '#content',
       stack: '#cardPile div',
@@ -340,7 +340,7 @@ function init() {
       cursor: 'move',
       revert: true
     } );
-  
+
 
 
   // Create the element slots
@@ -350,49 +350,49 @@ function init() {
       hoverClass: 'hovered',
       drop: handleCardDrop
     } );
-    
+
         $('#slot_2').data( 'number', 2 ).droppable( {
       accept: '#cardPile div',
       hoverClass: 'hovered',
       drop: handleCardDrop
     } );
-    
+
         $('#slot_3').data( 'number', 3 ).droppable( {
       accept: '#cardPile div',
       hoverClass: 'hovered',
       drop: handleCardDrop
     } );
-    
+
         $('#slot_4').data( 'number', 4 ).droppable( {
       accept: '#cardPile div',
       hoverClass: 'hovered',
       drop: handleCardDrop
     } );
-    
+
         $('#slot_5').data( 'number', 5 ).droppable( {
       accept: '#cardPile div',
       hoverClass: 'hovered',
       drop: handleCardDrop
     } );
-    
+
         $('#slot_2').data( 'number', 2 ).droppable( {
       accept: '#cardPile div',
       hoverClass: 'hovered',
       drop: handleCardDrop
     } );
-    
+
         $('#slot_7').data( 'number', 7 ).droppable( {
       accept: '#cardPile div',
       hoverClass: 'hovered',
       drop: handleCardDrop
     } );
-    
+
         $('#slot_2').data( 'number', 2 ).droppable( {
       accept: '#cardPile div',
       hoverClass: 'hovered',
       drop: handleCardDrop
     } );
-    
+
         $('#slot_9').data( 'number', 9 ).droppable( {
       accept: '#cardPile div',
       hoverClass: 'hovered',
@@ -408,21 +408,21 @@ function handleCardDrop( event, ui ) {
   var cardNumber = ui.draggable.data( 'number' );
 
   if ( slotNumber == cardNumber ) {
-          
+
 correct++;
-      
-      
-     
+
+
+
    ui.draggable.addClass( 'correct' );
    ui.draggable.draggable( 'disable');
    //$(this).droppable( 'disable' );
    //ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
    ui.draggable.draggable( 'option', 'revert', false);
-  } 
+  }
 }
 
 function coun(){
-	
+
 	if(correct==14)
 {
 var cor1=100;
@@ -513,7 +513,7 @@ else
 
     // passed, failed, completed, incomplete and browsed
     self.report_status = function(p_status) {
-      if (self.FORM == null) return; 
+      if (self.FORM == null) return;
     };
   }
 var theApi = new hotpot_api(); //construct
@@ -525,7 +525,7 @@ function hide()
 {
 	$('#res').hide();
 	location.reload();
-	
+
 }
 
 </script>
@@ -544,28 +544,28 @@ function hide()
 
 
 <div id="content">
-	<div id="cardSlots"> 
+	<div id="cardSlots">
   <div id="slot_1" style=""></div>
   <div id="slot_2" style=""></div>
   <div id="slot_3" style=""></div>
   <div id="slot_4" style=""></div>
 
   </div>
-  <div id="cardPile"> 
+  <div id="cardPile">
   <!--<div id=row1 style="">-->
   <div id="element_1"  style="font-size: 20px; color: black;">MgO</div>
   <div id="element_2"  style="font-size: 20px; color: black;">FeCl<sub>3</sub></div>
   <div id="element_3"  style="font-size: 20px; color: black;">HCl</div>
   <div id="element_4"  style="font-size: 20px; color: black;">FeCO<sub>3</sub></div>
- 
-  
-  
+
+
+
   <div id="element_5"  style="font-size: 20px; color: black;">H<sub>2</sub>SO<sub>4</sub></div>
   <div id="element_6"  style="font-size: 20px; color: black;">Pb(OH)<sub>2</sub></div>
   <div id="element_7"  style="font-size: 20px; color: black;">CaCO<sub>3</sub></div>
   <div id="element_8"  style="font-size: 20px; color: black;">Na<sub>2</sub>CO<sub>3</sub></div>
 
-  
+
   <div id="element_9"  style="font-size: 20px; color: black;">HNO<sub>3</sub></div>
   <div id="element_10" style="font-size: 20px; color: black;">Zn(OH)<sub>2</sub></div>
   <div id="element_11"  style="font-size: 20px; color: black;">CuSO<sub>4</sub></div>
@@ -576,4 +576,3 @@ function hide()
   </div>
   <input style="margin-top: -28px; float:right; background-color:#BBD6EC; font-weight:bold; border:2px solid #8CB3E4; height: 35px; width: 100px; border-radius:8px; margin-right: 5%;" type="button" value="Submit" onclick=coun();>
 </div>
-
