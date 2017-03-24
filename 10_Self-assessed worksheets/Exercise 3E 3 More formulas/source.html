@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html140/DTD/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>3E 3 More formulas</title>
+<meta http-equiv="Content-Type" content="charset=UTF-8" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script  type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script>
+		var tScore = 0;
+	var url=$(location).attr('href');
+	var tech= url.substring(url.indexOf('=')+1);
+	console.log("HHH "+tech);
+	var cid=$('#4').val();
+	console.log('HHH location = '+location);
+	console.log('HHH url = '+url);
+	console.log('HHH tech = '+tech);
+	console.log('HHH the course id '+cid);
+
+	var sc=$('#region-main', window.parent.document).find('input[name="mark"]').attr('value',tScore);
+	console.log('HHH score = '+sc.val()+" after");
+
+	console.log('HHH tScore = '+tScore);
+  	$.ajax({
+            url: 'score.php', //This is the current doc
+            type: "POST",
+            data: 'event='+tech+'&score='+tScore,
+            success: function(data){
+				console.log("HHH = "+data);
+           }
+
+        });
+	var HPNStartTime = (new Date()).getTime();
+var SubmissionTimeout = 30000;
+var Detail = 'DETAILS Ha-Ha SOME AMAIZING ELEPHANT';
+var Frm;
+function saveTheScore(){
+
+		if (document.store != null){
+		Frm = document.store;
+				console.log("HHH IN saveTheScore Form");
+		Frm.starttime.value = HPNStartTime;
+		Frm.endtime.value = (new Date()).getTime();
+		Frm.mark.value = tScore;
+		Frm.detail.value = Detail;
+				console.log("HHH before SUBMIT Form");
+		Frm.submit();
+	}
+}
+
+</script>
+
+<script type="text/javascript" src="code.js"></script>
+
+<!--We only need this code if we are using a separate style sheet.-->
+<link rel="stylesheet" type="text/css" href="StyleSheet.css">
+</head>
+<!--This code sets everything to zero so we can start the exercise.-->
+<body onscroll="scrolled(this)" onUnload="finish()">
+<div id="div">
+<div style="text-align:center;">
+
+
+<img class="intLink" id="b" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleBold(this);" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAInhI+pa+H9mJy0LhdgtrxzDG5WGFVk6aXqyk6Y9kXvKKNuLbb6zgMFADs=" /><br>
+<img class="intLink" id="i" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleItalic(this);" src="data:image/gif;base64,R0lGODlhFgAWAKEDAAAAAF9vj5WIbf///yH5BAEAAAMALAAAAAAWABYAAAIjnI+py+0Po5x0gXvruEKHrF2BB1YiCWgbMFIYpsbyTNd2UwAAOw==" /><br>
+<img class="intLink" id="u" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleUnderline(this);" src="data:image/gif;base64,R0lGODlhFgAWAKECAAAAAF9vj////////yH5BAEAAAIALAAAAAAWABYAAAIrlI+py+0Po5zUgAsEzvEeL4Ea15EiJJ5PSqJmuwKBEKgxVuXWtun+DwxCCgA7" />
+<img id="sup" class="intLink" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleSuper(this)" src="data:image/gif;base64,R0lGODlhFgAUAPcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//MAP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8zZv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zMzMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xmAMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lmzJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kAAGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YAzGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPMADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMzZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDMzADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBmAAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAP7+/v39/fz8/Pv7+/r6+vn5+fj4+Pf39/X19fPz8xwcHBgYGBEREQoKCv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAOYALAAAAAAWABQAAAifAM0JHCgQgMGDBwkqHIiwIYCFCx0ihGgOGzaDFi1m+wbgmkePCy0CuJgtG4Bu3Dp+vLbwI8KP2jyqjOjSoEyVMxVuw2nzWs+c5g6m9EhOpc+dEg966+nSpMFuSb1tM/kR3EFs2rhx0+YQJVSP5Qxu+3Yx6cmhHsX5NMjR7E6XH8MBSGnW6FIA427WrXnwY9m6gCUGDZyQIOGGEA8/FBgQADs="/>
+
+<img id="sub" class="intLink"  style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleSub(this)" src="data:image/gif;base64,R0lGODlhFgAUAPcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//MAP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8zZv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zMzMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xmAMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lmzJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kAAGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YAzGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPMADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMzZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDMzADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBmAAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAP7+/v39/fz8/Pv7+/r6+vn5+fj4+Pf39/X19fPz8xwcHBgYGBEREQoKCv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAOYALAAAAAAWABQAAAiLAM0JHGgOgMGDBwkqJIiw4cKHDSMCWCix4kSFAK5pPKjxWsSF2zJ6NLjxo0JuIsmJ9BgS4UJvJDt6zHawm8GBB71to9kR3EFs2rhx0xaxG7duHcux/IbNIgCjK8WNBPDNaciOK8OtLNmwI0wA4zbKnMoRa0yPYsk6LStybcS0buPKrYgx7kOBdgUGBAA7"/>
+
+
+</div></div>
+<div style="position:absolute;top:0; left:4%; padding:1%;">
+
+                <button id="inshn" onClick="ShowInsruction(this)">Instructions</button>
+
+                <div id="instrtn" class="hidden">
+
+    <h3>Instructions</h3>
+Type your answers to the questions in the fields provided.
+<br/>
+   Use the formatting box on the left to write chemical formula correctly. (The correct size and position of numbers is important — you will lose marks in exams if you get them wrong.) Either type the formula (H2O), select the number  and click on the X<sub>n</sub> button to turn it into a subscript (H<sub>2</sub>O), or click on the required button before typing the character.
+<br/>
+   After you have answered the questions, click the <b>Show answer</b> button and mark your work by clicking the tick boxes that match your answers. When you have marked all the questions, click the <b>Submit</b> button to send your score to Moodle.
+<br/>
+   It is possible for you to click all the boxes and give yourself a score of 100%, even when you could not answer the questions correctly. If you do this though, your teacher will think you understand and you will not get the help you need.
+<p/>
+        <button onClick="hideInstructn()">Hide instructions</button>
+        </div>
+
+
+<h1>3E 3 More formulas</h1>
+
+	<ol>
+<li><span class="question">Complete this table.</span><p/>
+<table border="1" cellpadding="5" cellspacing="0"><tbody>
+<tr>
+<td></td>
+<td>Formula</td>
+<td>Number of atoms</td>
+<td>Name</td>
+</tr>
+<tr>
+<th>a</th>
+<td>ZnI</td>
+<td><p name="1txt" style="width:30; height:20;"class="answerField" contenteditable="true"/></td>
+<td><p name="1txt" style="width:200; height:20;"class="answerField" contenteditable="true"></td>
+<td border=0><div name="1hiddenText" class="hidden">
+      					<span class="answer"><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> 2 atoms <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> zinc iodide</span></div></td>
+</tr>
+<tr>
+<th>b</th>
+<td>Mg(NO<sub>3</sub>)<sub>2</sub></td>
+<td><p name="1txt" style="width:30; height:20;"class="answerField" contenteditable="true"/></td>
+<td><p name="1txt" style="width:200; height:20;"class="answerField" contenteditable="true"></td>
+<td border=0><div name="1hiddenText" class="hidden">
+<span class="answer"><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> 9 atoms <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> magnesium nitratre</span></div></td>
+</tr>
+<tr>
+<th>c</th>
+<td>CuCO<sub>3</sub></td>
+<td><p name="1txt" style="width:30; height:20;"class="answerField" contenteditable="true"/></td>
+<td><p name="1txt" style="width:200; height:20;"class="answerField" contenteditable="true"></td>
+<td border=0><div name="1hiddenText" class="hidden">
+<span class="answer"><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> 5 atoms <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> copper carbonate</span></div></td>
+</tr>
+<tr>
+<th>d</th>
+<td>PbCl<sub>2</sub></td>
+<td><p name="1txt" style="width:30; height:20;"class="answerField" contenteditable="true"/></td>
+<td><p name="1txt" style="width:200; height:20;"class="answerField" contenteditable="true"></td>
+<td border=0><div name="1hiddenText" class="hidden">
+<span class="answer"><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> 3 atoms <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> lead chloride</span></div></td>
+</tr>
+<tr>
+<th>e</th>
+<td>Fe(OH)<sub>3</sub></td>
+<td><p name="1txt" style="width:30; height:20;"class="answerField" contenteditable="true"/></td>
+<td><p name="1txt" style="width:200; height:20;"class="answerField" contenteditable="true"></td>
+<td border=0><div name="1hiddenText" class="hidden">
+<span class="answer"><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> 7 atoms <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> iron (III) hydroxide</span></div></td>
+</tr>
+<tr>
+<th>f</th>
+<td>Al<sub>2</sub>S<sub>3</sub></td>
+<td><p name="1txt" style="width:30; height:20;"class="answerField" contenteditable="true"/></td>
+<td><p name="1txt" style="width:200; height:20;"class="answerField" contenteditable="true"></td>
+<td><div name="1hiddenText" class="hidden">
+<span class="answer"><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> 5 atoms <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> aluminium sulfide</span></div></td>
+</tr>
+</tbody></table>
+
+		<p/>
+	<button id="1Button" type="button" onClick="SwitchToMark(this)">Show answer</button><p/>
+
+
+</li>
+<li><span class="question">Write the chemical formulas for compounds composed of these ions.</span>
+<p/>
+<table border=0 >
+<tr><th width=20>a</th>
+<td>Al<sup>3+</sup>, F<sup>–</sup></td>
+<td><p name="2txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="2hiddenText" class="hidden"><p></p>
+      					<input name="2firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">AlF<sub>3</sub></span>
+                	</div></td>
+</tr>
+
+<tr><th>b</th>
+<td>NH<sub>4</sub><sup>+</sup>, SO<sub>4</sub><sup>2–</sup></td>
+<td><p name="2txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="2hiddenText" class="hidden"><p></p>
+      					<input name="2firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">(NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub></span>
+                	</div></td>
+</tr>
+
+<tr><th>c</th>
+<td>Ag<sup>+</sup>, I<sup>–</sup></td>
+<td><p name="2txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="2hiddenText" class="hidden"><p></p>
+      					<input name="2firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">AgI</span>
+                	</div></td>
+</tr>
+
+<tr><th>d</th>
+<td>H<sup>+</sup>, NO<sub>3</sub><sup>–</sup></td>
+<td><p name="2txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="2hiddenText" class="hidden"><p></p>
+      					<input name="2firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">HNO<sub>3</sub></</span>
+                	</div></td>
+</tr>
+
+<tr><th>e</th>
+<td>Fe<sup>2+</sup>, PO<sub>4</sub><sup>3–</sup></td>
+<td><p name="2txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="2hiddenText" class="hidden"><p></p>
+      					<input name="2firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">Fe<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub></span>
+                	</div></td>
+</tr>
+
+<tr><th>f</th>
+<td>Mg<sup>2+</sup>, OH<sup>–</sup></td>
+<td><p name="2txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="2hiddenText" class="hidden"><p></p>
+      					<input name="2firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">Mg(OH)<sub>2</sub></span>
+                	</div></td>
+</tr></table>
+		<p/>
+	<button id="2Button" type="button" onClick="SwitchToMark(this)">Show answer</button><p/>
+</li>
+<li><div style="float:right:"><table border="1" cellpadding="5" cellspacing="0"><tbody align=center><tr><th colspan=3>Positive ions</th><th colspan=3>Negative ions</th></tr><tr><td>NH<sub>4</sub><sup>+</sup></td><td>Ca<sup>2+</sup></td><td>Al<sup>3+</sup></td><td>Br<sup>–</sup></td><td>CO<sub>3</sub><sup>2–</sup></td>
+<td>N<sup>3–</sup></td></tr><tr><td>H<sup>+</sup></td><td>Cu<sup>2+</sup></td><td>Fe<sup>3+</sup></td><td>Cl<sup>–</sup></td><td>O<sup>2–</sup></td><td>PO<sub>4</sub><sup>3–</sup></td>
+</tr><tr><td>Li<sup>+</sup></td><td>Fe<sup>2+</sup></td><td></td><td>HCO<sub>3</sub><sup>–</sup></td><td>SO<sub>4</sub><sup>2–</sup></td><td></td></tr><tr><td>K<sup>+</sup></td><td>Pb<sup>2+</sup></td><td></td><td>OH<sup>–</sup></td><td>S<sup>2–</sup></td><td></td></tr><tr><td>Na<sup>+</sup></td><td>Mg<sup>2+</sup></td><td></td><td>I<sup>–</sup></td><td></td><td></td></tr><td></td><td>Zn<sup>2+</sup></td><td></td><td>NO<sub>3</sub><sup>–</sup></td><td></td><td></td></tr></tbody></table></div><p/>
+<span class="question">Write chemical formulas for these compounds, using the ions chart.</span>
+<p/>
+<table border=0>
+<tr><th width=20>a</th>
+<td>lithium oxide</td>
+<td><p name="3txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="3hiddenText" class="hidden"><p></p>
+      					<input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">Li<sub>2</sub>O</span>
+                	</div></td>
+</tr>
+
+<tr><th>b</th>
+<td>aluminium nitrate</td>
+<td><p name="3txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="3hiddenText" class="hidden"><p></p>
+      					<input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">Al(NO<sub>3</sub>)<sub>3</sub></span>
+                	</div></td>
+</tr>
+
+ <tr><th>c</th>
+<td>hydrogen sulfide</td>
+<td><p name="3txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="3hiddenText" class="hidden"><p></p>
+      					<input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">H<sub>2</sub>S</span>
+                	</div></td>
+</tr>
+
+ <tr><th>d</th>
+<td>iron(II) nitrate</td>
+<td><p name="3txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="3hiddenText" class="hidden"><p></p>
+      					<input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">Fe(NO<sub>3</sub>)<sub>2</sub></span>
+                	</div></td>
+</tr>
+
+<tr><th>e</th>
+<td>calcium oxide</td>
+<td><p name="3txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="3hiddenText" class="hidden"><p></p>
+      					<input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">CaO</span>
+                	</div></td>
+</tr>
+
+<tr><th>f</th>
+<td>iron(III) sulfate</td>
+<td><p name="3txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="3hiddenText" class="hidden"><p></p>
+      					<input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span>
+                	</div></td>
+</tr>
+
+<tr><th>g</th>
+<td>sodium hydrogen carbonate</td>
+<td><p name="3txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="3hiddenText" class="hidden"><p></p>
+      					<input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">NaHCO<sub>3</sub></span>
+                	</div></td>
+</tr>
+
+<tr><th>h</th>
+<td>magnesium chloride</td>
+<td><p name="3txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="3hiddenText" class="hidden"><p></p>
+      					<input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">MgCl<sub>2</sub></span>
+                	</div></td>
+</tr>
+
+<tr><th>i</th>
+<td>lead hydroxide</td>
+<td><p name="3txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="3hiddenText" class="hidden"><p></p>
+      					<input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">Pb(OH)<sub>2</sub></span>
+                	</div></td>
+</tr>
+
+<tr><th>j</th>
+<td>potassium carbonate</td>
+<td><p name="3txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"></td>
+<td><div name="3hiddenText" class="hidden"><p></p>
+      					<input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">K<sub>2</sub>CO<sub>3</sub></span>
+                	</div></td>
+</tr></table>
+<p/>
+
+	<button id="3Button" type="button" onClick="SwitchToMark(this)">Show answer</button><p/>
+
+<li><span class="question">Explain why the correct formula for calcium chloride is CaCl<sub>2</sub>.</span>
+<p name="4txt" style="width:450; height:100;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="4hiddenText" class="hidden"><p></p>
+      	<span class="answer">Calcium has 2 outer-shell electrons, which it loses to form the ion Ca<sup>2+</sup>. Chlorine has 7 outer-shell electrons, so it gains 1 electrons to form Cl<sup>–</sup>. In this way both ions have full outer-shells of electrons. In the neutral compound calcium chloride, the number of positive and negative charges must be equal. This is done by having twice as many Cl<sup>–</sup> ions as Ca<sup>2+</sup> ions, leading to the formula CaCl<sub>2</sub>.</span>
+		<p/><span class="criteria"><input name="3firstBox" type="checkbox" onClick="adjustScore(this)"/> States charge on each ion.
+		<br/><input name="4firstBox" type="checkbox" onClick="adjustScore(this)"/> Accounts for the formation of each ion with reference to the electron structure of each atom.
+		<br/><input name="4firstBox" type="checkbox" onClick="adjustScore(this)"/> States that total number of positive and negative charges in the compound must be equal.
+		<br/><input name="4firstBox" type="checkbox" onClick="adjustScore(this)"/> Explains the ratio of positive and negative ions in CaCl<sub>2</sub>.
+		</span></div>
+				<p/>
+	<button id="4Button" type="button" onClick="SwitchToMark(this)">Show answer</button><p/>
+
+
+</li>
+
+
+
+
+	<!--This code is for the popup box that shows when Submit is pressed.-->
+	<div id="res" style="position: relative;width:400px;height:100px;border:2px solid #0063C0;display:none;background:white;z-index:99; margin-left: 38px;margin-top: -100px;">
+    </div>
+	<br>
+<!--This code means display the score here.-->
+<p id="ttt"></p>
+
+<input id="submit"  type="button" value="Submit" onClick=coun(this);></input>
+</div>
+</body>
+</html>
