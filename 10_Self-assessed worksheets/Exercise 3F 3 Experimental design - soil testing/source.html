@@ -4,8 +4,8 @@
 
 <title>3F 3 Experimental design: soil testing</title>
 <meta http-equiv="Content-Type" content="charset=UTF-8" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script  type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script  type="text/javascript" src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script>
 		var tScore = 0;
 	var url=$(location).attr('href');
@@ -28,14 +28,14 @@
             success: function(data){
 				console.log("HHH = "+data);
            }
-		   
+
         });
 	var HPNStartTime = (new Date()).getTime();
 var SubmissionTimeout = 30000;
 var Detail = 'DETAILS Ha-Ha SOME AMAIZING ELEPHANT';
 var Frm;
 function saveTheScore(){
-	
+
 		if (document.store != null){
 		Frm = document.store;
 				console.log("HHH IN saveTheScore Form");
@@ -93,7 +93,7 @@ Type your answers to the questions in the fields provided.
 The diagram below shows a method for testing the pH of soil.
 <img src="3F3 Soil testing.png" alt="3F3 Soil testing.png" title="3F3 Soil testing" width="800" height="144"></img>
 <ol>
-<li><span class="question">Joe needs to do a scientific experiment.</span> 
+<li><span class="question">Joe needs to do a scientific experiment.</span>
 <ol type=a>
 <li><span class="question">State his aim. </span>
 <p name="1txt" style="width:450; height:50;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
@@ -134,10 +134,10 @@ The diagram below shows a method for testing the pH of soil.
 						<li>Crush the lumps in each sample and mix well, then take exactly 1/4 of a teaspoon of each soil and put in separate clean test tubes.</li>
 						<li>Add exactly 10 mL (a specified volume) of tap water to each tube.</li> <li>Shake each for 10 s.</li>
 						<li>filter twice through 2 cm<sup>3</sup>
-						cotton wool.</li> 
+						cotton wool.</li>
 						<li>Dip a small piece of universal test paper into the filtrate and compare the colour to the colour chart to find the pH.</li></ul> </span><br/>
 						<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/><span class="criteria">Method includes 2 of the bullet points above.</span><br/>
-						<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/><span class="criteria">Method includes 4 of the bullet points above.</span><br/> 
+						<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/><span class="criteria">Method includes 4 of the bullet points above.</span><br/>
                 	</div><p/>
 
 </li>
@@ -149,8 +149,8 @@ The diagram below shows a method for testing the pH of soil.
                 	</div>
 </li>
 </ol>
-		
-		
+
+
 	<button id="1Button" type="button" onClick="SwitchToMark(this)">Show answer</button>
 
 	<!--This code is for the popup box that shows when Submit is pressed.-->
@@ -164,11 +164,3 @@ The diagram below shows a method for testing the pH of soil.
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-

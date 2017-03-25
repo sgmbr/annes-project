@@ -4,8 +4,8 @@
 
 <title>3H 2 Household cleaners</title>
 <meta http-equiv="Content-Type" content="charset=UTF-8" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script  type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script  type="text/javascript" src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script>
 		var tScore = 0;
 	var url=$(location).attr('href');
@@ -28,14 +28,14 @@
             success: function(data){
 				console.log("HHH = "+data);
            }
-		   
+
         });
 	var HPNStartTime = (new Date()).getTime();
 var SubmissionTimeout = 30000;
 var Detail = 'DETAILS Ha-Ha SOME AMAIZING ELEPHANT';
 var Frm;
 function saveTheScore(){
-	
+
 		if (document.store != null){
 		Frm = document.store;
 				console.log("HHH IN saveTheScore Form");
@@ -89,7 +89,7 @@ Type your answers to the questions in the fields provided.
         </div>
 
 <h1>3H 2 Household cleaners</h1>
-	
+
 Household bleach reacts with acidic liquids to release poisonous chlorine gas. This is a particular hazard in the bathroom because some shower and toilet cleaners are acidic.<p />
 <ol>
 <li>
@@ -125,7 +125,7 @@ Household bleach reacts with acidic liquids to release poisonous chlorine gas. T
 No hard scrubbing – deodorises with AIRICIDE®. Powerful cleaning agents give this super concentrated product its great performance. Removes soap film, lime scale, rust, corrosion, hard water deposits, mildew stains, etc. from shower walls, ceramic tile floors, glass and plastic shower doors, sinks, tubs and decorative fountains. This foaming cleaner can be used on ALL bathroom surfaces because it will not damage grout, curtains, glass, chrome plating, or any other delicate surfaces or fixtures. Contains no abrasives to scratch or dull the surfaces being cleaned. Not for use on polished marble.</td></tr></table><p /></div>
 <li><span class="question">Many cleaning products don’t specifically state whether they contain acids or not. Identify the statements in the information above which strongly suggest that Air-X 71 Foam Cleaner contains acids. Explain your answer.</span><p name="1txt" style="width:450; height:200;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
                  	<div name="1hiddenText" class="hidden"><p></p>
-      					
+
                         <span class="answer">Removes lime scale means it reacts with calcium carbonate; removes rust/corrosion means it reacts with metal oxides; not for use on polished marble also suggests it reacts with calcium carbonate. This cleaner is likely to be acidic because acids react with carbonates and metal oxides. Acids do not react with ceramic tile floors, glass, plastic or chrome plating, just as this substance does not.</span>
 						<br/>
 						<span class="criteria"><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> Identifies reaction with lime./calcium carbonate/marble as suggestive of an acid.<br/>
@@ -142,15 +142,15 @@ No hard scrubbing – deodorises with AIRICIDE®. Powerful cleaning agents give 
  </li>
 <li><span class="question">Why would these substances remove the rust stain?</span><p name="1txt" style="width:450; height:200;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
                  	<div name="1hiddenText" class="hidden"><p></p>
-      					
+
                         <span class="answer">The rust stain is iron oxide — a metal oxide. Acids react with metal oxides to form salts and water. If the salt is soluble in water it will dissolve, and in this way the rust is removed.</span>
 						<br/><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/><span class="criteria">Recognises that rust is a metal oxide.</span><br>
 						<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/><span class="criteria">Recognises that the reaction with acid will form a salt that dissolves.</span>
                 	</div>
 </li>
 </ol></li>
-</ol>		
-		
+</ol>
+
 	<button id="1Button" type="button" onClick="SwitchToMark(this)">Show answer</button>
 
 	<!--This code is for the popup box that shows when Submit is pressed.-->
@@ -164,11 +164,3 @@ No hard scrubbing – deodorises with AIRICIDE®. Powerful cleaning agents give 
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-

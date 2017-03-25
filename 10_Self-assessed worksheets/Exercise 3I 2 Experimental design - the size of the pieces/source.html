@@ -4,8 +4,8 @@
 
 <title>3I 2 Experimental design: the size of the pieces</title>
 <meta http-equiv="Content-Type" content="charset=UTF-8" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script  type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script  type="text/javascript" src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script>
 		var tScore = 0;
 	var url=$(location).attr('href');
@@ -28,14 +28,14 @@
             success: function(data){
 				console.log("HHH = "+data);
            }
-		   
+
         });
 	var HPNStartTime = (new Date()).getTime();
 var SubmissionTimeout = 30000;
 var Detail = 'DETAILS Ha-Ha SOME AMAIZING ELEPHANT';
 var Frm;
 function saveTheScore(){
-	
+
 		if (document.store != null){
 		Frm = document.store;
 				console.log("HHH IN saveTheScore Form");
@@ -89,7 +89,7 @@ Type your answers to the questions in the fields provided.
         </div>
 
 <h1>3I 2 Experimental design: the size of the pieces</h1>
-	
+
 Limestone is a versatile material with many different uses. It can be purchased as large blocks or bricks, as fragments ranging from thumb size to tiny grains, and even as fine powder. Limeworks use sieves of different sizes to sort crushed limestone into the various grades.
 <p/>
 You have been given jars of limestone fragments of 2.5 mm, 2.0 mm, 1.5 mm, 1.0 mm and 0.5 mm size. You are to design an experiment to investigate the way the size of the pieces affects the rate of reaction between limestone and dilute hydrochloric acid.
@@ -121,7 +121,7 @@ You have been given jars of limestone fragments of 2.5 mm, 2.0 mm, 1.5 mm, 1.0 m
 <li><span class="question">What variables will you need to keep the same during this experiment?</span>
 <p name="1txt" style="width:450; height:50;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
 <div name="1hiddenText" class="hidden"><p></p>
-      					
+
                         <span class="answer">The mass of calcium carbonate/chips used; the volume of acid used; the concentration of acid used; the temperature of the solutions; the way the volume of gas is measured; the way the time is measured.</span><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <span class="criteria">One tick per variable up to 3 ticks.</span>
                 	</div><p/>
 </li>
@@ -136,10 +136,10 @@ You have been given jars of limestone fragments of 2.5 mm, 2.0 mm, 1.5 mm, 1.0 m
 <li><span class="question">Write a detailed plan for this experiment.</span>
 <p name="1txt" style="width:450; height:100;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
 <div name="1hiddenText" class="hidden"><p></p>
-      					
-                        <span class="answer">Weigh out <u>3 g</u> (state a mass) of each of the different-sized limestone chips. <Br/>Measure out <span style="text-decoration: underline;">exactly 10 mL</span> (state a volume) of dilute hydrochloric acid 
-						<Br/>(use the<span style="text-decoration: underline;"> same</span> bottle/concentration of acid each time), 
-						<Br/>then quickly add the limestone, stopper and collect the gas under water into a measuring cylinder. <span style="text-decoration: underline;">Measure and record the volume of gas produced in exactly 30 s (a stated time).</span> 
+
+                        <span class="answer">Weigh out <u>3 g</u> (state a mass) of each of the different-sized limestone chips. <Br/>Measure out <span style="text-decoration: underline;">exactly 10 mL</span> (state a volume) of dilute hydrochloric acid
+						<Br/>(use the<span style="text-decoration: underline;"> same</span> bottle/concentration of acid each time),
+						<Br/>then quickly add the limestone, stopper and collect the gas under water into a measuring cylinder. <span style="text-decoration: underline;">Measure and record the volume of gas produced in exactly 30 s (a stated time).</span>
 						<Br/><span style="text-decoration: underline;">Repeat 5 times for each size of limestone chips.</span></span>
 						<br/><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <span class="criteria">One tick each underlined point up to 4 ticks.</span><p/>
                 	</div>
@@ -155,15 +155,15 @@ You have been given jars of limestone fragments of 2.5 mm, 2.0 mm, 1.5 mm, 1.0 m
 <li><span class="question">Explain the scientific principle behind your answer to question 7 above.</span>
 <p name="1txt" style="width:450; height:100;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
 <div name="1hiddenText" class="hidden"><p></p>
-      					
+
                         <span class="answer">The larger the size of each piece of limestone, the fewer the number of pieces needed for a given mass of limestone and the smaller the<span style="text-decoration: underline;"> total surface area</span> of those pieces. With a lower surface area there is less limestone exposed to the acid and <span style="text-decoration: underline;">fewer collisions between acid and limestone</span> particles, leading to a slower reaction rate.</span>
-						<br/><span class="criteria"> <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> Links larger particles to a lower total surface area (or smaller particles to a greater total surface area). 
-						<br/><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> Links total surface area to number of collisions between acid and limestone particles. 
+						<br/><span class="criteria"> <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> Links larger particles to a lower total surface area (or smaller particles to a greater total surface area).
+						<br/><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> Links total surface area to number of collisions between acid and limestone particles.
 						<br/><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> Links number of collisions to reaction rate.
                 	</div><p/>
 </li>
-</ol>		
-		
+</ol>
+
 	<button id="1Button" type="button" onClick="SwitchToMark(this)">Show answer</button>
 
 	<!--This code is for the popup box that shows when Submit is pressed.-->
@@ -177,11 +177,3 @@ You have been given jars of limestone fragments of 2.5 mm, 2.0 mm, 1.5 mm, 1.0 m
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-

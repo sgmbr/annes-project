@@ -4,8 +4,8 @@
 
 <title>3H 4 bLIMEy!</title>
 <meta http-equiv="Content-Type" content="charset=UTF-8" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script  type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script  type="text/javascript" src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script>
 		var tScore = 0;
 	var url=$(location).attr('href');
@@ -28,14 +28,14 @@
             success: function(data){
 				console.log("HHH = "+data);
            }
-		   
+
         });
 	var HPNStartTime = (new Date()).getTime();
 var SubmissionTimeout = 30000;
 var Detail = 'DETAILS Ha-Ha SOME AMAIZING ELEPHANT';
 var Frm;
 function saveTheScore(){
-	
+
 		if (document.store != null){
 		Frm = document.store;
 				console.log("HHH IN saveTheScore Form");
@@ -106,7 +106,7 @@ Type your answers to the questions in the fields provided.
 </ol></li>
 <li><span class="question">Agricultural lime and slaked lime are both used to reduce soil acidity. Explain why slaked lime is much more expensive than agricultural lime.</span><p name="1txt" style="width:450; height:100;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
                  	<div name="1hiddenText" class="hidden"><p></p>
-      					
+
                         <span class="answer">Agricultural lime is a natural product that can simply be dug out of the ground, crushed and scattered on the fields. Slaked lime is agricultural lime that has been decomposed by heating to a high temperature in a furnace and then reacting the product with water. Its cost is high because of the expense in fuel and machinery to make it.</span><br/>
 						<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <span class="criteria">Recognises agricultural lime requires no chemical change.</span><br/>
 						<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <span class="criteria"> Recognises slaked lime requires processing.</span></br/>
@@ -130,9 +130,9 @@ Type your answers to the questions in the fields provided.
                         <span class="answer">Acidic gases such as sulfur dioxide are absorbed in the basic lime bricks which line the smoke stacks.</span>
                 	</div></li>
 </ol></li>
-</ol>	
-		
-		
+</ol>
+
+
 	<button id="1Button" type="button" onClick="SwitchToMark(this)">Show answer</button>
 
 	<!--This code is for the popup box that shows when Submit is pressed.-->
@@ -146,11 +146,3 @@ Type your answers to the questions in the fields provided.
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-

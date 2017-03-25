@@ -4,8 +4,8 @@
 
 <title>3F 2 Acid, base or neutral?</title>
 <meta http-equiv="Content-Type" content="charset=UTF-8" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script  type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script  type="text/javascript" src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script>
 		var tScore = 0;
 	var url=$(location).attr('href');
@@ -28,14 +28,14 @@
             success: function(data){
 				console.log("HHH = "+data);
            }
-		   
+
         });
 	var HPNStartTime = (new Date()).getTime();
 var SubmissionTimeout = 30000;
 var Detail = 'DETAILS Ha-Ha SOME AMAIZING ELEPHANT';
 var Frm;
 function saveTheScore(){
-	
+
 		if (document.store != null){
 		Frm = document.store;
 				console.log("HHH IN saveTheScore Form");
@@ -152,14 +152,14 @@ Use the table to answer the questions below.
                  	<div name="1hiddenText" class="hidden"><p></p>
       					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
                         <span class="answer">The sting must be basic.</span>
-                	</div><p/>	
+                	</div><p/>
 	<button id="1Button" type="button" onClick="SwitchToMark(this)">Show answer</button><p/>
 
 </li>
 <li><span class="question">An advertisement for a particular brand of window cleaner claims that: it is a super concentrated neutral cleaner; it has a pH of 8.3; and that it will not irritate the hands. Discuss these claims.</span>
 <p name="2txt" style="width:450; height:100;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
                  	<div name="2hiddenText" class="hidden"><p></p>
-      					
+
                         <span class="answer">A neutral solution would have a pH of 7, so this cleaner is not neutral. However, its pH of 8.3 much closer to neutral than the window cleaner in the table, and equal to that of baking soda which is safe to touch and eat. It is not likely to irritate skin.</span><p/>
 						<span class="criteria"><input name="2firstBox" type="checkbox" onClick="adjustScore(this)"/> Recognises that the cleaner is not neutral.
 						<br/><input name="2firstBox" type="checkbox" onClick="adjustScore(this)"/> Compares pH of 8.3 with other substances to show the significance of the number.
@@ -167,8 +167,8 @@ Use the table to answer the questions below.
                 	</div><p/>
 </li>
 </ol>
-		
-	<p/>	
+
+	<p/>
 	<button id="2Button" type="button" onClick="SwitchToMark(this)">Show answer</button><p/>
 
 	<!--This code is for the popup box that shows when Submit is pressed.-->
@@ -182,11 +182,3 @@ Use the table to answer the questions below.
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
