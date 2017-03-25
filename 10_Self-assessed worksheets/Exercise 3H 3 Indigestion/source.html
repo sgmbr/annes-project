@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html140/DTD/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>3H 3 Indigestion</title>
+<meta http-equiv="Content-Type" content="charset=UTF-8" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script  type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script>
+		var tScore = 0;
+	var url=$(location).attr('href');
+	var tech= url.substring(url.indexOf('=')+1);
+	console.log("HHH "+tech);
+	var cid=$('#4').val();
+	console.log('HHH location = '+location);
+	console.log('HHH url = '+url);
+	console.log('HHH tech = '+tech);
+	console.log('HHH the course id '+cid);
+
+	var sc=$('#region-main', window.parent.document).find('input[name="mark"]').attr('value',tScore);
+	console.log('HHH score = '+sc.val()+" after");
+
+	console.log('HHH tScore = '+tScore);
+  	$.ajax({
+            url: 'score.php', //This is the current doc
+            type: "POST",
+            data: 'event='+tech+'&score='+tScore,
+            success: function(data){
+				console.log("HHH = "+data);
+           }
+		   
+        });
+	var HPNStartTime = (new Date()).getTime();
+var SubmissionTimeout = 30000;
+var Detail = 'DETAILS Ha-Ha SOME AMAIZING ELEPHANT';
+var Frm;
+function saveTheScore(){
+	
+		if (document.store != null){
+		Frm = document.store;
+				console.log("HHH IN saveTheScore Form");
+		Frm.starttime.value = HPNStartTime;
+		Frm.endtime.value = (new Date()).getTime();
+		Frm.mark.value = tScore;
+		Frm.detail.value = Detail;
+				console.log("HHH before SUBMIT Form");
+		Frm.submit();
+	}
+}
+
+</script>
+
+<script type="text/javascript" src="code.js"></script>
+
+<!--We only need this code if we are using a separate style sheet.-->
+<link rel="stylesheet" type="text/css" href="StyleSheet.css">
+</head>
+<!--This code sets everything to zero so we can start the exercise.-->
+<body onscroll="scrolled(this)" onUnload="finish()">
+<div id="div">
+<div style="text-align:center;">
+
+
+<img class="intLink" id="b" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleBold(this);" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAInhI+pa+H9mJy0LhdgtrxzDG5WGFVk6aXqyk6Y9kXvKKNuLbb6zgMFADs=" /><br>
+<img class="intLink" id="i" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleItalic(this);" src="data:image/gif;base64,R0lGODlhFgAWAKEDAAAAAF9vj5WIbf///yH5BAEAAAMALAAAAAAWABYAAAIjnI+py+0Po5x0gXvruEKHrF2BB1YiCWgbMFIYpsbyTNd2UwAAOw==" /><br>
+<img class="intLink" id="u" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleUnderline(this);" src="data:image/gif;base64,R0lGODlhFgAWAKECAAAAAF9vj////////yH5BAEAAAIALAAAAAAWABYAAAIrlI+py+0Po5zUgAsEzvEeL4Ea15EiJJ5PSqJmuwKBEKgxVuXWtun+DwxCCgA7" />
+<img id="sup" class="intLink" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleSuper(this)" src="data:image/gif;base64,R0lGODlhFgAUAPcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//MAP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8zZv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zMzMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xmAMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lmzJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kAAGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YAzGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPMADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMzZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDMzADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBmAAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAP7+/v39/fz8/Pv7+/r6+vn5+fj4+Pf39/X19fPz8xwcHBgYGBEREQoKCv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAOYALAAAAAAWABQAAAifAM0JHCgQgMGDBwkqHIiwIYCFCx0ihGgOGzaDFi1m+wbgmkePCy0CuJgtG4Bu3Dp+vLbwI8KP2jyqjOjSoEyVMxVuw2nzWs+c5g6m9EhOpc+dEg966+nSpMFuSb1tM/kR3EFs2rhx0+YQJVSP5Qxu+3Yx6cmhHsX5NMjR7E6XH8MBSGnW6FIA427WrXnwY9m6gCUGDZyQIOGGEA8/FBgQADs="/>
+
+<img id="sub" class="intLink"  style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleSub(this)" src="data:image/gif;base64,R0lGODlhFgAUAPcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//MAP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8zZv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zMzMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xmAMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lmzJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kAAGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YAzGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPMADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMzZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDMzADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBmAAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAP7+/v39/fz8/Pv7+/r6+vn5+fj4+Pf39/X19fPz8xwcHBgYGBEREQoKCv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAOYALAAAAAAWABQAAAiLAM0JHGgOgMGDBwkqJIiw4cKHDSMCWCix4kSFAK5pPKjxWsSF2zJ6NLjxo0JuIsmJ9BgS4UJvJDt6zHawm8GBB71to9kR3EFs2rhx0xaxG7duHcux/IbNIgCjK8WNBPDNaciOK8OtLNmwI0wA4zbKnMoRa0yPYsk6LStybcS0buPKrYgx7kOBdgUGBAA7"/>
+
+
+</div></div>
+<div style="position:absolute;top:0; left:4%; padding:1%;">
+
+                <button id="inshn" onClick="ShowInsruction(this)">Instructions</button>
+
+                <div id="instrtn" class="hidden">
+
+    <h3>Instructions</h3>
+Type your answers to the questions in the fields provided.
+<br/>
+   Use the formatting box on the left to write chemical formula correctly. (The correct size and position of numbers is important — you will lose marks in exams if you get them wrong.) Either type the formula (H2O), select the number  and click on the X<sub>n</sub> button to turn it into a subscript (H<sub>2</sub>O), or click on the required button before typing the character.
+<br/>
+   After you have answered the questions, click the <b>Show answer</b> button and mark your work by clicking the tick boxes that match your answers. When you have marked all the questions, click the <b>Submit</b> button to send your score to Moodle.
+<br/>
+   It is possible for you to click all the boxes and give yourself a score of 100%, even when you could not answer the questions correctly. If you do this though, your teacher will think you understand and you will not get the help you need.
+<p/>
+        <button onClick="hideInstructn()">Hide instructions</button>
+        </div>
+
+<h1>3H 3 Indigestion</h1>
+Cells in your stomach release hydrochloric acid to help break down carbohydrate and protein molecules. Indigestion happens when there is too much acid produced. The sufferer feels pain in the stomach or upper chest. Most indigestion remedies work by
+neutralising the excess stomach acid.
+<p/>
+<img src="3H3 Remedies.png" alt="3H3 Remedies.png" title="3H3 Remedies" width="800" height="301"></img>
+<ol>
+<li><span class="question">The acid in the stomach is hydrochloric acid.</span>
+<ol type=a>
+<li><span class="question">Complete and balance this equation for the reaction between stomach acid and aluminium hydroxide.</span>
+<table border=0 >
+<tr><td><p name="1txt" style="width:20; height:20;"class="answerField" contenteditable="true" align="right"/></td>
+<td>HCl + </td>
+<td><p name="1txt" style="width:20; height:20;"class="answerField" contenteditable="true"  align="right"/></td>
+<td>Al(OH)<sub>3</sub> </td>
+<td> →   </td>
+<td><p name="1txt" style="width:200; height:20;"class="answerField" contenteditable="true" align="right"/></td>
+<td><div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">3HCl + Al(OH)<sub>3</sub>  →  AlCl<sub>3</sub> + 3H<sub>2</sub></span>
+                	</div>
+</td></tr></table><p/></li>
+
+<li><span class="question">Write balanced equations for the reaction between each of these compounds and stomach acid. <br/>(Copy and paste this arrow character (→) or type an arrow with a computer keyboard using Alt 26.)</span>
+<ol type=i>
+<li><span class="question">magnesium oxide </span><p name="1txt" style="width:450; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">MgO + 2HCl →  MgCl<sub>2</sub> + H<sub>2</sub>O</span>
+                	</div></li>
+<li><span class="question">sodium hydrogen carbonate</span><p name="1txt" style="width:450; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">NaHCO<sub>3</sub> + HCl → NaCl + H<sub>2</sub>O + CO<sub>2</sub></span>
+                	</div></li>
+</ol></li>
+</ol></li>
+<li><span class="question">Sometimes excess gas in the stomach adds to the pain of indigestion. When fizzy liquids or compounds which produce gas are swallowed, the extra gas helps the sufferer to burp which releases the painful gas. </span>
+<ol type=a>
+<li><span class="question">Look at the compounds found in the indigestion remedies above. Which ones will react to produce a gas? </span><p name="1txt" style="width:450; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">sodium bicarbonate and calcium carbonate</span> <span class="criteria">Both correct.</span>
+                	</div></li>
+<li><span class="question">Decide which of the indigestion remedies is Product A, Product B and Product C above.</span>   
+<table border=0>
+<tr><td>Mylanta Rolltabs = </td><td><p name="1txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/></td>
+<td>Mylanta Effervescent Tablets = </td><td><p name="1txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/></td>
+<td>Mylanta Liquid = </td><td><p name="1txt" style="width:100; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/></td></tr></table>
+
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					
+                        <span class="answer">Mylanta Rolltabs = C Mylanta Effervescent Tablets = B Mylanta Liquid = A </span><br/>
+						<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/><span class="criteria">One correct </span> <input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <span class="criteria"> All correct</span>
+                	</div></li>
+</ol></li>
+<li><span class="question">Sodium hydroxide is a cheap, readily available compound that neutralises hydrochloric acid. Why is sodium hydroxide never found in indigestion remedies?</span><p name="1txt" style="width:450; height:100;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					
+                        <span class="answer">Sodium hydroxide is a very basic and caustic substance. If it is ingested it would be very corrosive and cause serious damage to lips, mouth and oesophagus before reaching the acid in the stomach. Hence it is not used in indigestion remedies.</span><br/>
+						<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/><span class="criteria">Identifies sodium hydroxide as strongly basic/alkaline or has very high pH.</span><br/>
+						<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> <span class="criteria">Links this to corrosive damage to body.</span>
+                	</div></li>
+</ol>	
+		
+		
+	<button id="1Button" type="button" onClick="SwitchToMark(this)">Show answer</button>
+
+	<!--This code is for the popup box that shows when Submit is pressed.-->
+	<div id="res" style="position: relative;width:400px;height:100px;border:2px solid #0063C0;display:none;background:white;z-index:99; margin-left: 38px;margin-top: -100px;">
+    </div>
+	<br>
+<!--This code means display the score here.-->
+<p id="ttt"></p>
+
+<input id="submit"  type="button" value="Submit" onClick=coun();></input>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+

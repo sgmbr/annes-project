@@ -1,0 +1,53 @@
+﻿h1 {font-family: Verdana, sans-serif; color: rgb(149,15,0); font-size: 24px; }
+
+body{
+	font-family: Geneva,Arial,sans-serif;
+ 	font-size: medium;
+}
+
+ol {font-weight: bold; color: rgb(149,15,0);}
+th {color: rgb(149,15,0);}
+.question {font-weight:normal; color: black;}
+.answer {font-weight:normal; color: red;}
+.criteria {font-weight:normal; color: #007C3A;}
+input{
+	margin-bottom:4px;
+}
+.hidden{
+	display: none;
+}
+.showInline{
+	display: inline;
+}
+.showBlock{
+	display: block;
+}
+
+.answerField{
+	color: #0063C0; 
+	font-weight: normal;;
+	font-family: DejaVu sans;  
+	font-size: 14px; 
+	background-color: #FFDADC;
+	overflow:auto;
+	border:solid; 
+	border-width:1px;
+    padding: 4px; 
+
+}
+
+
+#div {
+    background-color: #FFF;
+    width: 2.5%;
+    padding: 2px;
+	line-height:15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+	border:solid; 
+	border-width:1px; 
+	border-color:#000;
+}
+
+

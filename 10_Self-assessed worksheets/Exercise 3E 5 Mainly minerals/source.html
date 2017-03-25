@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html140/DTD/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>3E 5 Mainly minerals</title>
+<meta http-equiv="Content-Type" content="charset=UTF-8" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script  type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script>
+		var tScore = 0;
+	var url=$(location).attr('href');
+	var tech= url.substring(url.indexOf('=')+1);
+	console.log("HHH "+tech);
+	var cid=$('#4').val();
+	console.log('HHH location = '+location);
+	console.log('HHH url = '+url);
+	console.log('HHH tech = '+tech);
+	console.log('HHH the course id '+cid);
+
+	var sc=$('#region-main', window.parent.document).find('input[name="mark"]').attr('value',tScore);
+	console.log('HHH score = '+sc.val()+" after");
+
+	console.log('HHH tScore = '+tScore);
+  	$.ajax({
+            url: 'score.php', //This is the current doc
+            type: "POST",
+            data: 'event='+tech+'&score='+tScore,
+            success: function(data){
+				console.log("HHH = "+data);
+           }
+		   
+        });
+	var HPNStartTime = (new Date()).getTime();
+var SubmissionTimeout = 30000;
+var Detail = 'DETAILS Ha-Ha SOME AMAIZING ELEPHANT';
+var Frm;
+function saveTheScore(){
+	
+		if (document.store != null){
+		Frm = document.store;
+				console.log("HHH IN saveTheScore Form");
+		Frm.starttime.value = HPNStartTime;
+		Frm.endtime.value = (new Date()).getTime();
+		Frm.mark.value = tScore;
+		Frm.detail.value = Detail;
+				console.log("HHH before SUBMIT Form");
+		Frm.submit();
+	}
+}
+
+</script>
+
+<script type="text/javascript" src="code.js"></script>
+
+<!--We only need this code if we are using a separate style sheet.-->
+<link rel="stylesheet" type="text/css" href="StyleSheet.css">
+</head>
+<!--This code sets everything to zero so we can start the exercise.-->
+<body onscroll="scrolled(this)" onUnload="finish()">
+<div id="div">
+<div style="text-align:center;">
+
+
+<img class="intLink" id="b" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleBold(this);" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAInhI+pa+H9mJy0LhdgtrxzDG5WGFVk6aXqyk6Y9kXvKKNuLbb6zgMFADs=" /><br>
+<img class="intLink" id="i" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleItalic(this);" src="data:image/gif;base64,R0lGODlhFgAWAKEDAAAAAF9vj5WIbf///yH5BAEAAAMALAAAAAAWABYAAAIjnI+py+0Po5x0gXvruEKHrF2BB1YiCWgbMFIYpsbyTNd2UwAAOw==" /><br>
+<img class="intLink" id="u" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleUnderline(this);" src="data:image/gif;base64,R0lGODlhFgAWAKECAAAAAF9vj////////yH5BAEAAAIALAAAAAAWABYAAAIrlI+py+0Po5zUgAsEzvEeL4Ea15EiJJ5PSqJmuwKBEKgxVuXWtun+DwxCCgA7" />
+<img id="sup" class="intLink" style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleSuper(this)" src="data:image/gif;base64,R0lGODlhFgAUAPcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//MAP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8zZv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zMzMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xmAMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lmzJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kAAGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YAzGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPMADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMzZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDMzADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBmAAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAP7+/v39/fz8/Pv7+/r6+vn5+fj4+Pf39/X19fPz8xwcHBgYGBEREQoKCv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAOYALAAAAAAWABQAAAifAM0JHCgQgMGDBwkqHIiwIYCFCx0ihGgOGzaDFi1m+wbgmkePCy0CuJgtG4Bu3Dp+vLbwI8KP2jyqjOjSoEyVMxVuw2nzWs+c5g6m9EhOpc+dEg966+nSpMFuSb1tM/kR3EFs2rhx0+YQJVSP5Qxu+3Yx6cmhHsX5NMjR7E6XH8MBSGnW6FIA427WrXnwY9m6gCUGDZyQIOGGEA8/FBgQADs="/>
+
+<img id="sub" class="intLink"  style="border:solid; border-color:#FFF; border-width:3;" onClick="toggleSub(this)" src="data:image/gif;base64,R0lGODlhFgAUAPcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//MAP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8zZv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zMzMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xmAMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lmzJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kAAGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YAzGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPMADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMzZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDMzADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBmAAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAP7+/v39/fz8/Pv7+/r6+vn5+fj4+Pf39/X19fPz8xwcHBgYGBEREQoKCv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAOYALAAAAAAWABQAAAiLAM0JHGgOgMGDBwkqJIiw4cKHDSMCWCix4kSFAK5pPKjxWsSF2zJ6NLjxo0JuIsmJ9BgS4UJvJDt6zHawm8GBB71to9kR3EFs2rhx0xaxG7duHcux/IbNIgCjK8WNBPDNaciOK8OtLNmwI0wA4zbKnMoRa0yPYsk6LStybcS0buPKrYgx7kOBdgUGBAA7"/>
+
+
+</div></div>
+<div style="position:absolute;top:0; left:4%; padding:1%;">
+
+                <button id="inshn" onClick="ShowInsruction(this)">Instructions</button>
+
+                <div id="instrtn" class="hidden">
+
+    <h3>Instructions</h3>
+Type your answers to the questions in the fields provided.
+<br/>
+   Use the formatting box on the left to write chemical formula correctly. (The correct size and position of numbers is important — you will lose marks in exams if you get them wrong.) Either type the formula (H2O), select the number  and click on the X<sub>n</sub> button to turn it into a subscript (H<sub>2</sub>O), or click on the required button before typing the character.
+<br/>
+   After you have answered the questions, click the <b>Show answer</b> button and mark your work by clicking the tick boxes that match your answers. When you have marked all the questions, click the <b>Submit</b> button to send your score to Moodle.
+<br/>
+   It is possible for you to click all the boxes and give yourself a score of 100%, even when you could not answer the questions correctly. If you do this though, your teacher will think you understand and you will not get the help you need.
+<p/>
+        <button onClick="hideInstructn()">Hide instructions</button>
+        </div>
+
+<h1>3E 5 Mainly minerals</h1>
+	The term <em>mineral</em> has two different meanings in science. When speaking of rocks, a mineral is a pure substance that crystallises out of a rock. Such pure substances may be elements or compounds. When speaking of nutrients, a mineral is an element required by a living organism in some form – that form is almost always either a compound or an ion.
+<ol>
+<li><span class="question">Fluorapatite is a mineral found in rock phosphate, used to make the fertiliser superphosphate. The chemical formula for fluorapatite is Ca<sub>5</sub>(PO<sub>4</sub>)<sub>3</sub>F.</span> 
+<ol type=a>
+<li><span class="question">How many different kinds of atoms are there in fluorapatite?</span> 
+<p name="1txt" style="width:30; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">4</span>
+                	</div></li>
+<li><span class="question">How many atoms in total are in the above formula for fluorapatite?</span>
+<p name="1txt" style="width:450; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">21</span>
+                	</div>
+</li>
+</ol></li>
+<li><span class="question">Phosphorus, nitrogen and potassium are the most important minerals for plant growth.</span>
+<ol type=a>
+<li><span class="question">Write the electron arrangement for the phosphorus atom (<sub>15</sub>P).</span> <p name="1txt" style="width:450; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">2 . 8 . 5</span>
+                	</div></li>
+<li><span class="question">Write the symbol for the phosphide ion.</span> 
+<p name="1txt" style="width:50; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">P<sup>3–</sup></span>
+                	</div>
+</li>
+<li><span class="question">What group of the periodic table does nitrogen belong to?</span>
+<p name="1txt" style="width:450; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">15</span>
+                	</div>
+ </li>
+<li><span class="question">Plants absorb nitrogen in the form of nitrates. Write the formula for the nitrate ion.</span> 
+<p name="1txt" style="width:450; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">NO<sub>3</sub><sup>–</sup></span>
+                	</div>
+</li>
+<li><span class="question">Explain by referring to its electron structure why the element potassium is violently reactive.</span>
+<p name="1txt" style="width:450; height:60;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">Potassium's electron structure is 2.8.8.1. If it loses one electron it will have a full outer shell of electrons, which is a stable arrangement. 
+						<br/><input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/> Potassium is violently reactive because it is easy to lose the outer shell electron.</span>
+                	</div>
+</li>
+</ol></li>
+<li><span class="question">Scientists study the way plants use phosphorus by applying a fertiliser containing an isotope of phosphorus with 17 neutrons.</span> 
+<ol type=a>
+<li><span class="question">What are isotopes?</span>
+<p name="1txt" style="width:450; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer">Atoms with same number of protons (or same atomic number) but different numbers of neutrons (or different mass numbers).</span>
+                	</div>
+
+ </li>
+<li><span class="question">Write the atomic symbol for this isotope of phosphorus.</span>
+<p name="1txt" style="width:450; height:20;"class="answerField" contenteditable="true" onClick="myFunction(event)"/>
+                 	<div name="1hiddenText" class="hidden"><p></p>
+      					<input name="1firstBox" type="checkbox" onClick="adjustScore(this)"/>
+                        <span class="answer"><sup>32</sup>P</span>
+                	</div>
+
+</li>
+</ol></li>
+</ol>
+		
+		
+	<button id="1Button" type="button" onClick="SwitchToMark(this)">Show answer</button>
+
+	<!--This code is for the popup box that shows when Submit is pressed.-->
+	<div id="res" style="position: relative;width:400px;height:100px;border:2px solid #0063C0;display:none;background:white;z-index:99; margin-left: 38px;margin-top: -100px;">
+    </div>
+	<br>
+<!--This code means display the score here.-->
+<p id="ttt"></p>
+
+<input id="submit"  type="button" value="Submit" onClick=coun();></input>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
