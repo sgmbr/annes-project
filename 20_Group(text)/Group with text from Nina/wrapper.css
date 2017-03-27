@@ -87,59 +87,6 @@ div.CardStyle {
     font-size: 140%;
 }
 
-
-/*
-div.NavButtonBar{
-  background-color: #9B0A0E;
-  text-align: center;
-  margin: 2px 0px 2px 0px;
-  clear: both;
-  font-size: 100%;
-}
-
-.NavButton {
-  border-style: solid;
-
-  border-left-color: #cd8486;
-  border-top-color: #cd8486;
-  border-right-color: #4d0507;
-  border-bottom-color: #4d0507;
-  background-color: #9B0A0E;
-  color: #ffffff;
-
-  border-width: 2px;
-  cursor: pointer;
-}
-
-.NavButtonUp {
-  border-style: solid;
-
-  border-left-color: #cd8486;
-  border-top-color: #cd8486;
-  border-right-color: #4d0507;
-  border-bottom-color: #4d0507;
-  color: #9B0A0E;
-  background-color: #ffffff;
-
-  border-width: 2px;
-  cursor: pointer;
-}
-
-.NavButtonDown {
-  border-style: solid;
-
-  border-left-color: #4d0507;
-  border-top-color: #4d0507;
-  border-right-color: #cd8486;
-  border-bottom-color: #cd8486;
-  color: #9B0A0E;
-  background-color: #ffffff;
-
-  border-width: 2px;
-  cursor: pointer;
-}
-*/
-
 #game_ifr {
     width: 100%;
     height: 100%;
