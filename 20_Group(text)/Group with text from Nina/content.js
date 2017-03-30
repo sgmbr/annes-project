@@ -33,6 +33,7 @@ $(document).ready(function() {
             });
 
             // shorthand for $(document).ready(function() { ... });
+            // jQuery not necessary
             $(function() {
                 var parent = $("#ans");
                 var divs = parent.children();
@@ -41,7 +42,7 @@ $(document).ready(function() {
                     // randomizing the order of answer cards
                     parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
                 }
-                // counting just for debugging purpose?
+                // counting for score calculation
                 qno = $("#box > div").length;
                 ano = $("#ans > div").length;
             });
@@ -57,6 +58,7 @@ $(document).ready(function() {
         // second parameter(d) is context
         $('block', d).children().each(function() {
             // setting the boxes droppable by using jQuery UI
+            // can be done with JavaScript or should use jQuery UI?
             $('#q' + n).droppable({
                 accept: '#ans div',
                 hoverClass: 'hovered',
@@ -111,6 +113,8 @@ function coun() {
         data: 'event=' + tech + '&score=' + score,
     })
 
+    // TODO: this part can be done without jQuery
+    // this should be done by View
     $('#res').show();
     $('#res').append('<div><h1>Your Score: ' + Math.round(score) + ' %</h1></div>');
     $('#res').append('<div><h1>Passing Score: 80% </h1></div>');
