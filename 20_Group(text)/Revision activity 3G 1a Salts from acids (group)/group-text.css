@@ -1,0 +1,122 @@
+/* RESET */
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, a, article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {
+    /* Cancel out some differences between browser defaults */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+* {
+    /* The width of an element will be the size of its border box, not its content box (which is the normal default). */
+    box-sizing: border-box;
+}
+
+main {
+    /* Make sure the browser knows how to display the HTML5 main element. */
+    display: block;
+}
+
+
+/* LAYOUT */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+sub {
+    font-size: 70%;
+    vertical-align: sub;
+}
+
+sup {
+    font-size: 70%;
+    vertical-align: sup;
+}
+
+#box {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem;
+}
+
+#box div {
+    flex-grow: 1;
+    flex-basis: 15rem;
+    height: 25rem;
+    margin: 0 0.25rem;
+    border-radius: 0.5rem;
+    border: 3px solid #8CB3E4;
+    background-color: #FCD5B5;
+}
+
+#box div.hovered {
+    background: #aaa;
+}
+
+#box p {
+    text-align: center;
+    background: #ffd;
+    margin-top: 1rem;
+}
+
+#ans {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0.75rem;
+    padding: 1rem;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+
+#ans div {
+    flex-basis: 10rem;
+    height: 3rem;
+    margin: 0 0.5rem 0.5rem 0;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#ans p {
+    text-align: center;
+}
+
+#ans div.ui-draggable-dragging {
+    -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+
+#res {
+    display: none;
+    width: 80%;
+    height: 40%;
+    position: absolute;
+    border: 8px solid #8CB3E4;
+    background: #fff;
+    z-index: 99;
+    margin: 10%;
+    padding: 1rem;
+}
+
+.submit {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 2rem;
+}
+
+#btnSubmit {
+    margin: 0 0.75rem;
+    background-color: #BBD6EC;
+    font-weight: bold;
+    border: 2px solid #8CB3E4;
+    height: 2rem;
+    width: 6rem;
+    border-radius: 0.5rem;
+}
