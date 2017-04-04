@@ -2,8 +2,8 @@
 
 var description = [];
 var answers = [];
-var qno = 0;
-var ano = 0;
+var numberOfBoxes = 0; // number of boxes
+var numberOfAnswers = 0; // number of answers
 var incorrect = 0;
 $(document).ready(function() {
     // load xml file using jquery ajax
@@ -43,8 +43,8 @@ $(document).ready(function() {
                     parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
                 }
                 // counting for score calculation
-                qno = $("#box > div").length;
-                ano = $("#ans > div").length;
+                numberOfBoxes = $("#box > div").length;
+                numberOfAnswers = $("#ans > div").length;
             });
         }
     });
@@ -104,11 +104,16 @@ function handleCardDrop(event, ui) {
 }
 
 function coun() {
+    // score calculation
+    let answerWeight = 100 / numberOfAnswers
+    let incorrectWeight = answerWeight * (1 / (numberOfBoxes - 1))
+    let score = correct * answerWeight - incorrect * incorrectWeight
+    score = Math.floor(score)
+    if(score < 0) score = 0
+
+    // sending score to Moodle?
     var url = $(location).attr('href');
     var tech = url.substring(url.indexOf('=') + 1);
-    var unplaced = ano - correct;
-    var aqminus = ano * (qno - 1);
-    var score = 100 - (200 * incorrect / aqminus) - (100 * unplaced / ano);
     $.ajax({
         url: 'score.php', //This is the current doc
         type: "POST",
