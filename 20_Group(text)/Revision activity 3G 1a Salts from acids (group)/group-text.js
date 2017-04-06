@@ -2,8 +2,8 @@
 
 var description = [];
 var answers = [];
-var numberOfBoxes = 0; // number of boxes
-var numberOfAnswers = 0; // number of answers
+var numberOfBoxes = 0;
+var numberOfAnswers = 0;
 var incorrect = 0;
 $(document).ready(function() {
     // load xml file using jquery ajax
@@ -111,7 +111,11 @@ function coun() {
     score = Math.floor(score)
     if(score < 0) score = 0
 
+    // sending score to Moodle using Hotpot
+	$('#region-main', window.parent.document).find('input[name="mark"]').attr('value', score);
+
     // sending score to Moodle?
+    /*
     var url = $(location).attr('href');
     var tech = url.substring(url.indexOf('=') + 1);
     $.ajax({
@@ -119,6 +123,7 @@ function coun() {
         type: "POST",
         data: 'event=' + tech + '&score=' + score,
     })
+    */
 
     // TODO: this part can be done without jQuery
     // this should be done by View
