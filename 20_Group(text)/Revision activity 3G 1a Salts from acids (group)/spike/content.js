@@ -25,7 +25,7 @@ class QuestionBox {
             accept: '#ans div',
             hoverClass: 'hovered',
             // Defining a function for drop and point it like following doesn't work.
-            // Then 'this' becomes the box DOM object, not the QuestionBox
+            // Then 'this' is a box DOM object, not the QuestionBox
             // drop: handleCardDrop
             drop: (event, ui) => {
                 let answerInnerHTML = this.allMyAnserCards.map(answerCard => answerCard.element.innerHTML)
@@ -41,15 +41,6 @@ class QuestionBox {
         })
     }
 
-    setUpHTML() {
-        let box = document.querySelector('#box')
-        box.appendChild(this.element)
-
-        let answers = document.querySelector('#ans')
-        for(let answerCard of this.allMyAnserCards) {
-            answers.appendChild(answerCard.element)
-        }
-    }
 }
 
 class AnswerCard {
@@ -85,22 +76,55 @@ var incorrect = 0
 
 class Quiz {
     constructor(xml) {
+        this.xml = xml
+        this.numberOfBoxex = 0
+        this.numberOfAnswers = 0
+        this.correct = 0
+        this.incorrect = 0
         this.allMyQuestions = []
     }
 
-    shuffleAnswers() {}
+    setup() {
+        let sets = this.xml.getElementsByTagName('set')
+        Array.from(sets).forEach( aSet => {
+            // Create box elements
+            let xmlBox = aSet.getElementsByTagName('box')[0]
+            let newQuestionBox = new QuestionBox(xmlBox)
+            this.allMyQuestions.push(newQuestionBox)
 
-    setup() {}
-}
+            // Create answer cards elements
+            let xmlQuestions = aSet.getElementsByTagName('question')
+            Array.from(xmlQuestions).forEach( xmlQuestion => {
+                newQuestionBox.addAnswerCard(xmlQuestion)
+            })
 
-function shuffleAnswers() {
-    let answerDiv = document.querySelector('#ans')
-    let divs = answerDiv.getElementsByTagName('div')
-    console.log(divs);
-    for (let i = 0; i < divs.length; i++) {
-        let randomDivNumber = Math.floor(Math.random() * divs.length)
-        answerDiv.append(Array.from(divs).splice(randomDivNumber, 1)[0])
+        })
+        this.setupHTML()
+        this.shuffleAnswers()
     }
+
+    setupHTML() {
+        let box = document.querySelector('#box')
+        let answers = document.querySelector('#ans')
+
+        for (let aQuestion of this.allMyQuestions) {
+            box.appendChild(aQuestion.element)
+
+            for(let anAnswerCard of aQuestion.allMyAnserCards) {
+                answers.appendChild(anAnswerCard.element)
+            }
+        }
+    }
+
+    shuffleAnswers() {
+        let answerDiv = document.querySelector('#ans')
+        let divs = answerDiv.getElementsByTagName('div')
+        for (let i = 0; i < divs.length; i++) {
+            let randomDivNumber = Math.floor(Math.random() * divs.length)
+            answerDiv.append(Array.from(divs).splice(randomDivNumber, 1)[0])
+        }
+    }
+
 }
 
 window.onload = function() {
@@ -111,21 +135,8 @@ window.onload = function() {
         if (request.status >= 200 && request.status < 400) {
             // success
             let xml = request.responseXML
-            let sets = xml.getElementsByTagName('set')
-            Array.from(sets).forEach( aSet => {
-                // Create box elements
-                let xmlBox = aSet.getElementsByTagName('box')[0]
-                let newQuestionBox = new QuestionBox(xmlBox)
-
-                // Create answer cards elements
-                let xmlQuestions = aSet.getElementsByTagName('question')
-                Array.from(xmlQuestions).forEach( xmlQuestion => {
-                    newQuestionBox.addAnswerCard(xmlQuestion)
-                })
-
-                newQuestionBox.setUpHTML()
-            })
-            shuffleAnswers()
+            let quiz = new Quiz(xml)
+            quiz.setup()
         } else {
             // reached target server, but it returned an error
         }
