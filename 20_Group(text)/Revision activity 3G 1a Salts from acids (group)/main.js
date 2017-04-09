@@ -3,7 +3,7 @@
 window.onload = function() {
     let quiz
     let request = new XMLHttpRequest()
-    request.open('GET', 'store.xml', true)
+    request.open('GET', 'config.xml', true)
 
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {

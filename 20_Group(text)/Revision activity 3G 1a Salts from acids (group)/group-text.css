@@ -105,6 +105,10 @@ sup {
     padding: 1rem;
 }
 
+#res p {
+    font-size: 2rem;
+}
+
 .submit {
     display: flex;
     justify-content: flex-end;
