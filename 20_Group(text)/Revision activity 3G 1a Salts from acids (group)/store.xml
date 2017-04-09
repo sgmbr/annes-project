@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <block>
+    <passing-score>80</passing-score>
     <set>
         <box>Salts from hydrochloric acid</box>
         <question>FeCl<sub>3</sub></question>

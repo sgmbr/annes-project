@@ -60,7 +60,7 @@ class Quiz {
     }
 
     get numberOfAnswers() {
-        return this.allMyQuestions.reduce((a, b) => a.allMyAnserCards.length + b.allMyAnserCards.length)
+        return this.allMyQuestions.reduce((acc, val) => acc + val.allMyAnserCards.length, 0)
     }
 
     getScore() {
