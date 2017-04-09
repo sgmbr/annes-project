@@ -2,13 +2,13 @@
 
 class QuestionBox {
     constructor(xmlBox, theQuiz) {
-        this.element = this.setup(xmlBox)
+        this.element = this.setupElement(xmlBox)
         this.theQuiz = theQuiz
         this.allMyAnserCards = []
         this.setDroppable()
     }
 
-    setup(xmlBox) {
+    setupElement(xmlBox) {
         let element = document.createElement('div')
         let p = document.createElement('p')
         p.innerHTML = xmlBox.innerHTML
@@ -29,9 +29,9 @@ class QuestionBox {
             // Then 'this' is a box DOM object, not the QuestionBox
             // drop: handleCardDrop
             drop: (event, ui) => {
-                let answerInnerHTML = this.allMyAnserCards.map(answerCard => answerCard.element.innerHTML)
+                let answerInnerHTMLs = this.allMyAnserCards.map(answerCard => answerCard.element.innerHTML)
                 let draggableInnerHTML = ui.draggable[0].innerHTML
-                if (answerInnerHTML.includes(draggableInnerHTML)) {
+                if (answerInnerHTMLs.includes(draggableInnerHTML)) {
                     console.log('correct')
                     this.theQuiz.correct++
                     ui.draggable.draggable('disable')

@@ -2,12 +2,12 @@
 
 class AnswerCard {
     constructor(xmlQuestion, theQuestionBox) {
-        this.element = this.setup(xmlQuestion)
+        this.element = this.setupElement(xmlQuestion)
         this.myQuestionBox = theQuestionBox
         this.setDraggable()
     }
 
-    setup(xmlQuestion) {
+    setupElement(xmlQuestion) {
         let element = document.createElement('div')
         let p = document.createElement('p')
         p.innerHTML = xmlQuestion.innerHTML
