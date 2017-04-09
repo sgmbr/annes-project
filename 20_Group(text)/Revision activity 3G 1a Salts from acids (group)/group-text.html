@@ -9,13 +9,24 @@
         <script src="jquery.ui.touch-punch.min.js"></script>
     </head>
     <body>
-        <div id="res"></div>
+        <div id="res">
+            <p>Your Score: <span id="score"></span>%</p>
+            <p>Passing Score: <span id="passing-score"></span>%</p>
+            <hr>
+            <p id="final-message"></p>
+            <button id="btnTryAgain">Try again</button>
+        </div>
         <div id="box"></div>
         <div id="ans"></div>
-        <!-- TODO: Define onclick in View -->
         <div class="submit">
-            <input type="button" id="btnSubmit" value="Submit" onclick="coun()">
+            <button id="btnSubmit">Submit</button>
         </div>
-        <script src="group-text.js"></script>
+
+        <script src="answer-card.js"></script>
+        <script src="question-box.js"></script>
+        <script src="quiz.js"></script>
+        <script src="view.js"></script>
+        <script src="controller.js"></script>
+        <script src="main.js"></script>
     </body>
 </html>
