@@ -36,7 +36,7 @@ class View {
     }
 
     static sendScoreToMoodle(score) {
-        $('#region-main', window.parent.document).find('input[name="mark"]').attr('value', score);
+        $('#region-main', window.parent.document).find('input[name="mark"]').attr('value', score)
     }
 
     static displayResult(score, passingScore) {

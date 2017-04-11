@@ -78,4 +78,12 @@ class Quiz {
         return passingScore
     }
 
+    finish() {
+        for (let aQuestion of this.allMyQuestions) {
+            for (let anAnswerCard of aQuestion.allMyAnserCards) {
+                anAnswerCard.removeDraggable()
+            }
+        }
+    }
+
 }

@@ -21,4 +21,8 @@ class AnswerCard {
             revert: true
         })
     }
+
+    removeDraggable() {
+        $(this.element).draggable('disable')
+    }
 }

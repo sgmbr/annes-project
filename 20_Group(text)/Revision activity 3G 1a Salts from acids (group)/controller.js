@@ -17,6 +17,7 @@ class Controller {
         let passingScore = Controller.theQuiz.getPassingScore()
         Controller.view.sendScoreToMoodle(score)
         Controller.view.displayResult(score, passingScore)
+        Controller.theQuiz.finish()
     }
 
     static tryAgainEventHandler(event) {
