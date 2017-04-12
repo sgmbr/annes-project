@@ -3,8 +3,6 @@
 class Quiz {
     constructor(xml) {
         this.xml = xml
-        //this.correct = 0
-        //this.incorrect = 0
         this._score = 0
         this.allMyQuestions = []
 
@@ -94,17 +92,6 @@ class Quiz {
     get score() {
         return this._score
     }
-
-    /*
-    getScore() {
-        let answerWeight = 100 / this.numberOfAnswers
-        let incorrectWeight = answerWeight * (1 / (this.numberOfBoxes - 1))
-        this.score = this.correct * answerWeight - this.incorrect * incorrectWeight
-        this.score = Math.floor(this.score)
-        if (this.score < 0) this.score = 0
-        return this.score
-    }
-    */
 
     getPassingScore() {
         let xmlPassingScore = this.xml.getElementsByTagName('passing-score')[0]

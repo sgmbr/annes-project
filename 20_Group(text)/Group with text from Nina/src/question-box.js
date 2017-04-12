@@ -32,14 +32,12 @@ class QuestionBox {
                 let answerInnerHTMLs = this.allMyAnserCards.map(answerCard => answerCard.element.innerHTML)
                 let draggableInnerHTML = ui.draggable[0].innerHTML
                 if (answerInnerHTMLs.includes(draggableInnerHTML)) {
-                    //this.theQuiz.correct++
                     let answerCard = this.theQuiz.getAnswerCardFromInnerHTML(draggableInnerHTML)
                     this.theQuiz.score += answerCard.score
 
                     ui.draggable.draggable('disable')
                     ui.draggable.draggable('option', 'revert', false)
                 } else {
-                    //this.theQuiz.incorrect++
                     let answerCard = this.theQuiz.getAnswerCardFromInnerHTML(draggableInnerHTML)
                     answerCard.reduceScore()
                 }
