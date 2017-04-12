@@ -26,19 +26,22 @@ class QuestionBox {
             accept: '#ans div',
             hoverClass: 'hovered',
             // Defining a function for drop and point it like following doesn't work.
-            // Then 'this' is a box DOM object, not the QuestionBox
+            // In that case, 'this' is a box DOM object, not the QuestionBox
             // drop: handleCardDrop
             drop: (event, ui) => {
                 let answerInnerHTMLs = this.allMyAnserCards.map(answerCard => answerCard.element.innerHTML)
                 let draggableInnerHTML = ui.draggable[0].innerHTML
                 if (answerInnerHTMLs.includes(draggableInnerHTML)) {
-                    console.log('correct')
-                    this.theQuiz.correct++
+                    //this.theQuiz.correct++
+                    let answerCard = this.theQuiz.getAnswerCardFromInnerHTML(draggableInnerHTML)
+                    this.theQuiz.score += answerCard.score
+
                     ui.draggable.draggable('disable')
                     ui.draggable.draggable('option', 'revert', false)
                 } else {
-                    console.log('incorrect')
-                    this.theQuiz.incorrect++
+                    //this.theQuiz.incorrect++
+                    let answerCard = this.theQuiz.getAnswerCardFromInnerHTML(draggableInnerHTML)
+                    answerCard.reduceScore()
                 }
             }
         })

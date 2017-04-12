@@ -35,6 +35,11 @@ class View {
         return document.getElementById('res')
     }
 
+    static showCurrentScore(score) {
+        let currentScoreElement = document.getElementById('currentScore')
+        currentScoreElement.innerHTML = score
+    }
+
     static sendScoreToMoodle(score) {
         $('#region-main', window.parent.document).find('input[name="mark"]').attr('value', score)
     }

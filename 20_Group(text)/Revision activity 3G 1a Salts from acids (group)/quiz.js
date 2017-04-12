@@ -3,9 +3,9 @@
 class Quiz {
     constructor(xml) {
         this.xml = xml
-        this.correct = 0
-        this.incorrect = 0
-        this.score = 0
+        //this.correct = 0
+        //this.incorrect = 0
+        this._score = 0
         this.allMyQuestions = []
 
         this.setup()
@@ -40,6 +40,17 @@ class Quiz {
         }
     }
 
+    setupAnswerScore() {
+        let answerWeight = 100 / this.numberOfAnswers
+        let incorrectWeight = answerWeight * (1 / (this.numberOfBoxes - 1))
+
+        for (let aQuestion of this.allMyQuestions) {
+            for (let anAnswerCard of aQuestion.allMyAnserCards) {
+                anAnswerCard.setupScore(answerWeight, incorrectWeight)
+            }
+        }
+    }
+
     shuffleAnswers() {
         let answerDiv = document.getElementById('ans')
         let divs = answerDiv.getElementsByTagName('div')
@@ -52,7 +63,18 @@ class Quiz {
     setup() {
         this.createElements()
         this.setupHTML()
+        this.setupAnswerScore()
         this.shuffleAnswers()
+    }
+
+    getAnswerCardFromInnerHTML(innerHTML) {
+        for (let aQuestion of this.allMyQuestions) {
+            for (let anAnswerCard of aQuestion.allMyAnserCards) {
+                if (anAnswerCard.element.innerHTML == innerHTML) {
+                    return anAnswerCard
+                }
+            }
+        }
     }
 
     get numberOfBoxes() {
@@ -63,6 +85,17 @@ class Quiz {
         return this.allMyQuestions.reduce((acc, val) => acc + val.allMyAnserCards.length, 0)
     }
 
+    set score(newScore) {
+        this._score = newScore
+        let eventInput = new Event('scoreUpdateEvent')
+        window.dispatchEvent(eventInput)
+    }
+
+    get score() {
+        return this._score
+    }
+
+    /*
     getScore() {
         let answerWeight = 100 / this.numberOfAnswers
         let incorrectWeight = answerWeight * (1 / (this.numberOfBoxes - 1))
@@ -71,6 +104,7 @@ class Quiz {
         if (this.score < 0) this.score = 0
         return this.score
     }
+    */
 
     getPassingScore() {
         let xmlPassingScore = this.xml.getElementsByTagName('passing-score')[0]

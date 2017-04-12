@@ -3,6 +3,8 @@
 class AnswerCard {
     constructor(xmlQuestion, theQuestionBox) {
         this.element = this.setupElement(xmlQuestion)
+        this.score = 0
+        this.incorrectWeight = 0
         this.myQuestionBox = theQuestionBox
         this.setDraggable()
     }
@@ -13,6 +15,15 @@ class AnswerCard {
         p.innerHTML = xmlQuestion.innerHTML
         element.appendChild(p)
         return element
+    }
+
+    setupScore(answerWeight, incorrectWeight) {
+        this.score = answerWeight
+        this.incorrectWeight = incorrectWeight
+    }
+
+    reduceScore() {
+        this.score -= this.incorrectWeight
     }
 
     setDraggable() {
