@@ -3,16 +3,31 @@
     <head>
         <meta charset="utf-8">
         <title>Quantities and units Group</title>
-        <link rel="stylesheet" href="group-text.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="css/group-text.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="lib/jquery-3.2.0.min.js"><\/script>')</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script>window.jQuery.ui || document.write('<script src="lib/jquery-ui.min.js"><\/script>')</script>
+        <script src="lib/jquery.ui.touch-punch.min.js"></script>
     </head>
     <body>
-        <div id="res"></div>
+        <div id="res">
+            <p>Your Score: <span id="score"></span>%</p>
+            <p>Passing Score: <span id="passing-score"></span>%</p>
+            <hr>
+            <p id="final-message"></p>
+            <button id="btnTryAgain">Try again</button>
+        </div>
         <div id="box"></div>
         <div id="ans"></div>
-        <!-- TODO: Define onclick in View -->
-        <input type="button" id="btnSubmit" value="Submit" onclick="coun()">
-        <script src="group-text.js"></script>
+        <p id="scoreDisplay">Score: <span id="currentScore">0</span></p>
+        <button id="btnSubmit">Submit</button>
+
+        <script src="src/answer-card.js"></script>
+        <script src="src/question-box.js"></script>
+        <script src="src/quiz.js"></script>
+        <script src="src/view.js"></script>
+        <script src="src/controller.js"></script>
+        <script src="src/main.js"></script>
     </body>
 </html>
