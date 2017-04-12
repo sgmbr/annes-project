@@ -109,14 +109,12 @@ sup {
     font-size: 2rem;
 }
 
-.submit {
-    display: flex;
-    justify-content: flex-end;
-    padding-bottom: 2rem;
+#scoreDisplay {
+    margin: 0 0.75rem;
 }
 
 #btnSubmit {
-    margin: 0 0.75rem;
+    margin: 0.75rem;
     background-color: #BBD6EC;
     font-weight: bold;
     border: 2px solid #8CB3E4;
