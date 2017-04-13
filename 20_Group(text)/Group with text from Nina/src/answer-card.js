@@ -24,6 +24,7 @@ class AnswerCard {
 
     reduceScore() {
         this.score -= this.incorrectWeight
+        this.score = (this.score < 0) ? 0 : this.score
     }
 
     setDraggable() {
