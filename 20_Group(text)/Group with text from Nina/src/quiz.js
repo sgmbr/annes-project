@@ -54,7 +54,7 @@ class Quiz {
         let divs = answerDiv.getElementsByTagName('div')
         for (let i = 0; i < divs.length; i++) {
             let randomDivNumber = Math.floor(Math.random() * divs.length)
-            answerDiv.append(Array.from(divs).splice(randomDivNumber, 1)[0])
+            answerDiv.appendChild(Array.from(divs).splice(randomDivNumber, 1)[0])
         }
     }
 

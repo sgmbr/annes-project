@@ -123,3 +123,29 @@ sup {
     width: 6rem;
     border-radius: 0.5rem;
 }
+
+
+@media screen and (max-width: 26.5625rem) {
+
+    #box {
+        margin: 0;
+    }
+
+    #box div {
+        height: 15rem;
+    }
+
+    #ans {
+        margin: 0.75rem 0;
+        padding: 0.5rem;
+    }
+
+    #ans div {
+        flex-basis: 5rem;
+    }
+
+    #res p {
+        font-size: 1rem;
+    }
+
+}
