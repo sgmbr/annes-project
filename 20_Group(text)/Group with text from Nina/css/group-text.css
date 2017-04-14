@@ -129,10 +129,12 @@ sup {
 
     #box {
         margin: 0;
+        flex-wrap: wrap;
     }
 
     #box div {
-        height: 15rem;
+        height: 10rem;
+        flex-basis: 5rem;
     }
 
     #ans {
@@ -141,7 +143,7 @@ sup {
     }
 
     #ans div {
-        flex-basis: 5rem;
+        flex-basis: 3rem;
     }
 
     #res p {
