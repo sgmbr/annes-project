@@ -80,7 +80,7 @@ class Quiz {
     }
 
     get numberOfAnswers() {
-        return this.allMyQuestions.reduce((acc, val) => acc + val.allMyAnserCards.length, 0)
+        return this.allMyQuestions.reduce((acc, cur) => acc + cur.allMyAnserCards.length, 0)
     }
 
     set score(newScore) {
