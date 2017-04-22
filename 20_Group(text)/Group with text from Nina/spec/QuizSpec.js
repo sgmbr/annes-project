@@ -21,12 +21,16 @@ describe('Quiz', function() {
         request.send()
     })
 
-    it('should have 2 QuestionBox objects', function() {
+    it('should create 2 QuestionBox objects', function() {
         expect(quiz.numberOfBoxes).toBe(2)
     })
 
-    it('should have 15 AnswerCard objects', function() {
+    it('should create 15 AnswerCard objects', function() {
         expect(quiz.numberOfAnswers).toBe(15)
+    })
+
+    it('has score attribute', function() {
+        expect(quiz.score).toBeDefined()
     })
 
     describe('QuestionBox DOM', function() {
@@ -72,64 +76,31 @@ describe('Quiz', function() {
             expect(ansDiv.getElementsByTagName('div').length).toBe(15)
         })
 
-        it('should have "force" card', function() {
+        it('should have first card: "force"', function() {
             expect(ansStrs).toContain('force')
         })
 
-        it('should have "energy" card', function() {
-            expect(ansStrs).toContain('energy')
-        })
-
-        it('should have "speed" card', function() {
-            expect(ansStrs).toContain('speed')
-        })
-
-        it('should have "acceleration" card', function() {
-            expect(ansStrs).toContain('acceleration')
-        })
-
-        it('should have "work" card', function() {
-            expect(ansStrs).toContain('work')
-        })
-
-        it('should have "mass" card', function() {
-            expect(ansStrs).toContain('mass')
-        })
-
-        it('should have "time" card', function() {
-            expect(ansStrs).toContain('time')
-        })
-
-        it('should have "distance" card', function() {
-            expect(ansStrs).toContain('distance')
-        })
-
-        it('should have "second" card', function() {
-            expect(ansStrs).toContain('second')
-        })
-
-        it('should have "kg" card', function() {
-            expect(ansStrs).toContain('kg')
-        })
-
-        it('should have "metre per second" card', function() {
-            expect(ansStrs).toContain('metre per second')
-        })
-
-        it('should have "newton" card', function() {
-            expect(ansStrs).toContain('newton')
-        })
-
-        it('should have "joule" card', function() {
-            expect(ansStrs).toContain('joule')
-        })
-
-        it('should have "m s<sup>-2</sup>" card', function() {
+        it('should have decorated card: "m s<sup>-2</sup>"', function() {
             expect(ansStrs).toContain('m s<sup>-2</sup>')
         })
 
-        it('should have "cm" card', function() {
+        it('should have last card: "cm"', function() {
             expect(ansStrs).toContain('cm')
+        })
+
+        it('should have all other 12 cards', function() {
+            expect(ansStrs).toContain('energy')
+            expect(ansStrs).toContain('speed')
+            expect(ansStrs).toContain('acceleration')
+            expect(ansStrs).toContain('work')
+            expect(ansStrs).toContain('mass')
+            expect(ansStrs).toContain('time')
+            expect(ansStrs).toContain('distance')
+            expect(ansStrs).toContain('second')
+            expect(ansStrs).toContain('kg')
+            expect(ansStrs).toContain('metre per second')
+            expect(ansStrs).toContain('newton')
+            expect(ansStrs).toContain('joule')
         })
 
         it('should be shuffled', function() {
@@ -149,7 +120,59 @@ describe('Quiz', function() {
                 expect(a.classList.contains('ui-draggable')).toBeTruthy()
             })
         })
+    })
 
+    describe('Drag and dropping answer cards', function() {
+        let ansDiv, ansStrPs, ansStrs
+
+        beforeEach(function() {
+            ansDiv = document.getElementById('ans')
+            ansStrPs = ansDiv.getElementsByTagName('p')
+            ansStrs = Array.from(ansStrPs).map(a => a.innerHTML)
+        })
+
+        xit('can be dragged', function() {
+            //let card = ansDiv.getElementsByTagName('div')[0]
+            let card = $('#ans > div')[0]
+            card.simulate( 'drag', {
+                dx: 50,
+                dy: 50
+            })
+
+
+        })
+
+        xit('when dropped to wrong answer, returns to where it was', function() {
+
+        })
+
+        xit('when dropped to correct answer, its position is fixed and not draggable', function() {
+
+        })
+    })
+
+    describe('Current score DOM', function() {
+        let currentScore
+
+        beforeEach(function() {
+            currentScore = document.getElementById('currentScore')
+        })
+
+        it('is set to 0 by default', function() {
+            expect(currentScore.innerHTML).toBe('0')
+        })
+
+        it('can be updated', function() {
+            quiz.score = 20
+            expect(currentScore.innerHTML).toBe('20')
+            quiz.score = 0
+        })
+
+        xit('is updated when correct answer is made', function() {
+            let quantitiesBox = document.getElementById('box').getElementsByTagName('div')[0]
+            spyOn(quantitiesBox, 'drop')
+            expect(quiz.score).toBe(7)
+        })
     })
 
 })
