@@ -1,6 +1,6 @@
 /* jshint undef: true, unused: true, esversion: 6, asi: true, browser: true, jquery: true */
 
-describe('Quiz', function() {
+describe('Quiz, given "Quantities and units Group" xml', function() {
     let quiz
     let request = new XMLHttpRequest()
 
@@ -122,35 +122,6 @@ describe('Quiz', function() {
         })
     })
 
-    describe('Drag and dropping answer cards', function() {
-        let ansDiv, ansStrPs, ansStrs
-
-        beforeEach(function() {
-            ansDiv = document.getElementById('ans')
-            ansStrPs = ansDiv.getElementsByTagName('p')
-            ansStrs = Array.from(ansStrPs).map(a => a.innerHTML)
-        })
-
-        xit('can be dragged', function() {
-            //let card = ansDiv.getElementsByTagName('div')[0]
-            let card = $('#ans > div')[0]
-            card.simulate( 'drag', {
-                dx: 50,
-                dy: 50
-            })
-
-
-        })
-
-        xit('when dropped to wrong answer, returns to where it was', function() {
-
-        })
-
-        xit('when dropped to correct answer, its position is fixed and not draggable', function() {
-
-        })
-    })
-
     describe('Current score DOM', function() {
         let currentScore
 
@@ -168,10 +139,133 @@ describe('Quiz', function() {
             quiz.score = 0
         })
 
-        xit('is updated when correct answer is made', function() {
-            let quantitiesBox = document.getElementById('box').getElementsByTagName('div')[0]
-            spyOn(quantitiesBox, 'drop')
-            expect(quiz.score).toBe(7)
+    })
+
+    describe('Submit button', function() {
+        let submit
+
+        beforeEach(function() {
+            submit = document.getElementById('btnSubmit')
+        })
+
+        it('exists', function() {
+            expect(submit).toBeDefined()
+        })
+    })
+
+    describe('QuestionBox object',function() {
+        it('contains its answers', function() {
+            let quantities = quiz.allMyQuestions[0]
+            let answers = quantities.allMyAnserCards.map(a => a.element.innerHTML)
+            expect(answers).toContain('<p>force</p>')
+            expect(answers).toContain('<p>energy</p>')
+            expect(answers).toContain('<p>speed</p>')
+            expect(answers).toContain('<p>acceleration</p>')
+            expect(answers).toContain('<p>work</p>')
+            expect(answers).toContain('<p>mass</p>')
+            expect(answers).toContain('<p>time</p>')
+            expect(answers).toContain('<p>distance</p>')
+        })
+    })
+
+    describe('AnswerCard object',function() {
+        it('score is set for every AnswerCard', function() {
+            let score = 100 / 15
+            quiz.allMyQuestions.forEach(q => {
+                q.allMyAnserCards.forEach(a => {
+                    expect(a.score).toEqual(score)
+                })
+            })
+        })
+
+        it('incorrectWeight is set for every AnswerCard', function() {
+            let incorrectWeight = 100 / 15
+            quiz.allMyQuestions.forEach(q => {
+                q.allMyAnserCards.forEach(a => {
+                    expect(a.incorrectWeight).toEqual(incorrectWeight)
+                })
+            })
+        })
+    })
+
+    describe('Quiz.getAnswerCardFromInnerHTML function', function() {
+        let result
+        beforeEach(function() {
+            result = quiz.getAnswerCardFromInnerHTML('<p>force</p>')
+        })
+
+        it('should return AnswerCard instance', function() {
+            expect(result instanceof AnswerCard).toBeTruthy()
+        })
+
+        it('should return correct instance', function() {
+            expect(result.element.innerHTML).toEqual('<p>force</p>')
+        })
+    })
+
+    describe('Setting Quiz.score attribute', function() {
+        let currentScore
+
+        beforeEach(function() {
+            currentScore = document.getElementById('currentScore')
+        })
+
+        it('should update current score DOM', function() {
+            quiz.score = 20
+            expect(currentScore.innerHTML).toBe('20')
+            quiz.score = 0
+        })
+    })
+
+    describe('Quiz.getPassingScore function', function() {
+        let result
+        beforeEach(function() {
+            result = quiz.getPassingScore()
+        })
+
+        it('should return a number', function() {
+            expect(typeof result).toBe('number')
+        })
+
+        it('should return correct number', function() {
+            expect(result).toBe(80)
+        })
+    })
+
+    describe('Quiz.finish function', function() {
+        it('disables draggable of all answer cards', function() {
+            quiz.finish()
+            let answerCards = document.getElementById('ans').getElementsByTagName('div')
+            Array.from(answerCards).forEach(a => {
+                expect(a.classList.contains('ui-draggable-disabled')).toBeTruthy()
+            })
+        })
+    })
+
+    xdescribe('Drag and dropping answer cards', function() {
+        let ansDiv, ansStrPs, ansStrs
+
+        beforeEach(function() {
+            ansDiv = document.getElementById('ans')
+            ansStrPs = ansDiv.getElementsByTagName('p')
+            ansStrs = Array.from(ansStrPs).map(a => a.innerHTML)
+        })
+
+        it('can be dragged', function() {
+            //let card = ansDiv.getElementsByTagName('div')[0]
+            let card = $('#ans > div')[0]
+            card.simulate( 'drag', {
+                dx: 50,
+                dy: 50
+            })
+        })
+
+        it('when dropped to wrong answer, returns to where it was', function() {
+
+        })
+
+        it('when dropped to correct answer, its position is fixed and not draggable', function() {
+
         })
     })
 
