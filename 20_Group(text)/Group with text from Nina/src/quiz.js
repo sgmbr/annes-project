@@ -38,15 +38,21 @@ class Quiz {
         }
     }
 
+    forAllAnswerCards(callback) {
+        this.allMyQuestions.forEach(question => {
+            question.allMyAnserCards.forEach(answerCard => {
+                callback(answerCard)
+            })
+        })
+    }
+
     setupAnswerScore() {
         let answerWeight = 100 / this.numberOfAnswers
         let incorrectWeight = answerWeight * (1 / (this.numberOfBoxes - 1))
 
-        for (let aQuestion of this.allMyQuestions) {
-            for (let anAnswerCard of aQuestion.allMyAnserCards) {
-                anAnswerCard.setupScore(answerWeight, incorrectWeight)
-            }
-        }
+        this.forAllAnswerCards((answerCard) => {
+            answerCard.setupScore(answerWeight, incorrectWeight)
+        })
     }
 
     shuffleAnswers() {
@@ -66,13 +72,17 @@ class Quiz {
     }
 
     getAnswerCardFromInnerHTML(innerHTML) {
-        for (let aQuestion of this.allMyQuestions) {
-            for (let anAnswerCard of aQuestion.allMyAnserCards) {
-                if (anAnswerCard.element.innerHTML == innerHTML) {
-                    return anAnswerCard
-                }
+        let result
+        this.forAllAnswerCards((answerCard) => {
+            if (answerCard.element.innerHTML == innerHTML) {
+                result = answerCard
             }
-        }
+        })
+        return result
+    }
+
+    moveAnswerCardToBox(answerCard, questionBox) {
+        questionBox.element.appendChild(answerCard.element)
     }
 
     get numberOfBoxes() {
@@ -100,11 +110,9 @@ class Quiz {
     }
 
     finish() {
-        for (let aQuestion of this.allMyQuestions) {
-            for (let anAnswerCard of aQuestion.allMyAnserCards) {
-                anAnswerCard.removeDraggable()
-            }
-        }
+        this.forAllAnswerCards((answerCard) => {
+            answerCard.removeDraggable()
+        })
     }
 
 }

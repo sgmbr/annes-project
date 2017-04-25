@@ -13,6 +13,7 @@ class QuestionBox {
         let p = document.createElement('p')
         p.innerHTML = xmlBox.innerHTML
         element.appendChild(p)
+        element.classList.add('question-box')
         return element
     }
 
@@ -25,22 +26,20 @@ class QuestionBox {
         $(this.element).droppable({
             accept: '#ans div',
             hoverClass: 'hovered',
-            // Defining a function for drop and point it like following doesn't work.
+            // Defining a function outside doesn't work.
             // In that case, 'this' is a box DOM object, not the QuestionBox
             // drop: handleCardDrop
             drop: (event, ui) => {
                 let answerInnerHTMLs = this.allMyAnserCards.map(answerCard => answerCard.element.innerHTML)
                 let draggableInnerHTML = ui.draggable[0].innerHTML
+                let answerCard = this.theQuiz.getAnswerCardFromInnerHTML(draggableInnerHTML)
                 if (answerInnerHTMLs.includes(draggableInnerHTML)) {
                     // correct answer
-                    let answerCard = this.theQuiz.getAnswerCardFromInnerHTML(draggableInnerHTML)
-                    this.theQuiz.score += answerCard.score
-
-                    ui.draggable.draggable('disable')
-                    ui.draggable.draggable('option', 'revert', false)
+                    answerCard.addScoreToQuiz()
+                    answerCard.removeDraggable()
+                    this.theQuiz.moveAnswerCardToBox(answerCard, this)
                 } else {
                     // wrong answer
-                    let answerCard = this.theQuiz.getAnswerCardFromInnerHTML(draggableInnerHTML)
                     answerCard.reduceScore()
                 }
             }

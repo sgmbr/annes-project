@@ -14,6 +14,7 @@ class AnswerCard {
         let p = document.createElement('p')
         p.innerHTML = xmlQuestion.innerHTML
         element.appendChild(p)
+        element.classList.add('answer-card')
         return element
     }
 
@@ -27,6 +28,10 @@ class AnswerCard {
         this.score = (this.score < 0) ? 0 : this.score
     }
 
+    addScoreToQuiz() {
+        this.myQuestionBox.theQuiz.score += this.score
+    }
+
     setDraggable() {
         $(this.element).draggable({
             containment: 'body',
@@ -35,6 +40,9 @@ class AnswerCard {
     }
 
     removeDraggable() {
+        // setting revertDuration to 0 makes it look like snapping into a box
+        // revert is necessary because otherwise it keeps relative position
+        $(this.element).draggable('option', 'revertDuration', 0)
         $(this.element).draggable('disable')
     }
 }
