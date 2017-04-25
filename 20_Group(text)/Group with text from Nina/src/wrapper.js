@@ -5,8 +5,11 @@ function resizeIframe() {
     iframe.style.height = (iframe.contentWindow.document.body.offsetHeight) + 'px'
 }
 
-window.addEventListener('orientationchange', function() {
+let onResizeHandler = function(event) {
     setTimeout(function() {
         resizeIframe()
     }, 500)
-}, false)
+}
+
+window.addEventListener('resize', onResizeHandler, false)
+window.addEventListener('orientationchange', onResizeHandler, false)

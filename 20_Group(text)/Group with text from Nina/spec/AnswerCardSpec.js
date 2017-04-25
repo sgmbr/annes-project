@@ -1,29 +1,49 @@
 /* jshint undef: true, unused: true, esversion: 6, asi: true, browser: true, jquery: true */
 
 describe('AnswerCard', function() {
-    let answerCard
-    beforeEach(function() {
-        answerCard = new AnswerCard('<question>force</question>')
+    let text, parser, xmlDoc, answerCard, quiz
+    beforeAll(function() {
+        text = '<set><box>Quantities</box>' +
+        '<question>force</question>' +
+        '<question>energy</question>' +
+        '<question>speed</question>' +
+        '<question>acceleration</question></set>'
+
+        parser = new DOMParser()
+        xmlDoc = parser.parseFromString(text, 'text/xml')
+
+        answerCard = new AnswerCard(xmlDoc.getElementsByTagName('question')[0])
+
+        quiz = new Quiz(xmlDoc)
+        View.setup()
+        let controller = new Controller(quiz, View)
     })
 
-    it('has an element', function() {
-        expect(answerCard.element).toBeDefined()
-    })
+    describe('setupElement()', function() {
+        let div, p
+        beforeEach(function() {
+            text = '<question>test</question>'
+            xmlDoc = parser.parseFromString(text, 'text/xml')
 
-    xdescribe('setupElement()', function() {
+            div = answerCard.setupElement(xmlDoc.getElementsByTagName('question')[0])
+            p = div.getElementsByTagName('p')[0]
+        })
+
         it('returns a <div> containing <p> element', function() {
-            let result = answerCard.setupElement('<question>test</question>')
+            expect(div).toBeDefined()
+            expect(p).toBeDefined()
+        })
 
-            let expectation = document.createElement('div')
-            let p = document.createElement('p')
-            p.innerHTML = 'test'
-            expectation.appendChild(p)
+        it('has set "answer-card" class', function() {
+            expect(div.classList.contains('answer-card')).toBeTruthy()
+        })
 
-            expect(result).toEqual(expectation)
+        it('has innerHTML set', function() {
+            expect(p.innerHTML).toEqual('test')
         })
     })
 
-    describe('Score calculation when score = 8, incorrectWeight = 5', function() {
+    describe('Score calculation, when score = 8, incorrectWeight = 5', function() {
         let answerWeight, incorrectWeight
         beforeEach(function() {
             answerWeight = 8
@@ -40,6 +60,26 @@ describe('AnswerCard', function() {
             answerCard.reduceScore()
             answerCard.reduceScore()
             expect(answerCard.score).toBe(0)
+        })
+    })
+
+    describe('AnswerCard.addScoreToQuiz function', function() {
+        it('updates Quiz.score', function() {
+            let answer = quiz.allMyQuestions[0].allMyAnserCards[0]
+            answer.addScoreToQuiz()
+            expect(quiz.score).toEqual(answer.score)
+        })
+    })
+
+    describe('setDraggable()', function() {
+        it('sets draggable to this.element', function() {
+
+        })
+    })
+
+    describe('removeDraggable()', function() {
+        it('disables draggable of this.element', function() {
+
         })
     })
 

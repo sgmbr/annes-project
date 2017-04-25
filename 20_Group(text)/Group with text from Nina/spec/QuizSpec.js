@@ -232,7 +232,7 @@ describe('Quiz, given "Quantities and units Group" xml', function() {
         })
     })
 
-    describe('Quiz.finish function', function() {
+    xdescribe('Quiz.finish function', function() {
         it('disables draggable of all answer cards', function() {
             quiz.finish()
             let answerCards = document.getElementById('ans').getElementsByTagName('div')
@@ -242,31 +242,22 @@ describe('Quiz, given "Quantities and units Group" xml', function() {
         })
     })
 
-    xdescribe('Drag and dropping answer cards', function() {
-        let ansDiv, ansStrPs, ansStrs
+    describe('Quiz.moveAnswerCardToBox function', function() {
+        it('moves a card DOM object to a box', function() {
+            let question, answerCard
+            question = quiz.allMyQuestions[0]
+            answerCard = question.allMyAnserCards[0]
+            quiz.moveAnswerCardToBox(answerCard, question)
 
-        beforeEach(function() {
-            ansDiv = document.getElementById('ans')
-            ansStrPs = ansDiv.getElementsByTagName('p')
-            ansStrs = Array.from(ansStrPs).map(a => a.innerHTML)
-        })
+            let ans = document.getElementById('ans').getElementsByTagName('div')
+            let box = document.getElementById('box').getElementsByTagName('div')[0]
+            let card = box.getElementsByClassName('answer-card')[0]
 
-        it('can be dragged', function() {
-            //let card = ansDiv.getElementsByTagName('div')[0]
-            let card = $('#ans > div')[0]
-            card.simulate( 'drag', {
-                dx: 50,
-                dy: 50
+            Array.from(ans).forEach(a => {
+                expect(a.innerHTML).not.toEqual('<p>force</p>')
             })
-        })
-
-        it('when dropped to wrong answer, returns to where it was', function() {
-
-        })
-
-        it('when dropped to correct answer, its position is fixed and not draggable', function() {
-
+            expect(card).toBeDefined()
+            expect(card.innerHTML).toEqual('<p>force</p>')
         })
     })
-
 })
