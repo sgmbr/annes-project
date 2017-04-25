@@ -44,7 +44,7 @@ sup {
 #box div {
     flex-grow: 1;
     flex-basis: 15rem;
-    height: 25rem;
+    height: 15rem;
     margin: 0 0.25rem;
     border-radius: 0.5rem;
     border: 3px solid #8CB3E4;
@@ -125,7 +125,7 @@ sup {
 }
 
 
-@media screen and (max-width: 26.5625rem) {
+@media screen and (max-width: 46rem) {
 
     #box {
         margin: 0;
