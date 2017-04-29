@@ -14,6 +14,10 @@ window.onload = function() {
             let controller = new Controller(quiz, View)
 
             parent.resizeIframe()
+            // wait for images to be loaded and do it again
+            setTimeout(function() {
+                parent.resizeIframe()
+            }, 1000)
         } else {
             // reached target server, but it returned an error
         }

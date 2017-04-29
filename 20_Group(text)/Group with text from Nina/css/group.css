@@ -51,6 +51,7 @@ sup {
     background-color: #FCD5B5;
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .question-box.hovered {
@@ -76,8 +77,9 @@ sup {
 
 .answer-card {
     flex-basis: 10rem;
-    height: 3rem;
+    min-height: 3rem;
     margin: 0 0.5rem 0.5rem 0;
+    padding: 0.5rem 0;
     border: 1px solid #333;
     border-radius: 0.5rem;
     background: #fff;
