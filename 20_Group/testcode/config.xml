@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<block>
+    <passing-score>80</passing-score>
+    <set>
+        <box>Quantities</box>
+        <question>force</question>
+        <question>energy</question>
+        <question>speed</question>
+        <question>acceleration</question>
+        <question>work</question>
+        <question>mass</question>
+        <question>time</question>
+        <question>distance</question>
+    </set>
+
+    <set>
+        <box>Units</box>
+        <question>second</question>
+        <question>kg</question>
+        <question>metre per second</question>
+        <question>newton</question>
+        <question>joule</question>
+        <question>m s<sup>-2</sup></question>
+        <question>cm</question>
+    </set>
+
+</block>
