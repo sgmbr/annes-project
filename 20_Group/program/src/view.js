@@ -41,7 +41,9 @@ class View {
     }
 
     static sendScoreToMoodle(score) {
-        $('#region-main', window.parent.document).find('input[name="mark"]').attr('value', score)
+        let FORM = window.parent.document.getElementById("store")
+        FORM.mark.value = score
+        //FORM.submit()
     }
 
     static displayResult(score, passingScore) {
