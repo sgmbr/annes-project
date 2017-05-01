@@ -83,6 +83,8 @@ class Quiz {
 
     moveAnswerCardToBox(answerCard, questionBox) {
         questionBox.element.appendChild(answerCard.element)
+        let eventInput = new Event('resizeIframeEvent')
+        window.dispatchEvent(eventInput)
     }
 
     get numberOfBoxes() {
