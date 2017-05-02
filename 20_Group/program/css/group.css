@@ -79,6 +79,8 @@ sup {
     padding: 1rem;
     background: #fff;
     min-height: 3rem;
+    width: 1px;
+    min-width: 100%;
 }
 
 .answer-card {
