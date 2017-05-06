@@ -23,3 +23,5 @@ setting flex-basis by percentage worked
  .answer-card {
      flex-basis: 30%;
  }
+
+30% worked but 10% didn't

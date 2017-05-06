@@ -162,7 +162,7 @@ sup {
 
     .answer-card {
         -webkit-flex: 0 1 3rem;
-        flex-basis: 10%;
+        flex-basis: auto;
     }
 
     #res p {
