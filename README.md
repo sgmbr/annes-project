@@ -3,6 +3,15 @@ A repository for Anne's project
 
 ## iPhone iframe overflow
 
+setting iframe width as following worked.
+ #quiz {
+    width: 1px;
+    min-width: 100%;
+}
+
+http://stackoverflow.com/questions/23083462/how-to-get-an-iframe-to-be-responsive-in-ios-safari
+
+
 
 ## iPhone flex img overflow
 Group(image) cards are located beyond #ans/#box div on iPhone

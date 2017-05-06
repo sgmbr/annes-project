@@ -2,27 +2,26 @@
 <block>
     <passing-score>80</passing-score>
     <set>
-        <box>Accelerating</box>
-        <question><img src="images/Motion-2.jpg"/></question>
-        <question><img src="images/Motion-6.jpg"/></question>
+        <box>Quantities</box>
+        <question>force</question>
+        <question>energy</question>
+        <question>speed</question>
+        <question>acceleration</question>
+        <question>work</question>
+        <question>mass</question>
+        <question>time</question>
+        <question>distance</question>
     </set>
 
     <set>
-        <box>stopped</box>
-        <question><img src="images/Motion-1.jpg"/></question>
-        <question><img src="images/Motion-5.jpg"/></question>
-    </set>
-
-    <set>
-        <box>Constant speed</box>
-        <question><img src="images/Motion-3.jpg"/></question>
-        <question><img src="images/Motion-7.jpg"/></question>
-    </set>
-
-    <set>
-        <box>Decelerating</box>
-        <question><img src="images/Motion-4.jpg"/></question>
-        <question><img src="images/Motion-8.jpg"/></question>
+        <box>Units</box>
+        <question>second</question>
+        <question>kg</question>
+        <question>metre per second</question>
+        <question>newton</question>
+        <question>joule</question>
+        <question>m s<sup>-2</sup></question>
+        <question>cm</question>
     </set>
 
 </block>
