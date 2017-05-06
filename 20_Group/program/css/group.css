@@ -75,6 +75,7 @@ sup {
 #ans {
     display: -webkit-flex;
     display: flex;
+    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     margin: 0.75rem;
     padding: 1rem;
