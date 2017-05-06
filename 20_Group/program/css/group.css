@@ -73,7 +73,8 @@ sup {
 }
 
 #ans {
-    display: -webkit-flex;
+    display: -webkit-box;   /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
+    display: -webkit-flex; /* NEW, Chrome 21?28, Safari 6.1+ */
     display: flex;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
