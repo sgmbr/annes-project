@@ -10,7 +10,7 @@ setting iframe width as following worked.
 }
 
 http://stackoverflow.com/questions/23083462/how-to-get-an-iframe-to-be-responsive-in-ios-safari
-
+http://stackoverflow.com/questions/23865899/how-to-set-the-width-of-an-iframe-in-ios6
 
 
 ## iPhone flex img overflow

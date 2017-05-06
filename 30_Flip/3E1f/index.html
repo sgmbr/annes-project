@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Flip</title>
+        <meta name="description" content="The flip html5 game">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CDN for libs - less to upload to Moodle -->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="styles/theme.css" >
+
+        <script type="text/javascript">
+            //Moodle hack to allow require js use.
+            var a = '<a href="a.htm">';
+            var base_url = '';
+
+            if (a.length > 16) {
+                //moodle has converted the href to an absolute url
+                var base_url = a.match(/href=(.+)/)[1].replace('a.htm','').replace(/\"|>/g,'');
+            }
+
+            var config = {
+                xml_path: "res/flip-images.xml",
+                env: "dev",
+                //scorm_api or hotpot_api
+                reporting: "hotpot_api",
+                base_url: base_url,
+                sounds_url: "scripts/res/sounds",
+                sounds: {
+                    correct: "correct.wav",
+                    incorrect: "incorrect.wav",
+                    victory: "victory.wav",
+                    fail: "victory.wav"
+                },
+                number_of_questions: 30
+            }
+
+
+            //configure base url before loading main
+            var require = ({
+                baseUrl: config.base_url + 'scripts'
+            });
+			
+        </script>
+		<script type="text/javascript">
+		
+		function notifyIframe(height)
+		{
+		if (window.frameElement && window.frameElement.nodeName == "IFRAME")
+			{
+			parent.resizeIframe(height);
+			}
+		}
+		</script>
+		
+        <script type="text/javascript" data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js" >
+        </script>
+
+        <!-- TODO: think about a grunt build task for bringing all the common utils into the one folder and minify together -->
+        <!-- TODO: require js optimiser -->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="container">
+
+            <div id="game">
+                <!-- ko with: questions -->
+                <div id="answer-zone" class="clearfix">
+                    <!-- ko foreach: question_answer_pairs -->
+                        <div class="card-wrap" data-bind="css: { blank: completed() }">
+                            <div class="answer-tile col-md-3 col-xs-6" data-bind="click: $root.attempt_answer">
+                                    <div class="card-front-wrapper" >
+                                        <div class="card">
+                                            <span class="answer-text" data-bind="html: answer"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-back-wrapper" style="display: none;">
+                                        <div class="card back"  >
+                                            <span class="answer-text" data-bind="text: $root.answer_message"></span>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    <!-- /ko -->
+                </div>
+
+                <div id="question-zone">
+                    <!-- ko with: current_question -->
+                    <div class="col-12">
+                        <div class="well">
+                            <span data-bind="html: question"></span>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </div>
+                <!-- /ko -->
+
+                <div id="final-message">
+                    <h2 data-bind="text: $root.final_message"></h2>
+                </div>
+
+                <button class="btn btn-default" data-bind="click: toggle_sudden_death, text: sudden_death_message, attr: { class: sudden_death() ? 'btn-danger btn' : 'btn btn-default' }" ></button>
+
+                <button class="btn btn-default" data-bind="click: restart_game">Restart Game</button>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>
