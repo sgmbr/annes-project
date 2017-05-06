@@ -73,9 +73,7 @@ sup {
 }
 
 #ans {
-    display: -webkit-flex; /* NEW, Chrome 21?28, Safari 6.1+ */
     display: flex;
-    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     margin: 0.75rem;
     padding: 1rem;
@@ -85,7 +83,6 @@ sup {
 }
 
 .answer-card {
-    -webkit-flex: 0 1 10rem;
     flex-basis: 10rem;
     min-height: 3rem;
     margin: 0 0.5rem 0.5rem 0;
@@ -161,7 +158,6 @@ sup {
     }
 
     .answer-card {
-        -webkit-flex: 0 1 3rem;
         flex-basis: auto;
     }
 

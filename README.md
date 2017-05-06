@@ -25,3 +25,7 @@ setting flex-basis by percentage worked
  }
 
 30% worked but 10% didn't
+
+When set to 3rem, 6 images in a row; when set to 10%, 8 images in a row. This explains that when small number is set for images inside flexbox, image width is ignored and the small number is applied.
+
+flex-basis: auto; worked perfectly!
