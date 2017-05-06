@@ -2,21 +2,27 @@
 <block>
     <passing-score>80</passing-score>
     <set>
-        <box>bases</box>
-        <question><img src="images/base1.jpg"/></question>
-        <question><img src="images/base2.jpg"/></question>
-        <question><img src="images/base3.jpg"/></question>
-        <question><img src="images/base4.jpg"/></question>
-        <question><img src="images/base5.jpg"/></question>
-        <question><img src="images/base6.jpg"/></question>
+        <box>Accelerating</box>
+        <question><img src="images/Motion-2.jpg"/></question>
+        <question><img src="images/Motion-6.jpg"/></question>
     </set>
 
     <set>
-        <box>acids</box>
-        <question><img src="images/acid1.jpg"/></question>
-        <question><img src="images/acid2.jpg"/></question>
-        <question><img src="images/acid3.jpg"/></question>
-        <question><img src="images/acid4.jpg"/></question>
+        <box>stopped</box>
+        <question><img src="images/Motion-1.jpg"/></question>
+        <question><img src="images/Motion-5.jpg"/></question>
+    </set>
+
+    <set>
+        <box>Constant speed</box>
+        <question><img src="images/Motion-3.jpg"/></question>
+        <question><img src="images/Motion-7.jpg"/></question>
+    </set>
+
+    <set>
+        <box>Decelerating</box>
+        <question><img src="images/Motion-4.jpg"/></question>
+        <question><img src="images/Motion-8.jpg"/></question>
     </set>
 
 </block>
