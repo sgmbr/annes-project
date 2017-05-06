@@ -73,6 +73,7 @@ sup {
 }
 
 #ans {
+    display: flex;
     flex-wrap: wrap;
     margin: 0.75rem;
     padding: 1rem;
