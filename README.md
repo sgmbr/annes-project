@@ -18,3 +18,8 @@ following didn't work
 
 following didn't work
  display: -webkit-box;
+
+setting flex-basis by percentage worked
+ .answer-card {
+     flex-basis: 30%;
+ }
