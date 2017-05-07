@@ -40,14 +40,12 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
     self.start_game = function(game_xml_path) {
       self.game_xml_path = game_xml_path;
       self.configure_game();
-	  
+
 	  self.flipped = false;
-	  self.check_iframe_dimension();
-	  console.log(document.body.scrollHeight);
     };
-	
+
 	self.check_iframe_dimension = function() {
-		notifyIframe(600);
+		notifyIframe();
 	 }
 
     self.toggle_sudden_death = function() {
@@ -61,13 +59,14 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
           self.pair_array = xml_parser.get_as_array();
           self.questions.set_pairs(self.pair_array);
           self.load_new_question();
+          self.check_iframe_dimension();
         }
       });
 
 		self.attempt_answer = function(answer,event) {
 
         var $target = $(event.currentTarget);
-		
+
         if ( ! answer.completed() && ( self.flipped == false)) {
 		  self.flipped = true;
           if ( self.questions.is_answer_a_match(answer) ) {
@@ -171,10 +170,10 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
 
         $("#answer-zone").fadeOut();
 		self.flipped = false;
-		notifyIframe(120);
+		notifyIframe();
       }, 2000);
     };
-	
+
 
  };
 

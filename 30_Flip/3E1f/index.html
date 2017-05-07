@@ -42,19 +42,19 @@
             var require = ({
                 baseUrl: config.base_url + 'scripts'
             });
-			
+
         </script>
 		<script type="text/javascript">
-		
-		function notifyIframe(height)
+
+		function notifyIframe()
 		{
 		if (window.frameElement && window.frameElement.nodeName == "IFRAME")
 			{
-			parent.resizeIframe(height);
+			parent.resizeIframe();
 			}
 		}
 		</script>
-		
+
         <script type="text/javascript" data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js" >
         </script>
 
