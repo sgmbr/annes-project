@@ -42,6 +42,16 @@
                 baseUrl: config.base_url + 'scripts'
             });
         </script>
+        <script type="text/javascript">
+
+		function notifyIframe()
+		{
+		if (window.frameElement && window.frameElement.nodeName == "IFRAME")
+			{
+			parent.resizeIframe();
+			}
+		}
+		</script>
 
         <script type="text/javascript" data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js?version=1" >
         </script>
@@ -87,7 +97,7 @@
 				<p>Your score is:<span data-bind="text: score"></span></p>
                 <button id='btn-restart' data-bind="click: restart_game">Restart</button>
                 <button id="btn-submit" data-bind="click: finish">Submit</button>
-                
+
 
             </div>
 

@@ -35,13 +35,17 @@ define("game",["jquery","ko","lib/xml","memory_model","lib/" + config.reporting,
     }
 
 	self.set_answer_zone = function(){
-	 
+
 	}
-	
+
     self.start_game = function(game_xml_path) {
       self.game_xml_path = game_xml_path;
       self.configure_game();
     };
+
+    self.check_iframe_dimension = function() {
+		notifyIframe();
+	 }
 
     self.toggle_sudden_death = function() {
       self.sudden_death(! self.sudden_death());
@@ -51,16 +55,15 @@ define("game",["jquery","ko","lib/xml","memory_model","lib/" + config.reporting,
       xml_parser.load_xml_async(self.game_xml_path,
       {
         done: function() {
-          self.pair_array = xml_parser.get_as_array();
-          self.memory_model.set_pairs(self.pair_array);
-		  let zone = document.getElementById('answer-zone')
-		let questions = xml_parser.question_number()
-		let height = 50*questions
-		document.getElementById('game').style.height = (height+50)+ 'px'
-		parent.resizeIframe(questions)
-		console.log(questions)
-		console.log(height)
-		zone.style.height = height+ "px";
+            self.pair_array = xml_parser.get_as_array();
+            self.memory_model.set_pairs(self.pair_array);
+            //let zone = document.getElementById('answer-zone')
+            //let questions = xml_parser.question_number()
+            //let height = 50*questions
+            //document.getElementById('game').style.height = (height+50)+ 'px'
+            //parent.resizeIframe(questions)
+            //zone.style.height = height+ "px";
+            self.check_iframe_dimension();
         }
       });
 
