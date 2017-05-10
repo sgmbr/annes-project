@@ -1,9 +1,9 @@
 /* jshint undef: true, unused: true, esversion: 6, asi: true, browser: true, jquery: true */
 
 class View {
-    static setup() {
-        View.setupSubmitBtn('btnSubmit')
-        View.setupTryAgainBtn('btnTryAgain')
+    static setUp() {
+        View.setUpSubmitBtn('btnSubmit')
+        View.setUpTryAgainBtn('btnTryAgain')
     }
 
     static fireCustomEvent(eventName) {
@@ -11,13 +11,13 @@ class View {
         window.dispatchEvent(eventInput)
     }
 
-    static setupSubmitBtn(tagId) {
+    static setUpSubmitBtn(tagId) {
         document.getElementById(tagId).onclick = function(event) {
             View.fireCustomEvent('submitEvent')
         }
     }
 
-    static setupTryAgainBtn(tagId) {
+    static setUpTryAgainBtn(tagId) {
         document.getElementById(tagId).onclick = function(event) {
             View.fireCustomEvent('tryAgainEvent')
         }

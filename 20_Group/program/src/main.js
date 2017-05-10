@@ -10,7 +10,7 @@ window.onload = function() {
             // success
             let xml = request.responseXML
             quiz = new Quiz(xml)
-            View.setup()
+            View.setUp()
             let controller = new Controller(quiz, View)
 
             parent.resizeIframe()

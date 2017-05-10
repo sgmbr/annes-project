@@ -4,10 +4,10 @@ class Controller {
     constructor(quiz, View) {
         Controller.theQuiz = quiz
         Controller.view = View
-        Controller.setup()
+        Controller.setUp()
     }
 
-    static setup() {
+    static setUp() {
         window.addEventListener('submitEvent', Controller.submitEventHandler, false)
         window.addEventListener('tryAgainEvent', Controller.tryAgainEventHandler, false)
         window.addEventListener('scoreUpdateEvent', Controller.scoreUpdateEventHandler, false)

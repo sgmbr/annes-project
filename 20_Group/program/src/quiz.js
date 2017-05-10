@@ -6,33 +6,33 @@ class Quiz {
         this._score = 0
         this.allMyQuestions = []
 
-        this.setup()
+        this.setUp()
     }
 
-    createElements() {
-        let sets = this.xml.getElementsByTagName('set')
-        Array.from(sets).forEach( aSet => {
-            // Create box elements
-            let xmlBox = aSet.getElementsByTagName('box')[0]
+    createQuizObjects() {
+        let groups = this.xml.getElementsByTagName('set')
+        Array.from(groups).forEach( aGroup => {
+            // Create box objects
+            let xmlBox = aGroup.getElementsByTagName('box')[0]
             let newQuestionBox = new QuestionBox(xmlBox, this)
             this.allMyQuestions.push(newQuestionBox)
 
-            // Create answer card elements
-            let xmlQuestions = aSet.getElementsByTagName('question')
+            // Create answer card objects
+            let xmlQuestions = aGroup.getElementsByTagName('question')
             Array.from(xmlQuestions).forEach( xmlQuestion => {
                 newQuestionBox.addAnswerCard(xmlQuestion)
             })
         })
     }
 
-    setupHTML() {
+    setUpHTML() {
         let box = document.getElementById('box')
         let answers = document.getElementById('ans')
 
         for (let aQuestion of this.allMyQuestions) {
             box.appendChild(aQuestion.element)
 
-            for(let anAnswerCard of aQuestion.allMyAnserCards) {
+            for(let anAnswerCard of aQuestion.allMyAnswerCards) {
                 answers.appendChild(anAnswerCard.element)
             }
         }
@@ -40,18 +40,18 @@ class Quiz {
 
     forAllAnswerCards(callback) {
         this.allMyQuestions.forEach(question => {
-            question.allMyAnserCards.forEach(answerCard => {
+            question.allMyAnswerCards.forEach(answerCard => {
                 callback(answerCard)
             })
         })
     }
 
-    setupAnswerScore() {
-        let answerWeight = 100 / this.numberOfAnswers
-        let incorrectWeight = answerWeight * (1 / (this.numberOfBoxes - 1))
+    setUpAnswerScore() {
+        let answerWeight = 100 / this.getNumberOfAnswers()
+        let incorrectWeight = answerWeight * (1 / (this.getNumberOfBoxes() - 1))
 
         this.forAllAnswerCards((answerCard) => {
-            answerCard.setupScore(answerWeight, incorrectWeight)
+            answerCard.setUpScore(answerWeight, incorrectWeight)
         })
     }
 
@@ -64,10 +64,10 @@ class Quiz {
         }
     }
 
-    setup() {
-        this.createElements()
-        this.setupHTML()
-        this.setupAnswerScore()
+    setUp() {
+        this.createQuizObjects()
+        this.setUpHTML()
+        this.setUpAnswerScore()
         this.shuffleAnswers()
     }
 
@@ -87,12 +87,12 @@ class Quiz {
         window.dispatchEvent(eventInput)
     }
 
-    get numberOfBoxes() {
+    getNumberOfBoxes() {
         return this.allMyQuestions.length
     }
 
-    get numberOfAnswers() {
-        return this.allMyQuestions.reduce((acc, cur) => acc + cur.allMyAnserCards.length, 0)
+    getNumberOfAnswers() {
+        return this.allMyQuestions.reduce((acc, cur) => acc + cur.allMyAnswerCards.length, 0)
     }
 
     set score(newScore) {

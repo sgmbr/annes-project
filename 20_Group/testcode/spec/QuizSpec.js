@@ -11,7 +11,7 @@ describe('Quiz, given "Quantities and units Group" xml', function() {
                 // success
                 let xml = request.responseXML
                 quiz = new Quiz(xml)
-                View.setup()
+                View.setUp()
                 let controller = new Controller(quiz, View)
 
                 // async support: 'it' runs after this
@@ -22,11 +22,11 @@ describe('Quiz, given "Quantities and units Group" xml', function() {
     })
 
     it('should create 2 QuestionBox objects', function() {
-        expect(quiz.numberOfBoxes).toBe(2)
+        expect(quiz.getNumberOfBoxes()).toBe(2)
     })
 
     it('should create 15 AnswerCard objects', function() {
-        expect(quiz.numberOfAnswers).toBe(15)
+        expect(quiz.getNumberOfAnswers()).toBe(15)
     })
 
     it('has score attribute', function() {
@@ -156,7 +156,7 @@ describe('Quiz, given "Quantities and units Group" xml', function() {
     describe('QuestionBox object',function() {
         it('contains its answers', function() {
             let quantities = quiz.allMyQuestions[0]
-            let answers = quantities.allMyAnserCards.map(a => a.element.innerHTML)
+            let answers = quantities.allMyAnswerCards.map(a => a.element.innerHTML)
             expect(answers).toContain('<p>force</p>')
             expect(answers).toContain('<p>energy</p>')
             expect(answers).toContain('<p>speed</p>')
@@ -172,7 +172,7 @@ describe('Quiz, given "Quantities and units Group" xml', function() {
         it('score is set for every AnswerCard', function() {
             let score = 100 / 15
             quiz.allMyQuestions.forEach(q => {
-                q.allMyAnserCards.forEach(a => {
+                q.allMyAnswerCards.forEach(a => {
                     expect(a.score).toEqual(score)
                 })
             })
@@ -181,7 +181,7 @@ describe('Quiz, given "Quantities and units Group" xml', function() {
         it('incorrectWeight is set for every AnswerCard', function() {
             let incorrectWeight = 100 / 15
             quiz.allMyQuestions.forEach(q => {
-                q.allMyAnserCards.forEach(a => {
+                q.allMyAnswerCards.forEach(a => {
                     expect(a.incorrectWeight).toEqual(incorrectWeight)
                 })
             })
@@ -246,7 +246,7 @@ describe('Quiz, given "Quantities and units Group" xml', function() {
         it('moves a card DOM object to a box', function() {
             let question, answerCard
             question = quiz.allMyQuestions[0]
-            answerCard = question.allMyAnserCards[0]
+            answerCard = question.allMyAnswerCards[0]
             quiz.moveAnswerCardToBox(answerCard, question)
 
             let ans = document.getElementById('ans').getElementsByTagName('div')

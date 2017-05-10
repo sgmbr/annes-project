@@ -15,17 +15,17 @@ describe('AnswerCard', function() {
         answerCard = new AnswerCard(xmlDoc.getElementsByTagName('question')[0])
 
         quiz = new Quiz(xmlDoc)
-        View.setup()
+        View.setUp()
         let controller = new Controller(quiz, View)
     })
 
-    describe('setupElement()', function() {
+    describe('setUpElement()', function() {
         let div, p
         beforeEach(function() {
             text = '<question>test</question>'
             xmlDoc = parser.parseFromString(text, 'text/xml')
 
-            div = answerCard.setupElement(xmlDoc.getElementsByTagName('question')[0])
+            div = answerCard.setUpElement(xmlDoc.getElementsByTagName('question')[0])
             p = div.getElementsByTagName('p')[0]
         })
 
@@ -48,7 +48,7 @@ describe('AnswerCard', function() {
         beforeEach(function() {
             answerWeight = 8
             incorrectWeight = 5
-            answerCard.setupScore(answerWeight, incorrectWeight)
+            answerCard.setUpScore(answerWeight, incorrectWeight)
         })
 
         it('score is 3 when reduceScore() once', function() {
@@ -65,7 +65,7 @@ describe('AnswerCard', function() {
 
     describe('AnswerCard.addScoreToQuiz function', function() {
         it('updates Quiz.score', function() {
-            let answer = quiz.allMyQuestions[0].allMyAnserCards[0]
+            let answer = quiz.allMyQuestions[0].allMyAnswerCards[0]
             answer.addScoreToQuiz()
             expect(quiz.score).toEqual(answer.score)
         })
