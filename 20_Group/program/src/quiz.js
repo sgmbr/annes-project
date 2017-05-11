@@ -55,12 +55,12 @@ class Quiz {
         })
     }
 
-    shuffleAnswers() {
-        let answerDiv = document.getElementById('ans')
-        let divs = answerDiv.getElementsByTagName('div')
+    shuffleContents(targetId) {
+        let target = document.getElementById(targetId)
+        let divs = target.getElementsByTagName('div')
         for (let i = 0; i < divs.length; i++) {
             let randomDivNumber = Math.floor(Math.random() * divs.length)
-            answerDiv.appendChild(Array.from(divs).splice(randomDivNumber, 1)[0])
+            target.appendChild(Array.from(divs).splice(randomDivNumber, 1)[0])
         }
     }
 
@@ -68,7 +68,8 @@ class Quiz {
         this.createQuizObjects()
         this.setUpHTML()
         this.setUpAnswerScore()
-        this.shuffleAnswers()
+        this.shuffleContents('box')
+        this.shuffleContents('ans')
     }
 
     getAnswerCardFromInnerHTML(innerHTML) {
