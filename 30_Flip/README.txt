@@ -8,7 +8,7 @@ Fixes for mobile support
 
 Changes made
 
-memory.html
+flip.html
 - set viewport to make it look proper size on mobile
 - move resizeIframe function to resizer.js and changed logic
 
@@ -16,7 +16,7 @@ resizer.js
 - set listener for 'resize' and 'orientationchange' to resizeIframe
 
 index.html
-- added function for resizeIframe
+- changed notifyIframe function not to take height parameter
 - added .col-xxs-6 class
 
 game.js
