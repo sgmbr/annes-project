@@ -2,21 +2,42 @@
 <block>
     <passing-score>80</passing-score>
     <set>
-        <box>bases</box>
-        <question><img src="images/base1.jpg"/></question>
-        <question><img src="images/base2.jpg"/></question>
-        <question><img src="images/base3.jpg"/></question>
-        <question><img src="images/base4.jpg"/></question>
-        <question><img src="images/base5.jpg"/></question>
-        <question><img src="images/base6.jpg"/></question>
+        <box>Quantities1</box>
+        <question>1force awordsuperlooooooooooooooooooooooooooong</question>
+        <question>1energy awordsuperlooooooooooooooooooooooooooong</question>
+        <question>1speed awordsuperlooooooooooooooooooooooooooong</question>
     </set>
 
     <set>
-        <box>acids</box>
-        <question><img src="images/acid1.jpg"/></question>
-        <question><img src="images/acid2.jpg"/></question>
-        <question><img src="images/acid3.jpg"/></question>
-        <question><img src="images/acid4.jpg"/></question>
+        <box>Quantities2</box>
+        <question>2acceleration awordsuperlooooooooooooooooooooooooooong</question>
+        <question>2work</question>
+        <question>2mass</question>
+    </set>
+
+    <set>
+        <box>Quantities3</box>
+        <question>3time</question>
+        <question>3distance awordsuperlooooooooooooooooooooooooooong</question>
+    </set>
+
+    <set>
+        <box>Units1</box>
+        <question>1second</question>
+        <question>1kg</question>
+    </set>
+
+    <set>
+        <box>Units2</box>
+        <question>2metre per second</question>
+        <question>2newton</question>
+    </set>
+
+    <set>
+        <box>Units3</box>
+        <question>3joule</question>
+        <question>3m s<sup>-2</sup></question>
+        <question>3cm</question>
     </set>
 
 </block>
