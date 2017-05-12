@@ -7,6 +7,7 @@ function resizeIframe() {
 }
 
 let resizeHandler = function(event) {
+    // Wait 500ms to allow iframe contents to be rendered
     setTimeout(function() {
         resizeIframe()
     }, 500)

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<block>
+    <passing-score>80</passing-score>
+    <set>
+        <box>Quantities1</box>
+        <question>1force awordsuperlooooooooooooooooooooooooooong</question>
+        <question>1energy awordsuperlooooooooooooooooooooooooooong</question>
+        <question>1speed awordsuperlooooooooooooooooooooooooooong</question>
+    </set>
+
+    <set>
+        <box>Quantities2</box>
+        <question>2acceleration awordsuperlooooooooooooooooooooooooooong</question>
+        <question>2work</question>
+        <question>2mass</question>
+    </set>
+
+    <set>
+        <box>Quantities3</box>
+        <question>3time</question>
+        <question>3distance awordsuperlooooooooooooooooooooooooooong</question>
+    </set>
+
+    <set>
+        <box>Units1</box>
+        <question>1second</question>
+        <question>1kg</question>
+    </set>
+
+    <set>
+        <box>Units2</box>
+        <question>2metre per second</question>
+        <question>2newton</question>
+    </set>
+
+    <set>
+        <box>Units3</box>
+        <question>3joule</question>
+        <question>3m s<sup>-2</sup></question>
+        <question>3cm</question>
+    </set>
+
+</block>
