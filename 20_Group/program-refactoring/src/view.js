@@ -1,0 +1,66 @@
+/* jshint undef: true, unused: true, esversion: 6, asi: true, browser: true, jquery: true */
+
+class View {
+    static setUp() {
+        View.setUpSubmitBtn('btnSubmit')
+        View.setUpTryAgainBtn('btnTryAgain')
+    }
+
+    static fireCustomEvent(eventName) {
+        let eventInput = new Event(eventName)
+        window.dispatchEvent(eventInput)
+    }
+
+    static setUpSubmitBtn(tagId) {
+        document.getElementById(tagId).onclick = function(event) {
+            View.fireCustomEvent('submitEvent')
+        }
+    }
+
+    static setUpTryAgainBtn(tagId) {
+        document.getElementById(tagId).onclick = function(event) {
+            View.fireCustomEvent('tryAgainEvent')
+        }
+    }
+
+    static getQuestionDiv() {
+        return document.getElementById('box')
+    }
+
+    static getAnswerDiv() {
+        return document.getElementById('ans')
+    }
+
+    static getResultDiv() {
+        return document.getElementById('res')
+    }
+
+    static showCurrentScore(score) {
+        let currentScoreElement = document.getElementById('currentScore')
+        currentScoreElement.innerHTML = score
+    }
+
+    static sendScoreToMoodle(score) {
+        let FORM = window.parent.document.getElementById("store")
+        FORM.mark.value = score
+        //FORM.submit()
+    }
+
+    static displayResult(score, passingScore) {
+        let scoreElement = document.getElementById('score')
+        scoreElement.innerHTML = score
+
+        let passingScoreElement = document.getElementById('passing-score')
+        passingScoreElement.innerHTML = passingScore
+
+        let finalMessage = document.getElementById('final-message')
+        if (score >= passingScore) {
+            finalMessage.innerHTML = 'Well done! A great result!'
+        } else {
+            finalMessage.innerHTML = 'Sorry you failed this time, but try again!'
+        }
+
+        let resultElement = View.getResultDiv()
+        resultElement.style.display = 'block'
+    }
+}
