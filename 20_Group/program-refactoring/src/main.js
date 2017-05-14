@@ -1,7 +1,6 @@
 /* jshint undef: true, unused: true, esversion: 6, asi: true, browser: true, jquery: true */
 
 window.onload = function() {
-    //let quiz
     let request = new XMLHttpRequest()
     request.open('GET', 'config.xml', true)
 

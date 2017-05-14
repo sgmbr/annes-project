@@ -2,8 +2,9 @@
 
 class Controller {
     constructor(newQuiz, newView) {
-        Controller.myQuiz = newQuiz
-        Controller.myView = newView
+        Controller.myQuiz = newQuiz     // Model
+        Controller.myView = newView     // View
+
         Controller.createQuizElements()
         Controller.setUpEventListeners()
     }
