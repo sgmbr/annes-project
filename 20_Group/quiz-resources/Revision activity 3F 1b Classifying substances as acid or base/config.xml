@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <block>
     <passing-score>80</passing-score>
-    <set>
-        <box>bases</box>
-        <question><img src="images/base1.jpg"/></question>
-        <question><img src="images/base2.jpg"/></question>
-        <question><img src="images/base3.jpg"/></question>
-        <question><img src="images/base4.jpg"/></question>
-        <question><img src="images/base5.jpg"/></question>
-        <question><img src="images/base6.jpg"/></question>
-    </set>
+    <group>
+        <name>bases</name>
+        <element><img src="images/base1.jpg"/></element>
+        <element><img src="images/base2.jpg"/></element>
+        <element><img src="images/base3.jpg"/></element>
+        <element><img src="images/base4.jpg"/></element>
+        <element><img src="images/base5.jpg"/></element>
+        <element><img src="images/base6.jpg"/></element>
+    </group>
 
-    <set>
-        <box>acids</box>
-        <question><img src="images/acid1.jpg"/></question>
-        <question><img src="images/acid2.jpg"/></question>
-        <question><img src="images/acid3.jpg"/></question>
-        <question><img src="images/acid4.jpg"/></question>
-    </set>
+    <group>
+        <name>acids</name>
+        <element><img src="images/acid1.jpg"/></element>
+        <element><img src="images/acid2.jpg"/></element>
+        <element><img src="images/acid3.jpg"/></element>
+        <element><img src="images/acid4.jpg"/></element>
+    </group>
 
 </block>

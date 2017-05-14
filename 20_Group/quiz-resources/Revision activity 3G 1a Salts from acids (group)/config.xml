@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <block>
     <passing-score>80</passing-score>
-    <set>
-        <box>Salts from hydrochloric acid</box>
-        <question>FeCl<sub>3</sub></question>
-        <question>ammonium chloride</question>
-        <question>NaCl</question>
-        <question>calcium chloride</question>
-    </set>
+    <group>
+        <name>Salts from hydrochloric acid</name>
+        <element>FeCl<sub>3</sub></element>
+        <element>ammonium chloride</element>
+        <element>NaCl</element>
+        <element>calcium chloride</element>
+    </group>
 
-    <set>
-        <box>Salts from nitric acid</box>
-        <question>Mg(NO<sub>3</sub>)<sub>2</sub></question>
-        <question>copper nitrate</question>
-        <question>Al(NO<sub>3</sub>)<sub>3</sub></question>
-        <question>potassium nitrate</question>
-    </set>
+    <group>
+        <name>Salts from nitric acid</name>
+        <element>Mg(NO<sub>3</sub>)<sub>2</sub></element>
+        <element>copper nitrate</element>
+        <element>Al(NO<sub>3</sub>)<sub>3</sub></element>
+        <element>potassium nitrate</element>
+    </group>
 
-    <set>
-        <box>Salts from sulfuric acid</box>
-        <question>sodium sulfate</question>
-        <question>Li<sub>2</sub>SO<sub>4</sub></question>
-        <question>magnesium sulfate</question>
-        <question>FeSO<sub>4</sub></question>
-    </set>
+    <group>
+        <name>Salts from sulfuric acid</name>
+        <element>sodium sulfate</element>
+        <element>Li<sub>2</sub>SO<sub>4</sub></element>
+        <element>magnesium sulfate</element>
+        <element>FeSO<sub>4</sub></element>
+    </group>
 </block>

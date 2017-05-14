@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <block>
     <passing-score>80</passing-score>
-    <set>
-        <box>Acids</box>
-        <question>H<sub>2</sub>SO<sub>4</sub></question>
-        <question>HCl</question>
-        <question>HNO<sub>3</sub></question>
-    </set>
+    <group>
+        <name>Acids</name>
+        <element>H<sub>2</sub>SO<sub>4</sub></element>
+        <element>HCl</element>
+        <element>HNO<sub>3</sub></element>
+    </group>
 
-    <set>
-        <box>Carbonates</box>
-        <question>FeCO<sub>3</sub></question>
-        <question>CaCO<sub>3</sub></question>
-        <question>Na<sub>2</sub>CO<sub>3</sub></question>
-    </set>
+    <group>
+        <name>Carbonates</name>
+        <element>FeCO<sub>3</sub></element>
+        <element>CaCO<sub>3</sub></element>
+        <element>Na<sub>2</sub>CO<sub>3</sub></element>
+    </group>
 
-    <set>
-        <box>Bases</box>
-        <question>MgO</question>
-        <question>CaO</question>
-        <question>Zn(OH)<sub>2</sub></question>
-        <question>Pb(OH)<sub>2</sub></question>
-    </set>
+    <group>
+        <name>Bases</name>
+        <element>MgO</element>
+        <element>CaO</element>
+        <element>Zn(OH)<sub>2</sub></element>
+        <element>Pb(OH)<sub>2</sub></element>
+    </group>
 
-    <set>
-        <box>Salts</box>
-        <question>NaCl</question>
-        <question>LiNO<sub>3</sub></question>
-        <question>CuSO<sub>4</sub></question>
-        <question>FeCl<sub>3</sub></question>
-    </set>
+    <group>
+        <name>Salts</name>
+        <element>NaCl</element>
+        <element>LiNO<sub>3</sub></element>
+        <element>CuSO<sub>4</sub></element>
+        <element>FeCl<sub>3</sub></element>
+    </group>
 
 </block>
