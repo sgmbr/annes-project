@@ -3,119 +3,111 @@
 class Quiz {
     constructor(xml) {
         this.xml = xml
-        this._score = 0
-        this.allMyQuestions = []
+        this.quiz = [] // [{question: "groupName", answers: [Answer1, Answer2...]}...]
+        this.passingScore = 0
+        this.score = 0
+        this.incorrectWeight = 0
 
         this.setUp()
     }
 
-    createQuizObjects() {
-        let groups = this.xml.getElementsByTagName('set')
-        Array.from(groups).forEach( aGroup => {
-            // Create box objects
-            let xmlBox = aGroup.getElementsByTagName('box')[0]
-            let newQuestionBox = new QuestionBox(xmlBox, this)
-            this.allMyQuestions.push(newQuestionBox)
-
-            // Create answer card objects
-            let xmlQuestions = aGroup.getElementsByTagName('question')
-            Array.from(xmlQuestions).forEach( xmlQuestion => {
-                newQuestionBox.addAnswerCard(xmlQuestion)
-            })
-        })
-    }
-
-    setUpHTML() {
-        let box = document.getElementById('box')
-        let answers = document.getElementById('ans')
-
-        for (let aQuestion of this.allMyQuestions) {
-            box.appendChild(aQuestion.element)
-
-            for(let anAnswerCard of aQuestion.allMyAnswerCards) {
-                answers.appendChild(anAnswerCard.element)
-            }
-        }
-    }
-
-    forAllAnswerCards(callback) {
-        this.allMyQuestions.forEach(question => {
-            question.allMyAnswerCards.forEach(answerCard => {
-                callback(answerCard)
-            })
-        })
-    }
-
-    setUpAnswerScore() {
-        let answerWeight = 100 / this.getNumberOfAnswers()
-        let incorrectWeight = answerWeight * (1 / (this.getNumberOfBoxes() - 1))
-
-        this.forAllAnswerCards((answerCard) => {
-            answerCard.setUpScore(answerWeight, incorrectWeight)
-        })
-    }
-
-    shuffleContents(targetId) {
-        let target = document.getElementById(targetId)
-        let divs = target.getElementsByTagName('div')
-        for (let i = 0; i < divs.length; i++) {
-            let randomDivNumber = Math.floor(Math.random() * divs.length)
-            target.appendChild(Array.from(divs).splice(randomDivNumber, 1)[0])
-        }
-    }
-
     setUp() {
-        this.createQuizObjects()
-        this.setUpHTML()
-        this.setUpAnswerScore()
-        this.shuffleContents('box')
-        this.shuffleContents('ans')
+        this.createQuiz()
+        this.setPassingScore()
+        this.setAnswerScore()
+        this.setIncorrectWeight()
     }
 
-    getAnswerCardFromInnerHTML(innerHTML) {
-        let result
-        this.forAllAnswerCards((answerCard) => {
-            if (answerCard.element.innerHTML == innerHTML) {
-                result = answerCard
+    createQuiz() {
+        let groups = this.xml.getElementsByTagName('group')
+        Array.from(groups).forEach( aGroup => {
+            let groupName = aGroup.getElementsByTagName('name')[0].innerHTML
+            let groupElementsXml = aGroup.getElementsByTagName('element')
+            let groupElements = Array.from(groupElementsXml).map(element => element.innerHTML)
+
+            let answers = []
+            groupElements.forEach( groupElement => {
+                let newAnswer = new Answer(groupElement)
+                answers.push(newAnswer)
+            })
+
+            let questionAnswerSet = {
+                question: groupName,
+                answers: answers
             }
+            this.quiz.push(questionAnswerSet)
         })
-        return result
     }
 
-    moveAnswerCardToBox(answerCard, questionBox) {
-        questionBox.element.appendChild(answerCard.element)
-        let eventInput = new Event('resizeIframeEvent')
-        window.dispatchEvent(eventInput)
+    setPassingScore() {
+        let passingScore = this.xml.getElementsByTagName('passing-score')[0]
+        this.passingScore = Number(passingScore.innerHTML)
     }
 
-    getNumberOfBoxes() {
-        return this.allMyQuestions.length
+    forAllAnswers(callback) {
+        this.quiz.forEach(questionAnswerSet => {
+            questionAnswerSet.answers.forEach(answer => {
+                callback(answer)
+            })
+        })
     }
 
-    getNumberOfAnswers() {
-        return this.allMyQuestions.reduce((acc, cur) => acc + cur.allMyAnswerCards.length, 0)
+    countQuestions() {
+        return this.quiz.length
     }
 
-    set score(newScore) {
-        this._score = newScore
+    countAnswers() {
+        return this.quiz.reduce((acc, cur) => acc + cur.answers.length, 0)
+    }
+
+    calcAnswerScore() {
+        let answerScore = 100 / this.countAnswers()
+        return answerScore
+    }
+
+    calcIncorrectWeight() {
+        let answerScore = this.calcAnswerScore()
+        let incorrectWeight = answerScore * (1 / (this.countQuestions() - 1))
+        return incorrectWeight
+    }
+
+    setAnswerScore() {
+        let answerScore = this.calcAnswerScore()
+        this.forAllAnswers(answer => {
+            answer.setAnswerScore(answerScore)
+        })
+    }
+
+    reduceAnswerScore(answer) {
+        answer.reduceAnswerScore(this.incorrectWeight)
+    }
+
+    setIncorrectWeight() {
+        this.incorrectWeight = this.calcIncorrectWeight()
+    }
+
+    addQuizScore(answer) {
+        this.score += answer.answerScore
         let eventInput = new Event('scoreUpdateEvent')
         window.dispatchEvent(eventInput)
     }
 
-    get score() {
-        return this._score
+    getRoundedQuizScore() {
+        return Math.round(this.score)
     }
 
-    getPassingScore() {
-        let xmlPassingScore = this.xml.getElementsByTagName('passing-score')[0]
-        let passingScore = Number(xmlPassingScore.innerHTML)
-        return passingScore
-    }
-
-    finish() {
-        this.forAllAnswerCards((answerCard) => {
-            answerCard.removeDraggable()
+    findAnswer(innerHTML) {
+        // answerText and innerHTML can be different.
+        // Do createElement() and get innerHTML to compare correctly.
+        // e.g. <img src="foo"/> changes to <img src="foo"> (/ is omitted)
+        let foundAnswer
+        this.forAllAnswers(answer => {
+            let p = document.createElement('p')
+            p.innerHTML = answer.answerText
+            if (p.innerHTML == innerHTML) {
+                foundAnswer = answer
+            }
         })
+        return foundAnswer
     }
-
 }

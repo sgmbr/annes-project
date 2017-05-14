@@ -1,7 +1,7 @@
 /* jshint undef: true, unused: true, esversion: 6, asi: true, browser: true, jquery: true */
 
 window.onload = function() {
-    let quiz
+    //let quiz
     let request = new XMLHttpRequest()
     request.open('GET', 'config.xml', true)
 
@@ -9,7 +9,7 @@ window.onload = function() {
         if (request.status >= 200 && request.status < 400) {
             // success
             let xml = request.responseXML
-            quiz = new Quiz(xml)
+            let quiz = new Quiz(xml)
             View.setUp()
             let controller = new Controller(quiz, View)
 

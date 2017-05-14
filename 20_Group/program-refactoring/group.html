@@ -13,20 +13,22 @@
         <script src="lib/jquery.ui.touch-punch.min.js"></script>
     </head>
     <body>
-        <div id="res">
+        <div id="result">
             <p>Your Score: <span id="score"></span>%</p>
             <p>Passing Score: <span id="passing-score"></span>%</p>
             <hr>
             <p id="final-message"></p>
-            <button id="btnTryAgain">Try again</button>
+            <button id="btn-try-again">Try again</button>
         </div>
-        <div id="box"></div>
-        <div id="ans"></div>
-        <p id="scoreDisplay">Score: <span id="currentScore">0</span></p>
-        <button id="btnSubmit">Submit</button>
 
-        <script src="src/answer-card.js"></script>
-        <script src="src/question-box.js"></script>
+        <div id="boxes"></div>
+
+        <div id="answers"></div>
+        
+        <p id="score-display">Score: <span id="current-score">0</span></p>
+        <button id="btn-submit">Submit</button>
+
+        <script src="src/answer.js"></script>
         <script src="src/quiz.js"></script>
         <script src="src/view.js"></script>
         <script src="src/controller.js"></script>

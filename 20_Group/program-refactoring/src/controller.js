@@ -1,25 +1,41 @@
 /* jshint undef: true, unused: true, esversion: 6, asi: true, browser: true, jquery: true */
 
 class Controller {
-    constructor(quiz, View) {
-        Controller.theQuiz = quiz
-        Controller.view = View
-        Controller.setUp()
+    constructor(newQuiz, newView) {
+        Controller.myQuiz = newQuiz
+        Controller.myView = newView
+        Controller.createQuizElements()
+        Controller.setUpEventListeners()
     }
 
-    static setUp() {
+    static createQuizElements() {
+        let questions = Controller.myQuiz.quiz.map(questionAnswerSet => questionAnswerSet.question)
+        questions.forEach(question => {
+            Controller.myView.createQuestionBoxElement(question)
+        })
+
+        Controller.myQuiz.forAllAnswers(answer => {
+            Controller.myView.createAnswerCardElement(answer.answerText)
+        })
+
+        Controller.myView.shuffleContents('boxes')
+        Controller.myView.shuffleContents('answers')
+    }
+
+    static setUpEventListeners() {
         window.addEventListener('submitEvent', Controller.submitEventHandler, false)
         window.addEventListener('tryAgainEvent', Controller.tryAgainEventHandler, false)
         window.addEventListener('scoreUpdateEvent', Controller.scoreUpdateEventHandler, false)
         window.addEventListener('resizeIframeEvent', Controller.resizeIframeEventHandler, false)
+        window.addEventListener('dropEvent', Controller.dropEventHandler, false)
     }
 
     static submitEventHandler(event) {
-        let score = Math.round(Controller.theQuiz.score)
-        let passingScore = Controller.theQuiz.getPassingScore()
-        Controller.theQuiz.finish()
-        Controller.view.displayResult(score, passingScore)
-        Controller.view.sendScoreToMoodle(score)
+        let score = Controller.myQuiz.getRoundedQuizScore()
+        let passingScore = Controller.myQuiz.passingScore
+        Controller.myView.removeDraggableAll()
+        Controller.myView.displayResult(score, passingScore)
+        Controller.myView.sendScoreToMoodle(score)
     }
 
     static tryAgainEventHandler(event) {
@@ -27,11 +43,29 @@ class Controller {
     }
 
     static scoreUpdateEventHandler(event) {
-        let score = Math.round(Controller.theQuiz.score)
-        Controller.view.showCurrentScore(score)
+        let score = Controller.myQuiz.getRoundedQuizScore()
+        Controller.myView.updateCurrentScore(score)
     }
 
     static resizeIframeEventHandler(event) {
         parent.resizeIframe()
+    }
+
+    static dropEventHandler(event) {
+        let dropped = event.detail.question
+        let dragged = event.detail.answer
+
+        let target = Controller.myQuiz.quiz.find(questionAnswerSet => questionAnswerSet.question == dropped)
+        let foundAnswer = Controller.myQuiz.findAnswer(dragged)
+
+        if (target.answers.includes(foundAnswer)) {
+            // correct answer
+            Controller.myQuiz.addQuizScore(foundAnswer)
+            Controller.myView.removeDraggable(dragged)
+            Controller.myView.moveAnswerCardToBox(dragged, dropped)
+        } else {
+            // wrong answer
+            Controller.myQuiz.reduceAnswerScore(foundAnswer)
+        }
     }
 }
