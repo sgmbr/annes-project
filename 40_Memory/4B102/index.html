@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Memory</title>
+        <meta name="description" content="The flip html5 game">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CDN for libs - less to upload to Moodle -->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="styles/theme.css" >
+
+        <script type="text/javascript">
+            //Moodle hack to allow require js use.
+            var a = '<a href="a.htm">';
+            var base_url = '';
+
+            if (a.length > 16) {
+                //moodle has converted the href to an absolute url
+                var base_url = a.match(/href=(.+)/)[1].replace('a.htm','').replace(/\"|>/g,'');
+            }
+
+            var config = {
+                xml_path: "../memory.xml",
+                env: "dev",
+                //scorm_api or hotpot_api
+                reporting: "hotpot_api",
+                base_url: base_url,
+                sounds_url: "scripts/res/sounds",
+                sounds: {
+                    correct: "correct.wav",
+                    incorrect: "incorrect.wav",
+                    victory: "victory.wav",
+                    fail: "victory.wav"
+                },
+                number_of_questions: 10
+            }
+
+            //configure base url before loading main
+            var require = ({
+                baseUrl: config.base_url + 'scripts'
+            });
+        </script>
+        <script type="text/javascript">
+
+		function notifyIframe()
+		{
+		if (window.frameElement && window.frameElement.nodeName == "IFRAME")
+			{
+			parent.resizeIframe();
+			}
+		}
+		</script>
+
+        <script type="text/javascript" data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js?version=1" >
+        </script>
+
+        <!-- TODO: think about a grunt build task for bringing all the common utils into the one folder and minify together -->
+        <!-- TODO: require js optimiser -->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+
+            <div id="game">
+                <!-- ko with: memory_model -->
+                <div id="answer-zone" class="clearfix">
+                    <!-- ko foreach: memory_tiles -->
+                        <div class="card-wrap">
+                            <div class="answer-tile col-md-3 col-xs-3 col-xxs-6" data-bind="click: $root.attempt_answer">
+                                    <div class="card-front-wrapper" >
+                                        <div class="card">
+                                        </div>
+                                    </div>
+
+                                    <div class="card-back-wrapper" style="display: none;">
+                                        <div class="card back">
+                                            <span class="answer-text" data-bind="html: shown_value"></span>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    <!-- /ko -->
+                </div>
+                <!-- /ko -->
+
+
+                <div id="final-message">
+                    <h2 data-bind="text: $root.final_message"></h2>
+                </div>
+				<br>
+				<br>
+				<p>Your score is:<span data-bind="text: score"></span></p>
+                <button id='btn-restart' data-bind="click: restart_game">Restart</button>
+                <button id="btn-submit" data-bind="click: finish">Submit</button>
+
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <block>
     <passing-score>80</passing-score>
-    <set>
-        <box>Quantities1</box>
-        <question>1force awordsuperlooooooooooooooooooooooooooong</question>
-        <question>1energy awordsuperlooooooooooooooooooooooooooong</question>
-        <question>1speed awordsuperlooooooooooooooooooooooooooong</question>
-    </set>
+    <group>
+        <name>Quantities1</name>
+        <element>1force awordsuperlooooooooooooooooooooooooooong</element>
+        <element>1energy awordsuperlooooooooooooooooooooooooooong</element>
+        <element>1speed awordsuperlooooooooooooooooooooooooooong</element>
+    </group>
 
-    <set>
-        <box>Quantities2</box>
-        <question>2acceleration awordsuperlooooooooooooooooooooooooooong</question>
-        <question>2work</question>
-        <question>2mass</question>
-    </set>
+    <group>
+        <name>Quantities2</name>
+        <element>2acceleration awordsuperlooooooooooooooooooooooooooong</element>
+        <element>2work</element>
+        <element>2mass</element>
+    </group>
 
-    <set>
-        <box>Quantities3</box>
-        <question>3time</question>
-        <question>3distance awordsuperlooooooooooooooooooooooooooong</question>
-    </set>
+    <group>
+        <name>Quantities3</name>
+        <element>3time</element>
+        <element>3distance awordsuperlooooooooooooooooooooooooooong</element>
+    </group>
 
-    <set>
-        <box>Units1</box>
-        <question>1second</question>
-        <question>1kg</question>
-    </set>
+    <group>
+        <name>Units1</name>
+        <element>1second</element>
+        <element>1kg</element>
+    </group>
 
-    <set>
-        <box>Units2</box>
-        <question>2metre per second</question>
-        <question>2newton</question>
-    </set>
+    <group>
+        <name>Units2</name>
+        <element>2metre per second</element>
+        <element>2newton</element>
+    </group>
 
-    <set>
-        <box>Units3</box>
-        <question>3joule</question>
-        <question>3m s<sup>-2</sup></question>
-        <question>3cm</question>
-    </set>
+    <group>
+        <name>Units3</name>
+        <element>3joule</element>
+        <element>3m s<sup>-2</sup></element>
+        <element>3cm</element>
+    </group>
 
 </block>
