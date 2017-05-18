@@ -3,7 +3,7 @@
 class Quiz {
     constructor(xml) {
         this.xml = xml
-        this.quiz = [] // [{question: "groupName", answers: [Answer1, Answer2...]}...]
+        this.quiz = [] // [{question: "label", answers: [Answer1, Answer2...]}...]
         this.passingScore = 0
         this.score = 0
         this.incorrectWeight = 0
@@ -19,20 +19,20 @@ class Quiz {
     }
 
     createQuiz() {
-        let groups = this.xml.getElementsByTagName('group')
-        Array.from(groups).forEach( aGroup => {
-            let groupName = aGroup.getElementsByTagName('name')[0].innerHTML
-            let groupElementsXml = aGroup.getElementsByTagName('element')
-            let groupElements = Array.from(groupElementsXml).map(element => element.innerHTML)
+        let boxes = this.xml.getElementsByTagName('box')
+        Array.from(boxes).forEach( aBox => {
+            let label = aBox.getElementsByTagName('label')[0].innerHTML
+            let contentsXml = aBox.getElementsByTagName('content')
+            let contents = Array.from(contentsXml).map(element => element.innerHTML)
 
             let answers = []
-            groupElements.forEach( groupElement => {
-                let newAnswer = new Answer(groupElement)
+            contents.forEach( aContent => {
+                let newAnswer = new Answer(aContent)
                 answers.push(newAnswer)
             })
 
             let questionAnswerSet = {
-                question: groupName,
+                question: label,
                 answers: answers
             }
             this.quiz.push(questionAnswerSet)
