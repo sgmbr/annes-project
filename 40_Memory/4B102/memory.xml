@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <match title='' numberofmemoryquestions= '5' numberofflipquestions= '5' backgroundimage='' backgroundname=''>
-<pair><question><img src="pictures/decanting.jpg"></question><answer>decanting</answer></pair>
-<pair><question><img src="pictures/filteringsm.jpg"></question><answer>filtering</answer></pair>
-<pair><question><img src="pictures/evaporatingsm.jpg"></question><answer>evaporating</answer></pair>
-<pair><question><img src="pictures/centrifugingsm.jpg"></question><answer>centrifuging</answer></pair>
-<pair><question><img src="pictures/chromatographysm.jpg"></question><answer>chromatography</answer></pair>
+<pair><question><img src="decanting.jpg"/></question><answer>decanting</answer></pair>
+<pair><question><img src="filteringsm.jpg"/></question><answer>filtering</answer></pair>
+<pair><question><img src="evaporatingsm.jpg"/></question><answer>evaporating</answer></pair>
+<pair><question><img src="centrifugingsm.jpg"/></question><answer>centrifuging</answer></pair>
+<pair><question><img src="chromatographysm.jpg"/></question><answer>chromatography</answer></pair>
 </match>
