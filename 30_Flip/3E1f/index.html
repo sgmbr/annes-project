@@ -10,7 +10,7 @@
         <!-- CDN for libs - less to upload to Moodle -->
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" >
         <link rel="stylesheet" href="styles/theme.css" >
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script type="text/javascript">
             //Moodle hack to allow require js use.
             var a = '<a href="a.htm">';
@@ -22,7 +22,7 @@
             }
 
             var config = {
-                xml_path: "res/flip-images.xml",
+                xml_path: "../flip.xml",
                 env: "dev",
                 //scorm_api or hotpot_api
                 reporting: "hotpot_api",
@@ -34,7 +34,7 @@
                     victory: "victory.wav",
                     fail: "victory.wav"
                 },
-                number_of_questions: 30
+                number_of_questions: 10
             }
 
 
@@ -43,16 +43,23 @@
                 baseUrl: config.base_url + 'scripts'
             });
 
-        </script>
-		<script type="text/javascript">
-
 		function notifyIframe()
 		{
-		if (window.frameElement && window.frameElement.nodeName == "IFRAME")
-			{
-			parent.resizeIframe();
-			}
+            if (window.frameElement && window.frameElement.nodeName == "IFRAME")
+    			{
+    			parent.resizeIframe();
+    			}
 		}
+
+		function initialize() {
+			var resizeId;
+			$(window).resize(function() {
+			clearTimeout(resizeId);
+			resizeId = setTimeout(notifyIframe, 500);
+			});
+		}
+
+		initialize();
 		</script>
 
         <script type="text/javascript" data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js" >
@@ -108,6 +115,8 @@
 
                 <button class="btn btn-default" data-bind="click: restart_game">Restart Game</button>
 
+			<p id="scoreDisplay">Score: <span id="currentScore">0%</span></p>
+			<button id="btnSubmit">Submit</button>
             </div>
 
         </div>

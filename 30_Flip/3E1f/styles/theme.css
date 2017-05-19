@@ -1,3 +1,23 @@
+#res {
+    display: none;
+    width: 80%;
+    height: 40%;
+    position: absolute;
+    border: 8px solid #8CB3E4;
+    background: #fff;
+    z-index: 99;
+    margin: 10%;
+    padding: 1rem;
+}
+
+#res p {
+    font-size: 2rem;
+}
+
+#scoreDisplay {
+    margin: 0 0.75rem;
+}
+
 #answer-zone {
   min-height: 400px;
   padding-top: 30px;
@@ -51,6 +71,10 @@
   background-color: green !important;
 }
 
+div {
+    display: block;
+}
+
 .col-xxs-6 {
     position: relative;
     min-height: 1px;
@@ -58,7 +82,7 @@
     padding-left: 15px;
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 500px) {
     .col-xxs-6 {
         float: left;
         width: 50%;

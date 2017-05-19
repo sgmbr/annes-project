@@ -42,11 +42,8 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
       self.configure_game();
 
 	  self.flipped = false;
+      $('#region-main', window.parent.document).find('input[name="mark"]').attr('value', 0)
     };
-
-	self.check_iframe_dimension = function() {
-		notifyIframe();
-	 }
 
     self.toggle_sudden_death = function() {
       self.sudden_death(! self.sudden_death());
@@ -59,12 +56,21 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
           self.pair_array = xml_parser.get_as_array();
           self.questions.set_pairs(self.pair_array);
           self.load_new_question();
-          self.check_iframe_dimension();
+          notifyIframe();
         }
       });
 
-		self.attempt_answer = function(answer,event) {
+    document.getElementById("btnSubmit").addEventListener('click',function() {
+		self.finish();
+    });
 
+
+	self.displayScore = function() {
+        scoreElement = document.getElementById('scoreDisplay');
+        scoreElement.innerHTML = "Score: " + self.questions.score() + "%";
+    }
+
+	self.attempt_answer = function(answer,event) {
         var $target = $(event.currentTarget);
 
         if ( ! answer.completed() && ( self.flipped == false)) {
@@ -80,7 +86,7 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
               onEnd: function() {
                 setTimeout (function(){
                     self.questions.attempt_match(answer);
-
+					self.displayScore();
                     if ( self.questions.finished() ) {
                       self.finish();
                     }
@@ -152,7 +158,7 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
       window.setTimeout(function(){
         $("#question-zone").fadeOut({
             complete: function() {
-              if ( self.questions.score() < 100 ) {
+              if ( self.questions.score() < 80 ) {
                 //fail result
                 reporting.report_status(reporting.status_codes.fail);
                 self.final_message("Sorry you failed this time, but try again!");
@@ -163,14 +169,15 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
                 self.final_message("Well done! A great result!");
               }
 
-              reporting.set_score(self.questions.score());
-              reporting.finish();
+			  $('#region-main', window.parent.document).find('input[name="mark"]').attr('value', self.questions.score())
+              //reporting.set_score(self.questions.score());
+              //reporting.finish();
             }
         });
 
         $("#answer-zone").fadeOut();
 		self.flipped = false;
-		notifyIframe();
+		notifyIframe(100);
       }, 2000);
     };
 
