@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<match title='' numberofmemoryquestions= '18' numberofflipquestions= '18' backgroundimage='' backgroundname=''>
+<pair><question>sodium chloride </question><answer> NaCl </answer></pair>
+<pair><question>copper sulfate</question><answer>CuSO<sub>4</sub></answer></pair>
+<pair><question>hydrochloric acid </question><answer>HCl </answer></pair>
+<pair><question>calcium carbonate </question><answer>CaCO<sub>3</sub></answer></pair>
+<pair><question>sodium hydroxide</question><answer>NaOH</answer></pair>
+<pair><question>MgCl<sub>2</sub></question><answer>magnesium chloride</answer></pair>
+<pair><question>ZnSO<sub>4</sub></question><answer>zinc sulfate </answer></pair>
+<pair><question>MgO</question><answer>magnesium oxide </answer></pair>
+<pair><question>H<sub>2</sub>SO<sub>4</sub></question><answer>sulfuric acid </answer></pair>
+<pair><question> HNO<sub>3</sub></question><answer>nitric acid </answer></pair>
+<pair><question>Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></question><answer>aluminium sulfate </answer></pair>
+<pair><question>CaCl<sub>2</sub> </question><answer>calcium chloride</answer></pair>
+<pair><question>ZnI<sub>2</sub></question><answer>zinc iodide</answer></pair>
+<pair><question>NaIO<sub>3</sub></question><answer>sodium iodate </answer></pair>
+<pair><question>KBrO<sub>3</sub></question><answer>potassium bromate</answer></pair>
+<pair><question>KOH </question><answer>potassium hydroxide</answer></pair>
+<pair><question>Ca(OH)<sub>2</sub> </question><answer>calcium hydroxide</answer></pair>
+<pair><question>Na<sub>2</sub>CO<sub>3</sub></question><answer>sodium carbonate</answer></pair>
+
+</match>
