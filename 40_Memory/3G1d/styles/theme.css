@@ -75,7 +75,7 @@
     padding-left: 15px;
 }
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 500px) {
     .col-xxs-6 {
         float: left;
         width: 50%;
