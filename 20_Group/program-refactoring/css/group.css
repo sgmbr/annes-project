@@ -143,6 +143,10 @@ sup {
         flex-wrap: wrap;
     }
 
+    #boxes img {
+        max-width: 128px;
+    }
+
     .question-box {
         min-height: 6rem;
         flex-basis: 9rem;
