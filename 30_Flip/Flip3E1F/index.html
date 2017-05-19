@@ -42,32 +42,13 @@
             var require = ({
                 baseUrl: config.base_url + 'scripts'
             });
-		
-		function notifyIframe(height)
+
+		function notifyIframe()
 		{
-			isFirefox = typeof InstallTrigger !== 'undefined'
-			isChrome = !!window.chrome && !!window.chrome.webstore;
-			isIE = /*@cc_on!@*/false || !!document.documentMode;
-			isEdge = !isIE && !!window.StyleMedia;
-			if (window.frameElement && window.frameElement.nodeName == "IFRAME")
-			{
-				if (height == null)
-				{
-					iFrame = parent.document.getElementById("game_ifr");
-					if (isChrome || isEdge)
-					{
-						parent.resizeIframe(iFrame.contentWindow.document.documentElement.scrollHeight + 50);
-					}
-					else
-					{
-						parent.resizeIframe(iFrame.contentWindow.document.body.scrollHeight + 50);
-					}
-				}
-				else
-				{
-					parent.resizeIframe(height);
-				}
-			}
+            if (window.frameElement && window.frameElement.nodeName == "IFRAME")
+    			{
+    			parent.resizeIframe();
+    			}
 		}
 
 		function initialize() {
@@ -80,7 +61,7 @@
 
 		initialize();
 		</script>
-		
+
         <script type="text/javascript" data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js" >
         </script>
 
@@ -98,7 +79,7 @@
                 <div id="answer-zone" class="clearfix">
                     <!-- ko foreach: question_answer_pairs -->
                         <div class="card-wrap" data-bind="css: { blank: completed() }">
-                            <div class="answer-tile col-md-3 col-xs-6" data-bind="click: $root.attempt_answer">
+                            <div class="answer-tile col-md-3 col-xs-3 col-xxs-6" data-bind="click: $root.attempt_answer">
                                     <div class="card-front-wrapper" >
                                         <div class="card">
                                             <span class="answer-text" data-bind="html: answer"></span>
@@ -133,7 +114,7 @@
                 <button class="btn btn-default" data-bind="click: toggle_sudden_death, text: sudden_death_message, attr: { class: sudden_death() ? 'btn-danger btn' : 'btn btn-default' }" ></button>
 
                 <button class="btn btn-default" data-bind="click: restart_game">Restart Game</button>
-				
+
 			<p id="scoreDisplay">Score: <span id="currentScore">0%</span></p>
 			<button id="btnSubmit">Submit</button>
             </div>

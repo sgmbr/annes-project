@@ -40,8 +40,7 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
     self.start_game = function(game_xml_path) {
       self.game_xml_path = game_xml_path;
       self.configure_game();
-	  
-	  notifyIframe();
+
 	  self.flipped = false;
       $('#region-main', window.parent.document).find('input[name="mark"]').attr('value', 0)
     };
@@ -57,12 +56,13 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
           self.pair_array = xml_parser.get_as_array();
           self.questions.set_pairs(self.pair_array);
           self.load_new_question();
+          notifyIframe();
         }
       });
 
     document.getElementById("btnSubmit").addEventListener('click',function() {
-		self.finish();  
-    }); 
+		self.finish();
+    });
 
 
 	self.displayScore = function() {
@@ -168,7 +168,7 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
                 reporting.report_status(reporting.status_codes.pass);
                 self.final_message("Well done! A great result!");
               }
-				
+
 			  $('#region-main', window.parent.document).find('input[name="mark"]').attr('value', self.questions.score())
               //reporting.set_score(self.questions.score());
               //reporting.finish();
@@ -180,7 +180,7 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
 		notifyIframe(100);
       }, 2000);
     };
-	
+
 
  };
 
