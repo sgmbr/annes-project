@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <block>
     <passing-score>80</passing-score>
-    <group>
-        <name>Accelerating</name>
-        <element><img src="images/Motion-2.jpg"/></element>
-        <element><img src="images/Motion-6.jpg"/></element>
-    </group>
+    <box>
+        <label>Accelerating</label>
+        <content><img src="images/Motion-2.jpg"/></content>
+        <content><img src="images/Motion-6.jpg"/></content>
+    </box>
 
-    <group>
-        <name>stopped</name>
-        <element><img src="images/Motion-1.jpg"/></element>
-        <element><img src="images/Motion-5.jpg"/></element>
-    </group>
+    <box>
+        <label>stopped</label>
+        <content><img src="images/Motion-1.jpg"/></content>
+        <content><img src="images/Motion-5.jpg"/></content>
+    </box>
 
-    <group>
-        <name>Constant speed</name>
-        <element><img src="images/Motion-3.jpg"/></element>
-        <element><img src="images/Motion-7.jpg"/></element>
-    </group>
+    <box>
+        <label>Constant speed</label>
+        <content><img src="images/Motion-3.jpg"/></content>
+        <content><img src="images/Motion-7.jpg"/></content>
+    </box>
 
-    <group>
-        <name>Decelerating</name>
-        <element><img src="images/Motion-4.jpg"/></element>
-        <element><img src="images/Motion-8.jpg"/></element>
-    </group>
+    <box>
+        <label>Decelerating</label>
+        <content><img src="images/Motion-4.jpg"/></content>
+        <content><img src="images/Motion-8.jpg"/></content>
+    </box>
 
 </block>

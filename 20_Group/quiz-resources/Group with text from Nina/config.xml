@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <block>
     <passing-score>80</passing-score>
-    <group>
-        <name>Quantities</name>
-        <element>force</element>
-        <element>energy</element>
-        <element>speed</element>
-        <element>acceleration</element>
-        <element>work</element>
-        <element>mass</element>
-        <element>time</element>
-        <element>distance</element>
-    </group>
+    <box>
+        <label>Quantities</label>
+        <content>force</content>
+        <content>energy</content>
+        <content>speed</content>
+        <content>acceleration</content>
+        <content>work</content>
+        <content>mass</content>
+        <content>time</content>
+        <content>distance</content>
+    </box>
 
-    <group>
-        <name>Units</name>
-        <element>second</element>
-        <element>kg</element>
-        <element>metre per second</element>
-        <element>newton</element>
-        <element>joule</element>
-        <element>m s<sup>-2</sup></element>
-        <element>cm</element>
-    </group>
+    <box>
+        <label>Units</label>
+        <content>second</content>
+        <content>kg</content>
+        <content>metre per second</content>
+        <content>newton</content>
+        <content>joule</content>
+        <content>m s<sup>-2</sup></content>
+        <content>cm</content>
+    </box>
 
 </block>
