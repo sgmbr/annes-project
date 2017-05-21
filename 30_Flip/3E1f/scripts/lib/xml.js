@@ -68,7 +68,7 @@ define("lib/xml",["text"],function() {
       {
         if (nodes[i].nodeName == "img")
         {
-          result += "<img src=\"" + config.base_url + "scripts/res/images/" + nodes[i].getAttribute("src") + "\" />";
+          result += "<img src=\"" + config.base_url + nodes[i].getAttribute("src") + "\" />";
         }
         else if (nodes[i].nodeName.match(/^i$|^b$|^sub$|^sup$/))
         {

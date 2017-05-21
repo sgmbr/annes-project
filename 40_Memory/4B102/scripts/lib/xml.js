@@ -11,17 +11,17 @@ define("lib/xml",["text"],function() {
         var xml = self.string_to_xml(self.xml_string);
         //filter just pairs
         return self.xml_pairs_to_array(xml.getElementsByTagName("pair"));
-		
+
       }
       else {
         return [];
       }
     };
-	
+
 	this.question_number = function() {
 		var array = []
 		if (self.xml_string) {
-       
+
         //filter question number
         array = self.string_to_xml(self.xml_string).getElementsByTagName("match")
 		var number_of_memory_questions =  array[0].getAttribute('numberofmemoryquestions');
@@ -29,7 +29,7 @@ define("lib/xml",["text"],function() {
 		console.log('dddd')
 		return number_of_memory_questions
       }
-		
+
 	}
 
     this.load_xml_async = function(file_path,callbacks) {
@@ -76,7 +76,7 @@ define("lib/xml",["text"],function() {
       {
         if (nodes[i].nodeName == "img")
         {
-          result += "<img src=\"" + config.base_url + "scripts/res/images/" + nodes[i].getAttribute("src") + "\" />";
+          result += "<img src=\"" + config.base_url + nodes[i].getAttribute("src") + "\" />";
         }
         else if (nodes[i].nodeName.match(/^i$|^b$|^sub$|^sup$/))
         {
