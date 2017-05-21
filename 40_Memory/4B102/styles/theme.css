@@ -59,6 +59,10 @@
   transform: translate(-50%,-50%);
 }
 
+.card img {
+    max-height: 80px;
+}
+
 .green .card {
   background-color: #66CD00 !important;
   border: none;
