@@ -36,7 +36,7 @@ sup {
     vertical-align: super;
 }
 
-#box {
+#boxes {
     display: flex;
     justify-content: space-between;
     margin: 0.5rem;
@@ -67,13 +67,13 @@ sup {
     margin-top: 1rem;
 }
 
-#ans,
+#answers,
 .answer-card {
     border: 1px solid #e3e3e3;
     border-radius: 0.25rem;
 }
 
-#ans {
+#answers {
     display: flex;
     flex-wrap: wrap;
     margin: 0.75rem;
@@ -102,10 +102,9 @@ sup {
     z-index: 50;
 }
 
-#res {
+#result {
     display: none;
     width: 80%;
-    height: 40%;
     position: absolute;
     border: 8px solid #8CB3E4;
     background: #fff;
@@ -114,15 +113,15 @@ sup {
     padding: 1rem;
 }
 
-#res p {
+#result p {
     font-size: 2rem;
 }
 
-#scoreDisplay {
+#score-display {
     margin: 0 0.75rem;
 }
 
-#btnSubmit {
+#btn-submit {
     margin: 0.75rem;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -131,7 +130,7 @@ sup {
     border-radius: 0.25rem;
 }
 
-#btnSubmit:hover {
+#btn-submit:hover {
     background-color: #ebebeb;
     border-color: #adadad;
 }
@@ -139,9 +138,13 @@ sup {
 
 @media screen and (max-width: 46rem) {
 
-    #box {
+    #boxes {
         margin: 0;
         flex-wrap: wrap;
+    }
+
+    #boxes img {
+        max-width: 128px;
     }
 
     .question-box {
@@ -153,7 +156,7 @@ sup {
         margin-top: 0.2rem;
     }
 
-    #ans {
+    #answers {
         margin: 0.75rem 0;
         padding: 0.5rem;
     }
@@ -163,7 +166,7 @@ sup {
         max-width: 8rem;
     }
 
-    #res p {
+    #result p {
         font-size: 1rem;
     }
 
