@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<match title='' numberofmemoryquestions= '18' numberofflipquestions= '18' backgroundimage='' backgroundname=''>
+<pair  ><question  >One of the forms a gene can take.</question><answer>allele</answer></pair>
+<pair  ><question  >The visible outcome of a particular genotype.</question><answer>phenotype</answer></pair>
+<pair  ><question  >A sex cell.</question><answer>gamete</answer></pair>
+<pair  ><question  >A type of allele that expresses itself if a single copy is present.</question><answer>dominent</answer></pair>
+<pair  ><question  >Part of a chromosome that codes for a particular trait.</question><answer>gene</answer></pair>
+<pair  ><question  >The two alleles for this characteristic are different.</question><answer>heterozygous</answer></pair>
+<pair  ><question  >The advantage brought by sexual reproduction.</question><answer>variation</answer></pair>
+<pair  ><question  >Pairs of chromosomes with the same genes on them.</question><answer>homologous</answer></pair>
+<pair  ><question  >Process of joining gametes to make a zygote.</question><answer>fertilisation</answer></pair>
+<pair  ><question  >Type of reproduction where the offspring are all different.</question><answer>sexual</answer></pair>
+<pair  ><question  >The molecule of life.</question><answer>DNA</answer></pair>
+<pair  ><question  >Type of cell division to form sex cells.</question><answer>meiosis</answer></pair>
+<pair  ><question  >The two alleles for this characteristic are the same.</question><answer>homozygous</answer></pair>
+<pair  ><question  >Thread that carry the genetic code for an organism.</question><answer>chromosomes</answer></pair>
+<pair  ><question  >Another term for a characteristic.</question><answer>trait</answer></pair>
+<pair  ><question  >An individual's coding for a particular characteristic.</question><answer>genotype</answer></pair>
+<pair  ><question  >A fertilised egg: the first cell of a new organism.</question><answer>zygote</answer></pair>
+<pair  ><question  >A type of allele that can does not express itself if the other allele is also present.</question><answer>recessive</answer></pair>
+<pair  ><question  >Normal cell division.</question><answer>mitosis</answer></pair>
+<pair  ><question  >Type of reproduction that produces copies of the parent.</question><answer>asexual</answer></pair>
+
+</match>
