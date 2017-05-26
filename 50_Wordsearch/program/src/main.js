@@ -17,6 +17,10 @@ window.onload = function() {
             // start a word find game
             var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
 
+            $('#solve').click( function() {
+              wordfindgame.solve(gamePuzzle, words);
+            });
+
             //let quiz = new Quiz(xml)
             //View.setUp()
             //let controller = new Controller(quiz, View)

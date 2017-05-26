@@ -220,6 +220,10 @@
           $('.selected').addClass('found');
           wordList.splice(i,1);
           $('.' + curWord).addClass('wordFound');
+
+          // show selected pair
+          $('#selected-word').html(curWord);
+          $('#selected-meaning').html($('.' + curWord).html());
         }
 
         if (wordList.length === 0) {
@@ -307,7 +311,8 @@
       */
       solve: function(puzzle, words) {
 
-        var solution = wordfind.solve(puzzle, words).found;
+        wordList = words.map(word => word.word)
+        var solution = wordfind.solve(puzzle, wordList).found;
 
         for( var i = 0, len = solution.length; i < len; i++) {
           var word = solution[i].word,

@@ -29,8 +29,9 @@
             <div id="words"></div>
             <div>
                 <div id="puzzle"></div>
-                <div id="answer">
-                    <p>Show answer here</p>
+                <div id="selected-pair">
+                    <p id="selected-word"></p>
+                    <p id="selected-meaning"></p>
                 </div>
             </div>
         </div>
@@ -46,10 +47,6 @@
         <script src="src/main.js"></script>
 
         <script>
-          $('#solve').click( function() {
-            wordfindgame.solve(gamePuzzle, words);
-          });
-
         </script>
     </body>
 </html>

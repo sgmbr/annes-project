@@ -82,6 +82,13 @@ button::-moz-focus-inner {
 }
 
 /**
+* Styles for the selected pair
+*/
+#selected-word {
+    text-transform: uppercase;
+}
+
+/**
 * Styles for the button
 */
 #solve {
