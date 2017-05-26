@@ -10,12 +10,13 @@ window.onload = function() {
             let xml = request.responseXML
             // parse xml
             let parser = new Parser()
-            let words = parser.parseWordsearchXml(xml)
+            let options = parser.parseOptions(xml)
+            let words = parser.parseWords(xml)
             // create wordsearch
             //var words = [{word: 'cows', meaning: 'animal'}, {word: 'tracks', meaning: 'a type of cars'}, {word: 'arrived', meaning: 'state of just being there'}];
 
             // start a word find game
-            var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
+            var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words', options);
 
             $('#show-answer').mousedown( function() {
               wordfindgame.showAnswer(gamePuzzle, words);
@@ -24,7 +25,7 @@ window.onload = function() {
               wordfindgame.hideAnswer();
             });
             $('#rebuild').click(function() {
-                gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
+                gamePuzzle = wordfindgame.create(words, '#puzzle', '#words', options);
             })
 
             //let quiz = new Quiz(xml)

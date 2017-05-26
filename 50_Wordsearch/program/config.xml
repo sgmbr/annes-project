@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <match>
+    <options>
+        <height>12</height>
+        <width>12</width>
+        <orientations>
+            <horizontal>on</horizontal>
+            <horizontalBack>off</horizontalBack>
+            <vertical>on</vertical>
+            <verticalUp>off</verticalUp>
+            <diagonal>on</diagonal>
+            <diagonalUp>on</diagonalUp>
+            <diagonalBack>off</diagonalBack>
+            <diagonalUpBack>off</diagonalUpBack>
+        </orientations>
+    </options>
 <pair><question>One of the forms a gene can take.</question><answer>allele</answer></pair>
 <pair><question>The visible outcome of a particular genotype.</question><answer>phenotype</answer></pair>
 <pair><question>A sex cell.</question><answer>gamete</answer></pair>
