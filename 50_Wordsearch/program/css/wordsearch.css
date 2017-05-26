@@ -1,173 +1,89 @@
-/* RESET */
+/**
+* Wordfind.js 0.0.1
+* (c) 2012 Bill, BunKat LLC.
+* Wordfind is freely distributable under the MIT license.
+* For all details and documentation:
+*     http://github.com/bunkat/wordfind
+*/
 
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, a, article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {
-    /* Cancel out some differences between browser defaults */
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-* {
-    /* The width of an element will be the size of its border box, not its content box (which is the normal default). */
-    box-sizing: border-box;
-}
-
-main {
-    /* Make sure the browser knows how to display the HTML5 main element. */
-    display: block;
-}
-
-
-/* STYLES */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #fff;
-}
-
-sub {
-    font-size: 70%;
-    vertical-align: sub;
-}
-
-sup {
-    font-size: 70%;
-    vertical-align: super;
-}
-
-#boxes {
+.container {
     display: flex;
-    justify-content: space-between;
-    margin: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.question-box {
-    flex-grow: 1;
-    flex-basis: 12rem;
-    min-height: 12rem;
-    margin: 0 0.25rem 0.25rem 0.25rem;
-    border-radius: 0.25rem;
-    background-color: #8bc34a;
-    padding: 0 0.25rem;
-    display: flex;
-    flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: center;
-}
-
-.question-box.hovered {
-    background: #689f38;
-}
-
-.question-box > p {
-    flex-basis: 100%;
-    text-align: center;
-    margin-top: 1rem;
-}
-
-#answers,
-.answer-card {
-    border: 1px solid #e3e3e3;
-    border-radius: 0.25rem;
-}
-
-#answers {
-    display: flex;
     flex-wrap: wrap;
-    margin: 0.75rem;
-    padding: 1rem;
-    background: #fff;
-    min-height: 3rem;
-    max-width: 100%;
 }
 
-.answer-card {
-    flex-basis: 10rem;
-    min-height: 3rem;
-    margin: 0 0.5rem 0.5rem 0;
-    padding: 0.5rem 0;
-    background: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+/**
+* Styles for the puzzle
+*/
+#puzzle {
+  border: 1px solid black;
+}
+/*
+#puzzle div {
+  width: 100%;
+  margin: 0 auto;
+}
+*/
+
+/* style for each square in the puzzle */
+#puzzle .puzzleSquare {
+  height: 1.5em;
+  width: 1.5em;
+  text-transform: uppercase;
+  background-color: white;
+  border: 0;
+  font: 1rem sans-serif;
 }
 
-.answer-card.ui-draggable-dragging {
-    -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
-    box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
-    z-index: 50;
+button::-moz-focus-inner {
+  border: 0;
 }
 
-#result {
-    display: none;
-    width: 80%;
-    position: absolute;
-    border: 8px solid #8CB3E4;
-    background: #fff;
-    z-index: 99;
-    margin: 10%;
-    padding: 1rem;
+/* indicates when a square has been selected */
+#puzzle .selected {
+  background-color: orange;
 }
 
-#result p {
-    font-size: 2rem;
+/* indicates that the square is part of a word that has been found */
+#puzzle .found {
+  background-color: blue;
+  color: white;
 }
 
-#score-display {
-    margin: 0 0.75rem;
+#puzzle .solved {
+  background-color: purple;
+  color: white;
 }
 
-#btn-submit {
-    margin: 0.75rem;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    height: 2rem;
-    width: 6rem;
-    border-radius: 0.25rem;
+/* indicates that all words have been found */
+#puzzle .complete {
+  background-color: green;
 }
 
-#btn-submit:hover {
-    background-color: #ebebeb;
-    border-color: #adadad;
+/**
+* Styles for the word list
+*/
+#words {
+  border: 1px solid black;
 }
 
+#words ul {
+  list-style-type: none;
+}
 
-@media screen and (max-width: 46rem) {
+#words li {
+  padding: 3px 0;
+  font: 1em sans-serif;
+}
 
-    #boxes {
-        margin: 0;
-        flex-wrap: wrap;
-    }
+/* indicates that the word has been found */
+#words .wordFound {
+  color: red;
+}
 
-    #boxes img {
-        max-width: 128px;
-    }
-
-    .question-box {
-        min-height: 6rem;
-        flex-basis: 9rem;
-    }
-
-    .question-box > p {
-        margin-top: 0.2rem;
-    }
-
-    #answers {
-        margin: 0.75rem 0;
-        padding: 0.5rem;
-    }
-
-    .answer-card {
-        flex-basis: auto;
-        max-width: 8rem;
-    }
-
-    #result p {
-        font-size: 1rem;
-    }
-
+/**
+* Styles for the button
+*/
+#solve {
+  margin: 0 30px;
 }
