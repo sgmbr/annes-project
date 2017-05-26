@@ -1,3 +1,4 @@
+/* jshint undef: true, unused: true, esversion: 6, asi: true, browser: true, jquery: true */
 /**
  * Wordfind.js 0.0.1
  * (c) 2012 Bill, BunKat LLC.
@@ -26,6 +27,10 @@
 
         // List of words for this game
         var wordList;
+
+        // Score of this game
+        var score = 0;
+        var scorePerWord = 0;
 
         /**
          * Draws the puzzle by inserting rows of buttons into el.
@@ -225,6 +230,10 @@
                     // show selected pair
                     $('#selected-word').html(curWord);
                     $('#selected-meaning').html($('.' + curWord).html());
+
+                    // add score
+                    score += scorePerWord;
+                    $('#current-score').html(Math.round(score))
                 }
 
                 if (wordList.length === 0) {
@@ -279,6 +288,8 @@
 
                 wordList = words.map(word => word.word)
 
+                scorePerWord = 100 / wordList.length
+
                 var puzzle = wordfind.newPuzzle(wordList, options);
 
                 // draw out all of the words
@@ -311,7 +322,6 @@
              */
             showAnswer: function(puzzle, words) {
 
-                wordList = words.map(word => word.word)
                 var solution = wordfind.solve(puzzle, wordList).found;
 
                 for (var i = 0, len = solution.length; i < len; i++) {

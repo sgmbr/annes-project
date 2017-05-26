@@ -19,10 +19,10 @@ window.onload = function() {
             var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words', options);
 
             $('#show-answer').mousedown( function() {
-              wordfindgame.showAnswer(gamePuzzle, words);
+                wordfindgame.showAnswer(gamePuzzle, words);
             });
             $('#show-answer').mouseup( function() {
-              wordfindgame.hideAnswer();
+                wordfindgame.hideAnswer();
             });
             $('#rebuild').click(function() {
                 gamePuzzle = wordfindgame.create(words, '#puzzle', '#words', options);
