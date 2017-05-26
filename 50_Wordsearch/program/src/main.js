@@ -23,6 +23,9 @@ window.onload = function() {
             $('#show-answer').mouseup( function() {
               wordfindgame.hideAnswer();
             });
+            $('#rebuild').click(function() {
+                gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
+            })
 
             //let quiz = new Quiz(xml)
             //View.setUp()
