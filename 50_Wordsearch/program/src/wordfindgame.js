@@ -304,12 +304,12 @@
             },
 
             /**
-             * Solves an existing puzzle.
+             * Show answer of an existing puzzle.
              *
              * @param {[[String]]} puzzle: The puzzle to solve
              * @param {[String]} words: The words to solve for
              */
-            solve: function(puzzle, words) {
+            showAnswer: function(puzzle, words) {
 
                 wordList = words.map(word => word.word)
                 var solution = wordfind.solve(puzzle, wordList).found;
@@ -326,12 +326,17 @@
                             var nextPos = next(x, y, j);
                             $('[x="' + nextPos.x + '"][y="' + nextPos.y + '"]').addClass('solved');
                         }
-
-                        $('.' + word).addClass('wordFound');
                     }
                 }
+            },
 
+            /**
+             * Hide answer of an existing puzzle.
+             */
+            hideAnswer: function() {
+                $('.puzzleSquare').removeClass('solved');
             }
+
         };
     };
 
