@@ -8,12 +8,11 @@ window.onload = function() {
         if (request.status >= 200 && request.status < 400) {
             // success
             let xml = request.responseXML
+
             // parse xml
             let parser = new Parser()
             let options = parser.parseOptions(xml)
             let words = parser.parseWords(xml)
-            // create wordsearch
-            //var words = [{word: 'cows', meaning: 'animal'}, {word: 'tracks', meaning: 'a type of cars'}, {word: 'arrived', meaning: 'state of just being there'}];
 
             // start a word find game
             var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words', options);
@@ -26,11 +25,15 @@ window.onload = function() {
             });
             $('#rebuild').click(function() {
                 gamePuzzle = wordfindgame.create(words, '#puzzle', '#words', options);
+                $('#selected-word').html('')
+                $('#selected-meaning').html('')
+                $('#current-score').html('0')
             })
 
             //let quiz = new Quiz(xml)
-            //View.setUp()
-            //let controller = new Controller(quiz, View)
+            let quiz = gamePuzzle
+            View.setUp()
+            let controller = new Controller(quiz, View)
 
             // resize iframe at the beginning of the quiz
             parent.resizeIframe()

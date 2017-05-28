@@ -288,6 +288,7 @@
 
                 wordList = words.map(word => word.word)
 
+                score = 0
                 scorePerWord = 100 / wordList.length
 
                 var puzzle = wordfind.newPuzzle(wordList, options);

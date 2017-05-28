@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <match>
     <options>
+        <passingScore>80</passingScore>
         <height>12</height>
         <width>12</width>
         <orientations>
@@ -34,5 +35,4 @@
     <pair><question>A type of allele that can does not express itself if the other allele is also present.</question><answer>recessive</answer></pair>
     <pair><question>Normal cell division.</question><answer>mitosis</answer></pair>
     <pair><question>Type of reproduction that produces copies of the parent.</question><answer>asexual</answer></pair>
-
 </match>

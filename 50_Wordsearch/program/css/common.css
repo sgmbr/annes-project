@@ -45,7 +45,7 @@ body {
     margin: 0 0.75rem;
 }
 
-#btn-submit {
+.btn {
     margin: 0.75rem;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -54,7 +54,7 @@ body {
     border-radius: 0.25rem;
 }
 
-#btn-submit:hover {
+.btn:hover {
     background-color: #ebebeb;
     border-color: #adadad;
 }

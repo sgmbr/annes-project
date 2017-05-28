@@ -24,26 +24,30 @@
             <button id="btn-try-again">Try again</button>
         </div>
 
-        <p>Look for words with these meanings:</p>
         <div class="container">
-            <div id="words"></div>
-            <div>
-                <div id="puzzle"></div>
-                <div id="selected-pair">
-                    <p id="selected-word"></p>
-                    <p id="selected-meaning"></p>
+            <p id="instruction">Look for words with these meanings:</p>
+            <div class="puzzle-container">
+                <div id="words"></div>
+                <div id="right-pane">
+                    <div id="puzzle"></div>
+                    <div id="selected-pair">
+                        <p id="selected-word"></p>
+                        <p id="selected-meaning"></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <button id="rebuild">Rebuild</button>
-        <button id='show-answer'>Show Answers</button>
+            <button class="btn" id="rebuild">Rebuild</button>
+            <button class="btn" id='show-answer'>Show Answers</button>
 
-        <p id="score-display">Score: <span id="current-score">0</span></p>
-        <button id="btn-submit">Submit</button>
+            <p id="score-display">Score: <span id="current-score">0</span></p>
+            <button class="btn" id="btn-submit">Submit</button>
+        </div>
 
         <script src="src/wordfind.js"></script>
         <script src="src/wordfindgame.js"></script>
         <script src="src/parser.js"></script>
+        <script src="src/view.js"></script>
+        <script src="src/controller.js"></script>
         <script src="src/main.js"></script>
 
         <script>

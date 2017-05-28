@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <block>
     <passing-score>80</passing-score>
-    <group>
-        <name>Quantities1</name>
-        <element>1force awordsuperlooooooooooooooooooooooooooong</element>
-        <element>1energy awordsuperlooooooooooooooooooooooooooong</element>
-        <element>1speed awordsuperlooooooooooooooooooooooooooong</element>
-    </group>
+    <box>
+        <label>Quantities1</label>
+        <content>1force awordsuperlooooooooooooooooooooooooooong</content>
+        <content>1energy awordsuperlooooooooooooooooooooooooooong</content>
+        <content>1speed awordsuperlooooooooooooooooooooooooooong</content>
+    </box>
 
-    <group>
-        <name>Quantities2</name>
-        <element>2acceleration awordsuperlooooooooooooooooooooooooooong</element>
-        <element>2work</element>
-        <element>2mass</element>
-    </group>
+    <box>
+        <label>Quantities2</label>
+        <content>2acceleration awordsuperlooooooooooooooooooooooooooong</content>
+        <content>2work</content>
+        <content>2mass</content>
+    </box>
 
-    <group>
-        <name>Quantities3</name>
-        <element>3time</element>
-        <element>3distance awordsuperlooooooooooooooooooooooooooong</element>
-    </group>
+    <box>
+        <label>Quantities3</label>
+        <content>3time</content>
+        <content>3distance awordsuperlooooooooooooooooooooooooooong</content>
+    </box>
 
-    <group>
-        <name>Units1</name>
-        <element>1second</element>
-        <element>1kg</element>
-    </group>
+    <box>
+        <label>Units1</label>
+        <content>1second</content>
+        <content>1kg</content>
+    </box>
 
-    <group>
-        <name>Units2</name>
-        <element>2metre per second</element>
-        <element>2newton</element>
-    </group>
+    <box>
+        <label>Units2</label>
+        <content>2metre per second</content>
+        <content>2newton</content>
+    </box>
 
-    <group>
-        <name>Units3</name>
-        <element>3joule</element>
-        <element>3m s<sup>-2</sup></element>
-        <element>3cm</element>
-    </group>
+    <box>
+        <label>Units3</label>
+        <content>3joule</content>
+        <content>3m s<sup>-2</sup></content>
+        <content>3cm</content>
+    </box>
 
 </block>

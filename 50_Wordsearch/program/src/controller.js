@@ -2,10 +2,10 @@
 
 class Controller {
     constructor(newQuiz, newView) {
-        Controller.myQuiz = newQuiz     // Model: Quiz instance
+        //Controller.myQuiz = newQuiz     // Model: Quiz instance
         Controller.myView = newView     // View: View class
 
-        Controller.createQuizElements()
+        //Controller.createQuizElements()
         Controller.setUpEventListeners()
     }
 
@@ -26,15 +26,17 @@ class Controller {
     static setUpEventListeners() {
         window.addEventListener('submitEvent', Controller.submitEventHandler, false) // when "submit" button clicked
         window.addEventListener('tryAgainEvent', Controller.tryAgainEventHandler, false) // when "Try Again" button clicked
-        window.addEventListener('scoreUpdateEvent', Controller.scoreUpdateEventHandler, false) // when quiz score is updated
-        window.addEventListener('resizeIframeEvent', Controller.resizeIframeEventHandler, false) // when an answer card is moved to a correct box
-        window.addEventListener('dropEvent', Controller.dropEventHandler, false) // when an answer card is dropped to a box
+        //window.addEventListener('scoreUpdateEvent', Controller.scoreUpdateEventHandler, false) // when quiz score is updated
+        //window.addEventListener('resizeIframeEvent', Controller.resizeIframeEventHandler, false) // when an answer card is moved to a correct box
+        //window.addEventListener('dropEvent', Controller.dropEventHandler, false) // when an answer card is dropped to a box
     }
 
     static submitEventHandler(event) {
-        let score = Controller.myQuiz.getRoundedQuizScore()
-        let passingScore = Controller.myQuiz.passingScore
-        Controller.myView.removeDraggableAll()
+        //let score = Controller.myQuiz.getRoundedQuizScore()
+        //let passingScore = Controller.myQuiz.passingScore
+        //Controller.myView.removeDraggableAll()
+        let score = Number(document.getElementById('current-score').innerHTML)
+        let passingScore = 80
         Controller.myView.displayResult(score, passingScore)
         Controller.myView.sendScoreToMoodle(score)
     }

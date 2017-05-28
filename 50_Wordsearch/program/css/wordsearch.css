@@ -7,9 +7,25 @@
 */
 
 .container {
+    margin: 0 auto;
+}
+
+.puzzle-container {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+}
+
+#instruction {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem;
+}
+
+#right-pane {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 /**
@@ -17,6 +33,7 @@
 */
 #puzzle {
   border: 1px solid black;
+  padding: 0.5rem;
 }
 /*
 #puzzle div {
@@ -27,12 +44,12 @@
 
 /* style for each square in the puzzle */
 #puzzle .puzzleSquare {
-  height: 1.5em;
-  width: 1.5em;
+  height: 1.3em;
+  width: 1.3em;
   text-transform: uppercase;
   background-color: white;
   border: 0;
-  font: 1rem sans-serif;
+  font: 1.2rem sans-serif;
 }
 
 button::-moz-focus-inner {
@@ -65,6 +82,9 @@ button::-moz-focus-inner {
 */
 #words {
   border: 1px solid black;
+  max-width: 37.5rem;
+  padding: 0.5rem;
+  margin-right: 1rem;
 }
 
 #words ul {
@@ -84,13 +104,31 @@ button::-moz-focus-inner {
 /**
 * Styles for the selected pair
 */
+#selected-pair {
+    margin: 1rem 0;
+    max-width: 21rem;
+}
+
 #selected-word {
     text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 /**
-* Styles for the button
+* Styles for the buttons
 */
-#solve {
-  margin: 0 30px;
+#show-answer {
+    width: 10rem;
+}
+
+/**
+* Styles for the mobile
+*/
+@media screen and (max-width: 46rem) {
+
+    #puzzle .puzzleSquare {
+        font-size: 0.9rem;
+    }
+
 }
