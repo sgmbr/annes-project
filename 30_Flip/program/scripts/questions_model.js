@@ -75,12 +75,8 @@ define("questions_model",["ko","lib/util"],function(ko,utils){
     };
 
     //get pairs from loaded json object and map to the model
-    self.set_pairs = function(pairs_array) {
-      var question_count;
-      if ( config.number_of_questions && config.number_of_questions <= pairs_array.length ) {
-        question_count = config.number_of_questions;
-      }
-      else {
+    self.set_pairs = function(pairs_array, question_count) {
+      if ( !question_count || question_count > pairs_array.length ) {
         question_count = pairs_array.length
       }
 

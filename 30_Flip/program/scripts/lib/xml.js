@@ -17,6 +17,17 @@ define("lib/xml",["text"],function() {
       }
     };
 
+    this.get_question_count = function() {
+      if (self.xml_string) {
+        var xml = self.string_to_xml(self.xml_string);
+        var question_count = Number(xml.getElementsByTagName("match")[0].getAttribute('numberofquestions'));
+        return question_count;
+      }
+      else {
+        return 0;
+      }
+    };
+
     this.load_xml_async = function(file_path,callbacks) {
       require(["text!" + file_path],
         function(xml) {

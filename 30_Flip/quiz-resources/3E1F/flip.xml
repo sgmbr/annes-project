@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<match title='' numberofmemoryquestions= '18' numberofflipquestions= '18' backgroundimage='' backgroundname=''>
+<match numberofquestions= '18'>
 <pair><question>sodium chloride </question><answer> NaCl </answer></pair>
 <pair><question>copper sulfate</question><answer>CuSO<sub>4</sub></answer></pair>
 <pair><question>hydrochloric acid </question><answer>HCl </answer></pair>

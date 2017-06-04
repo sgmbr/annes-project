@@ -54,7 +54,8 @@ define("game",["jquery","ko","lib/xml","questions_model","lib/" + config.reporti
       {
         done: function() {
           self.pair_array = xml_parser.get_as_array();
-          self.questions.set_pairs(self.pair_array);
+          self.question_count = xml_parser.get_question_count();
+          self.questions.set_pairs(self.pair_array, self.question_count);
           self.load_new_question();
           notifyIframe();
         }
