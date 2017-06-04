@@ -39,6 +39,7 @@ class Controller {
     }
 
     static showAnswerEventHandler(event) {
+        Controller.myQuiz.reduceScorePerWord()
         let solutions = Controller.myQuiz.solution.found
         for (let solution of solutions) {
             let word = solution.word,

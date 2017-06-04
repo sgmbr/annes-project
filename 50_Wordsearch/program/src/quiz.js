@@ -17,7 +17,6 @@ class Quiz {
         this.questions = parser.parseQuestions(xml)
         this.options = parser.parseOptions(xml)
         this.passingScore = parser.parsePassingScore(xml)
-        this.scorePerWord = 100 / this.questions.length
 
         this.initialize()
     }
@@ -27,12 +26,22 @@ class Quiz {
         this.grid = this.gridGenerator.newPuzzle(words, this.options)
         this.solution = this.gridGenerator.solve(this.grid, words)
         this.score = 0
+        this.addQuizScore(0) // to notify score
+        this.scorePerWord = 100 / this.questions.length
+        this.scoreReduceBy = this.scorePerWord / 10
+        this.questions.forEach(question => {
+            question.answered = false
+        })
     }
 
     addQuizScore(score) {
         this.score += score
         let eventInput = new Event('scoreUpdateEvent')
         window.dispatchEvent(eventInput)
+    }
+
+    reduceScorePerWord() {
+        this.scorePerWord -= this.scoreReduceBy
     }
 
     getRoundedQuizScore() {
