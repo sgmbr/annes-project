@@ -103,7 +103,7 @@ class GridGenerator {
 
         for (let i = 0, len = words.length; i < len; i++) {
             let word = words[i],
-                locations = this.grid.findBestLocations(puzzle, options, word)
+                locations = this.grid.findBestLocations(puzzle, options, word, 'solve')
 
             if (locations.length > 0 && locations[0].overlap === word.length) {
                 locations[0].word = word

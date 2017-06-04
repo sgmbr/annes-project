@@ -153,7 +153,7 @@ class Grid {
      * @param {[Options]} options: The options to use when filling the puzzle
      * @param {String} word: The word to fit into the puzzle.
      */
-    findBestLocations(puzzle, options, word) {
+    findBestLocations(puzzle, options, word, mode = 'create') {
 
         let locations = [],
             height = options.height,
@@ -178,7 +178,7 @@ class Grid {
                 if (check(x, y, height, width, wordLength)) {
 
                     // determine if the word fits at the current position
-                    let overlap = this.calcOverlap(word, puzzle, x, y, next)
+                    let overlap = this.calcOverlap(word, puzzle, x, y, next, mode)
 
                     // if the overlap was bigger than previous overlaps that we've seen
                     if (overlap >= maxOverlap || (!options.preferOverlap && overlap > -1)) {
@@ -222,7 +222,7 @@ class Grid {
      * @param {int} y: The y position to check
      * @param {function} fnGetSquare: Function that returns the next square
      */
-    calcOverlap(word, puzzle, x, y, fnGetSquare) {
+    calcOverlap(word, puzzle, x, y, fnGetSquare, mode) {
         let overlap = 0
 
         // traverse the squares to determine if the word fits
@@ -245,6 +245,10 @@ class Grid {
 
         // if the entire word is overlapping, skip it to ensure words aren't
         // hidden in other words
+        if (mode === 'create' && overlap === word.length) {
+            return -1
+        }
+
         return overlap
     }
 
