@@ -139,6 +139,7 @@ button::-moz-focus-inner {
     #grid .puzzleSquare {
         font-size: 0.9rem;
         width: 18px;
+        height: 18px;
     }
 
 }
