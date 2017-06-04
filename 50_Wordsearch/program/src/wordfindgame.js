@@ -7,7 +7,7 @@
  *     http://github.com/bunkat/wordfind
  */
 
-(function(document, $, wordfind) {
+(function(document, $) {
 
     'use strict';
 
@@ -17,6 +17,7 @@
      *
      * WordFindGame requires wordfind.js and jQuery.
      */
+     var wordfind = new GridGenerator()
 
     /**
      * Initializes the WordFindGame object.
@@ -357,4 +358,4 @@
      */
     window.wordfindgame = WordFindGame();
 
-}(document, jQuery, wordfind));
+}(document, jQuery));

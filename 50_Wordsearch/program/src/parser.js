@@ -26,16 +26,23 @@ class Parser {
         return out
     }
 
-    parseWords(xml) {
+    parseQuestions(xml) {
         this.parsed = []
         let pairs = xml.getElementsByTagName('pair')
         Array.from(pairs).forEach( aPair => {
             let wordPair = {
                 word: aPair.getElementsByTagName('answer')[0].innerHTML,
-                meaning: aPair.getElementsByTagName('question')[0].innerHTML
+                meaning: aPair.getElementsByTagName('question')[0].innerHTML,
+                answered: false
             }
             this.parsed.push(wordPair)
         })
         return this.parsed
+    }
+
+    parsePassingScore(xml) {
+        let passingScoreXml = xml.getElementsByTagName('passing-score')[0]
+        let passingScore = Number(passingScoreXml.innerHTML)
+        return passingScore
     }
 }

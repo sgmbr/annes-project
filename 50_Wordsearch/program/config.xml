@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <match>
     <options>
-        <passingScore>80</passingScore>
+        <passing-score>80</passing-score>
         <height>12</height>
         <width>12</width>
         <orientations>

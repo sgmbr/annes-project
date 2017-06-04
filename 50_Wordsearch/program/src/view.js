@@ -2,113 +2,158 @@
 
 class View {
     static setUp() {
+        View.setUpRebuildBtn('btn-rebuild')
+        View.setUpShowAnswerBtn('btn-show-answer')
         View.setUpSubmitBtn('btn-submit')
         View.setUpTryAgainBtn('btn-try-again')
     }
 
-    static fireCustomEvent(eventName) {
+    static fireEvent(eventName) {
         let eventInput = new Event(eventName)
         window.dispatchEvent(eventInput)
     }
 
+    static setUpRebuildBtn(tagId) {
+        document.getElementById(tagId).onclick = function(event) {
+            View.fireEvent('rebuildEvent')
+        }
+    }
+
+    static setUpShowAnswerBtn(tagId) {
+        document.getElementById(tagId).onclick = function(event) {
+            if (this.classList.toggle('active')) {
+                // when the 'active' class is added
+                View.fireEvent('showAnswerEvent')
+            } else {
+                // when the 'active' class is removed
+                View.fireEvent('hideAnswerEvent')
+            }
+        }
+    }
+
     static setUpSubmitBtn(tagId) {
         document.getElementById(tagId).onclick = function(event) {
-            View.fireCustomEvent('submitEvent')
+            View.fireEvent('submitEvent')
         }
     }
 
     static setUpTryAgainBtn(tagId) {
         document.getElementById(tagId).onclick = function(event) {
-            View.fireCustomEvent('tryAgainEvent')
+            View.fireEvent('tryAgainEvent')
         }
     }
 
-    // helper method to create question and answer element
-    static createDivElement(str) {
-        let div = document.createElement('div')
-        let p = document.createElement('p')
-        p.innerHTML = str
-        div.appendChild(p)
-        return div
-    }
-
-    static createQuestionBoxElement(str) {
-        let boxContainer = document.getElementById('boxes')
-        let box = View.createDivElement(str)
-        box.classList.add('question-box')
-        boxContainer.appendChild(box)
-
-        $(box).droppable({
-            accept: '.answer-card',
-            hoverClass: 'hovered',
-            drop: (event, ui) => {
-                // use CustomEvent to pass data.
-                let eventInput = new CustomEvent('dropEvent', {
-                    'detail': {
-                        'question': str,
-                        'answer': ui.draggable[0].children[0].innerHTML
-                    }
-                })
-                window.dispatchEvent(eventInput)
+    static fireGridEvent(eventName, letter) {
+        let eventInput = new CustomEvent(eventName, {
+            'detail': {
+                'x' : Number(letter.getAttribute('x')),
+                'y' : Number(letter.getAttribute('y'))
             }
         })
+        window.dispatchEvent(eventInput)
     }
 
-    static createAnswerCardElement(str) {
-        let answerContainer = document.getElementById('answers')
-        let answerCard = View.createDivElement(str)
-        answerCard.classList.add('answer-card')
-        answerContainer.appendChild(answerCard)
 
-        $(answerCard).draggable({
-            containment: 'body',
-            revert: true
-        })
-    }
-
-    // for shuffling question boxes and answer cards
-    static shuffleContents(tagId) {
-        let target = document.getElementById(tagId)
-        let divs = target.getElementsByTagName('div')
-        for (let i = 0; i < divs.length; i++) {
-            let randomDivNumber = Math.floor(Math.random() * divs.length)
-            target.appendChild(Array.from(divs).splice(randomDivNumber, 1)[0])
+    static setUpGrid() {
+        let letters = document.querySelectorAll('.puzzleSquare')
+        for (let letter of letters) {
+            letter.onmousedown = (event) => {
+                View.fireGridEvent('startTurnEvent', letter)
+            }
+            letter.onmouseenter = (event) => {
+                View.fireGridEvent('selectEvent', letter)
+            }
+            letter.onmouseup = (event) => {
+                View.fireGridEvent('endTurnEvent', letter)
+            }
         }
     }
 
-    // find a question box or answer card of specific strings
-    static findDiv(tagId, str) {
-        let divs = document.getElementById(tagId).getElementsByTagName('div')
-        let foundDiv = Array.from(divs).find(div => {
-            let divContent = div.children[0].innerHTML
-            if (divContent == str) {
-                return div
+    /**
+     * Draws the puzzle by inserting rows of buttons into el.
+     *
+     * @param {String} el: The jQuery element to write the puzzle to
+     * @param {[[String]]} puzzle: The puzzle to draw
+     */
+    static drawGrid(grid) {
+        let el = '#grid'
+        let output = ''
+        // for each row in the puzzle
+        for (let i = 0, height = grid.length; i < height; i++) {
+            // append a div to represent a row in the puzzle
+            let row = grid[i]
+            output += '<div>'
+            // for each element in that row
+            for (let j = 0, width = row.length; j < width; j++) {
+                // append our button with the appropriate class
+                output += '<button class="puzzleSquare" x="' + j + '" y="' + i + '">'
+                output += row[j] || '&nbsp;'
+                output += '</button>'
             }
-        })
-        return foundDiv
+            // close our div that represents a row
+            output += '</div>'
+        }
+
+        $(el).html(output)
     }
 
-    static moveAnswerCardToBox(answer, question) {
-        let answerDiv = View.findDiv('answers', answer)
-        let questionDiv = View.findDiv('boxes', question)
-        questionDiv.appendChild(answerDiv)
-        // resize iframe to fit height after possible expansion of question box
-        View.fireCustomEvent('resizeIframeEvent')
+    /**
+     * Draws the words by inserting an unordered list into el.
+     *
+     * @param {String} el: The jQuery element to write the words to
+     * @param {[String]} words: The words to draw
+     */
+    static drawQuestions(questions) {
+        let el = '#questions'
+        let output = '<ul>'
+        for (let i = 0, len = questions.length; i < len; i++) {
+            let question = questions[i]
+            output += '<li class="word ' + question.word + '">' + question.meaning
+        }
+        output += '</ul>'
+
+        $(el).html(output)
     }
 
-    static removeDraggable(answer) {
-        let answerDiv = View.findDiv('answers', answer)
-        // setting revertDuration to 0 makes it look like snapping into a box
-        // revert is necessary because otherwise it keeps relative position
-        $(answerDiv).draggable('option', 'revertDuration', 0)
-        $(answerDiv).draggable('disable')
+    static addSelected(x, y) {
+        let element = $(`[x="${x}"][y="${y}"]`)
+        element.addClass('selected')
     }
 
-    static removeDraggableAll() {
-        let divs = document.getElementById('answers').getElementsByTagName('div')
-        Array.from(divs).forEach(div => {
-            $(div).draggable('disable')
-        })
+    static removeSelected(x, y) {
+        let element = $(`[x="${x}"][y="${y}"]`)
+        element.removeClass('selected')
+    }
+
+    static removeSelectedAll() {
+        $('.selected').removeClass('selected');
+    }
+
+    static found(word) {
+        $('.selected').addClass('found');
+        $('.' + word).addClass('wordFound');
+    }
+
+    static complete() {
+        $('.puzzleSquare').addClass('complete');
+    }
+
+    static showSelectedWord(question) {
+        $('#selected-word').html(question.word);
+        $('#selected-meaning').html(question.meaning);
+    }
+
+    static showAnswer(word, orientation, x, y, next) {
+        if (!$('.' + word).hasClass('wordFound')) {
+            for (let i = 0, size = word.length; i < size; i++) {
+                var nextPos = next(x, y, i);
+                $('[x="' + nextPos.x + '"][y="' + nextPos.y + '"]').addClass('solved');
+            }
+        }
+    }
+
+    static hideAnswer() {
+        $('.puzzleSquare').removeClass('solved');
     }
 
     static updateCurrentScore(score) {

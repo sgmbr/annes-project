@@ -9,11 +9,13 @@ window.onload = function() {
             // success
             let xml = request.responseXML
 
-            // parse xml
-            let parser = new Parser()
-            let options = parser.parseOptions(xml)
-            let words = parser.parseWords(xml)
+            let quiz = new Quiz()
+            quiz.setUp(xml)
+            let view = View
+            view.setUp()
+            let controller = new Controller(quiz, view)
 
+            /*
             // start a word find game
             var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words', options);
 
@@ -29,11 +31,7 @@ window.onload = function() {
                 $('#selected-meaning').html('')
                 $('#current-score').html('0')
             })
-
-            //let quiz = new Quiz(xml)
-            let quiz = gamePuzzle
-            View.setUp()
-            let controller = new Controller(quiz, View)
+            */
 
             // resize iframe at the beginning of the quiz
             parent.resizeIframe()

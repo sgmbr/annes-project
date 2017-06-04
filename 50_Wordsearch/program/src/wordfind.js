@@ -165,7 +165,7 @@
 
       // loop through all of the possible orientations at this position
       for (var k = 0, len = options.orientations.length; k < len; k++) {
-        
+
         var orientation = options.orientations[k],
             check = checkOrientations[orientation],
             next = orientations[orientation],
@@ -233,7 +233,7 @@
 
         var next = fnGetSquare(x, y, i),
             square = puzzle[next.y][next.x];
-        
+
         // if the puzzle square already contains the letter we
         // are looking for, then count it as an overlap square
         if (square === word[i]) {
@@ -329,7 +329,7 @@
         wordList = words.slice(0).sort( function (a,b) {
           return (a.length < b.length) ? 1 : 0;
         });
-        
+
         // initialize the options
         var options = {
           height:       opts.height || wordList[0].length,
@@ -454,6 +454,3 @@
   root.wordfind = WordFind();
 
 }).call(this);
-
-
-

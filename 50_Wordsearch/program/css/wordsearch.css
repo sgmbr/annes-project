@@ -31,7 +31,7 @@
 /**
 * Styles for the puzzle
 */
-#puzzle {
+#grid {
   border: 1px solid black;
   padding: 0.5rem;
 }
@@ -43,7 +43,7 @@
 */
 
 /* style for each square in the puzzle */
-#puzzle .puzzleSquare {
+#grid .puzzleSquare {
   height: 1.3em;
   width: 1.3em;
   text-transform: uppercase;
@@ -57,47 +57,47 @@ button::-moz-focus-inner {
 }
 
 /* indicates when a square has been selected */
-#puzzle .selected {
+#grid .selected {
   background-color: orange;
 }
 
 /* indicates that the square is part of a word that has been found */
-#puzzle .found {
+#grid .found {
   background-color: blue;
   color: white;
 }
 
-#puzzle .solved {
+#grid .solved {
   background-color: purple;
   color: white;
 }
 
 /* indicates that all words have been found */
-#puzzle .complete {
+#grid .complete {
   background-color: green;
 }
 
 /**
 * Styles for the word list
 */
-#words {
+#questions {
   border: 1px solid black;
   max-width: 37.5rem;
   padding: 0.5rem;
   margin-right: 1rem;
 }
 
-#words ul {
+#questions ul {
   list-style-type: none;
 }
 
-#words li {
+#questions li {
   padding: 3px 0;
   font: 1em sans-serif;
 }
 
 /* indicates that the word has been found */
-#words .wordFound {
+#questions .wordFound {
   color: red;
 }
 
@@ -118,8 +118,14 @@ button::-moz-focus-inner {
 /**
 * Styles for the buttons
 */
-#show-answer {
+#btn-show-answer {
     width: 10rem;
+}
+
+#btn-show-answer.active {
+    background-color: #d9534f;
+    border-color: #d9534f;
+    color: #fff;
 }
 
 /**
@@ -127,7 +133,7 @@ button::-moz-focus-inner {
 */
 @media screen and (max-width: 46rem) {
 
-    #puzzle .puzzleSquare {
+    #grid .puzzleSquare {
         font-size: 0.9rem;
     }
 
