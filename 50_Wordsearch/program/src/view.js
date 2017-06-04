@@ -20,15 +20,21 @@ class View {
     }
 
     static setUpShowAnswerBtn(tagId) {
-        document.getElementById(tagId).onclick = function(event) {
-            if (this.classList.toggle('active')) {
-                // when the 'active' class is added
-                View.fireEvent('showAnswerEvent')
-            } else {
-                // when the 'active' class is removed
-                View.fireEvent('hideAnswerEvent')
-            }
+        let element = document.getElementById(tagId)
+        element.onmousedown = function(event) {
+            View.fireEvent('showAnswerEvent')
         }
+        element.onmouseup = function(event) {
+            View.fireEvent('hideAnswerEvent')
+        }
+        element.addEventListener("touchstart", (event) => {
+            event.preventDefault()
+            View.fireEvent('showAnswerEvent')
+        }, false)
+        element.addEventListener("touchend", (event) => {
+            event.preventDefault()
+            View.fireEvent('hideAnswerEvent')
+        }, false)
     }
 
     static setUpSubmitBtn(tagId) {
@@ -66,6 +72,21 @@ class View {
             letter.onmouseup = (event) => {
                 View.fireGridEvent('endTurnEvent', letter)
             }
+            letter.addEventListener("touchstart", (event) => {
+                event.preventDefault()
+                View.fireGridEvent('startTurnEvent', letter)
+            }, false)
+            letter.addEventListener("touchmove", (event) => {
+                event.preventDefault()
+                let xPos = event.touches[0].pageX;
+                let yPos = event.touches[0].pageY;
+                let targetElement = document.elementFromPoint(xPos, yPos);
+                View.fireGridEvent('selectEvent', targetElement)
+            }, false)
+            letter.addEventListener("touchend", (event) => {
+                event.preventDefault()
+                View.fireGridEvent('endTurnEvent', letter)
+            }, false)
         }
     }
 
@@ -138,9 +159,9 @@ class View {
         $('.puzzleSquare').addClass('complete');
     }
 
-    static showSelectedWord(question) {
-        $('#selected-word').html(question.word);
-        $('#selected-meaning').html(question.meaning);
+    static showSelectedWord(word, meaning) {
+        $('#selected-word').html(word);
+        $('#selected-meaning').html(meaning);
     }
 
     static showAnswer(word, orientation, x, y, next) {

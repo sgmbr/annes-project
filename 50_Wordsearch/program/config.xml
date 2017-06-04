@@ -2,8 +2,8 @@
 <match>
     <options>
         <passing-score>80</passing-score>
-        <height>12</height>
-        <width>12</width>
+        <height>15</height>
+        <width>15</width>
         <orientations>
             <horizontal>on</horizontal>
             <horizontalBack>off</horizontalBack>

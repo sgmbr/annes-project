@@ -18,6 +18,7 @@ class Controller {
         Controller.myView.drawGrid(Controller.myQuiz.grid)
         Controller.myView.drawQuestions(Controller.myQuiz.questions)
         Controller.myView.setUpGrid()
+        Controller.myView.showSelectedWord('', '')
     }
 
     static setUpEventListeners() {
@@ -26,10 +27,10 @@ class Controller {
         window.addEventListener('hideAnswerEvent', Controller.hideAnswerEventHandler, false) // when "Show Answer" button deactivated
         window.addEventListener('submitEvent', Controller.submitEventHandler, false) // when "Submit" button clicked
         window.addEventListener('tryAgainEvent', Controller.tryAgainEventHandler, false) // when "Try Again" button clicked
-        //window.addEventListener('scoreUpdateEvent', Controller.scoreUpdateEventHandler, false) // when quiz score is updated
         window.addEventListener('startTurnEvent', Controller.startTurnEventHandler, false)
         window.addEventListener('selectEvent', Controller.selectEventHandler, false)
         window.addEventListener('endTurnEvent', Controller.endTurnEventHandler, false)
+        window.addEventListener('scoreUpdateEvent', Controller.scoreUpdateEventHandler, false) // when quiz score is updated
     }
 
     static rebuildEventHandler(event) {
@@ -55,9 +56,8 @@ class Controller {
     }
 
     static submitEventHandler(event) {
-        //let score = Controller.myQuiz.getRoundedQuizScore()
+        let score = Controller.myQuiz.getRoundedQuizScore()
         let passingScore = Controller.myQuiz.passingScore
-        let score = Number(document.getElementById('current-score').innerHTML)
         Controller.myView.displayResult(score, passingScore)
         Controller.myView.sendScoreToMoodle(score)
     }
@@ -69,6 +69,7 @@ class Controller {
     static scoreUpdateEventHandler(event) {
         let score = Controller.myQuiz.getRoundedQuizScore()
         Controller.myView.updateCurrentScore(score)
+        Controller.myView.sendScoreToMoodle(score)
     }
 
     static resizeIframeEventHandler(event) {
@@ -176,13 +177,6 @@ class Controller {
         }
     }
 
-    static touchMove(e) {
-        let xPos = e.originalEvent.touches[0].pageX;
-        let yPos = e.originalEvent.touches[0].pageY;
-        let targetElement = document.elementFromPoint(xPos, yPos);
-        Controller.selectEventHandler(targetElement)
-    }
-
     static mouseMove() {
         Controller.selectEventHandler(this);
     }
@@ -217,14 +211,12 @@ class Controller {
 
         // see if we formed a valid word
         for (let question of Controller.myQuiz.questions) {
-            let word = question.word
-            if (word === Controller.curWord) {
+            if (!question.answered && question.word === Controller.curWord) {
                 question.answered = true
-                Controller.myQuiz.score += Controller.myQuiz.scorePerWord
+                Controller.myQuiz.addQuizScore(Controller.myQuiz.scorePerWord)
 
-                Controller.myView.found(word)
-                Controller.myView.showSelectedWord(question)
-                Controller.myView.updateCurrentScore(Math.round(Controller.myQuiz.score))
+                Controller.myView.found(question.word)
+                Controller.myView.showSelectedWord(question.word, question.meaning)
             }
         }
 

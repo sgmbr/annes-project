@@ -24,12 +24,14 @@ main {
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #fff;
+    position: relative;
 }
 
 #result {
     display: none;
     width: 80%;
-    position: absolute;
+    position: fixed;
+    bottom: 10rem;
     border: 8px solid #8CB3E4;
     background: #fff;
     z-index: 99;

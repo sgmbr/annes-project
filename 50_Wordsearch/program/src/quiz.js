@@ -29,8 +29,8 @@ class Quiz {
         this.score = 0
     }
 
-    addQuizScore(answer) {
-        this.score += answer.answerScore
+    addQuizScore(score) {
+        this.score += score
         let eventInput = new Event('scoreUpdateEvent')
         window.dispatchEvent(eventInput)
     }
