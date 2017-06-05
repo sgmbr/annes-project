@@ -28,7 +28,7 @@ class Quiz {
         this.score = 0
         this.addQuizScore(0) // to notify score
         this.scorePerWord = 100 / this.questions.length
-        this.scoreReduceBy = this.scorePerWord / 10
+        this.scoreReduceBy = this.scorePerWord / 5 // reduce by 20%
         this.questions.forEach(question => {
             question.answered = false
         })

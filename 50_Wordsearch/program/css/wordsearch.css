@@ -111,7 +111,7 @@ button::-moz-focus-inner {
 */
 #selected-pair {
     margin: 1rem 0.5rem;
-    max-width: 24rem;
+    max-width: 23rem;
 }
 
 #selected-word {
