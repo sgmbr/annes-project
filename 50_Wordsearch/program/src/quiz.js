@@ -6,7 +6,7 @@ class Quiz {
         this.questions = []
         this.options = {}
         this.grid = []
-        this.solution = {}
+        this.answers = []
         this.passingScore = 0
         this.score = 0
         this.scorePerWord = 0
@@ -24,12 +24,15 @@ class Quiz {
     initialize() {
         let words = this.questions.map( question => question.word )
         this.grid = this.gridGenerator.newPuzzle(words, this.options)
-        this.solution = this.gridGenerator.solve(this.grid, words)
         this.score = 0
         this.addQuizScore(0) // to notify score
         this.scorePerWord = 100 / this.questions.length
         this.scoreReduceBy = this.scorePerWord / 5 // reduce by 20%
         this.questions.forEach(question => {
+            let answer = this.gridGenerator.answers.find(answer => answer.word === question.word)
+            question.x = answer.x
+            question.y = answer.y
+            question.orientation = answer.orientation
             question.answered = false
         })
     }
@@ -42,6 +45,7 @@ class Quiz {
 
     reduceScorePerWord() {
         this.scorePerWord -= this.scoreReduceBy
+        this.scorePerWord = (this.scorePerWord < 0) ? 0 : this.scorePerWord
     }
 
     getRoundedQuizScore() {

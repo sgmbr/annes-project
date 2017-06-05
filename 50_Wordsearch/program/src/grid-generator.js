@@ -14,6 +14,7 @@ class GridGenerator {
         * @api public
         */
         this.orientations = this.grid.orientations
+        this.answers = []
     }
 
     /**
@@ -72,6 +73,8 @@ class GridGenerator {
             this.grid.fillBlanks(puzzle)
         }
 
+        this.answers = this.grid.answers
+
         return puzzle
     }
 
@@ -117,27 +120,6 @@ class GridGenerator {
             found: found,
             notFound: notFound
         }
-    }
-
-    /**
-     * Outputs a puzzle to the console, useful for debugging.
-     * Returns a formatted string representing the puzzle.
-     *
-     * @param {[[String]]} puzzle: The current state of the puzzle
-     * @api public
-     */
-    print(puzzle) {
-        let puzzleString = '';
-        for (let i = 0, height = puzzle.length; i < height; i++) {
-            let row = puzzle[i];
-            for (let j = 0, width = row.length; j < width; j++) {
-                puzzleString += (row[j] === '' ? ' ' : row[j]) + ' ';
-            }
-            puzzleString += '\n';
-        }
-
-        console.log(puzzleString);
-        return puzzleString;
     }
 
 }

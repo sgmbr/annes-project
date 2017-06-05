@@ -150,9 +150,11 @@ class View {
         $('.selected').removeClass('selected');
     }
 
-    static found(word) {
-        $('.selected').addClass('found');
-        $('.' + word).addClass('wordFound');
+    static found(word, orientation) {
+        $('.' + word).addClass('wordFound')
+        let line = document.createElement('div')
+        line.classList.add('line', orientation)
+        $('.selected').append(line)
     }
 
     static complete() {

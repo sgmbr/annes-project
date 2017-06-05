@@ -25,6 +25,8 @@ class Grid {
         // Letters used to fill blank spots in the puzzle
         this.letters = 'abcdefghijklmnoprstuvwxyz'
 
+        this.answers = []
+
         /**
         * Definitions for all the different orientations in which words can be
         * placed within a puzzle. New orientation definitions can be added and they
@@ -136,6 +138,9 @@ class Grid {
         // select a location at random and place the word there
         let sel = locations[Math.floor(Math.random() * locations.length)]
         this.placeWord(puzzle, word, sel.x, sel.y, this.orientations[sel.orientation])
+
+        let answer = {word: word, x: sel.x, y: sel.y, orientation: sel.orientation}
+        this.answers.push(answer)
 
         return true
     }

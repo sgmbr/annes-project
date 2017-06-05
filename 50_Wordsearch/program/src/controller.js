@@ -40,12 +40,11 @@ class Controller {
 
     static showAnswerEventHandler(event) {
         Controller.myQuiz.reduceScorePerWord()
-        let solutions = Controller.myQuiz.solution.found
-        for (let solution of solutions) {
-            let word = solution.word,
-                orientation = solution.orientation,
-                x = solution.x,
-                y = solution.y,
+        for (let answer of Controller.myQuiz.questions) {
+            let word = answer.word,
+                orientation = answer.orientation,
+                x = answer.x,
+                y = answer.y,
                 next = Controller.myQuiz.gridGenerator.orientations[orientation]
 
                 Controller.myView.showAnswer(word, orientation, x, y, next)
@@ -202,6 +201,20 @@ class Controller {
         }
     }
 
+    static getLineOrientation(orientation) {
+        let lineOrientaiton = {
+            'horizontal':    'horizontal',
+            'horizontalBack':'horizontal',
+            'vertical':      'vertical',
+            'verticalUp':    'vertical',
+            'diagonal':      'diagonal',
+            'diagonalUp':    'diagonalup',
+            'diagonalBack':  'diagonalup',
+            'diagonalUpBack':'diagonal'
+        }
+        return lineOrientaiton[orientation]
+    }
+
     /**
      * Event that handles mouse up on a square. Checks to see if a valid word
      * was created and updates the class of the letters and word if it was. Then
@@ -212,11 +225,16 @@ class Controller {
 
         // see if we formed a valid word
         for (let question of Controller.myQuiz.questions) {
-            if (!question.answered && question.word === Controller.curWord) {
+            if (!question.answered &&
+                    Controller.startSquare.x === question.x &&
+                    Controller.startSquare.y === question.y &&
+                    Controller.curWord === question.word) {
                 question.answered = true
                 Controller.myQuiz.addQuizScore(Controller.myQuiz.scorePerWord)
 
-                Controller.myView.found(question.word)
+                let lineOrientaiton = Controller.getLineOrientation(question.orientation)
+
+                Controller.myView.found(question.word, lineOrientaiton)
                 Controller.myView.showSelectedWord(question.word, question.meaning)
             }
         }
