@@ -12,9 +12,9 @@
           lib: 'lib',
           vendor: 'lib/vendor',
           res: 'res',
-          text: 'https://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.10/text',
-          ko: 'https://cdnjs.cloudflare.com/ajax/libs/knockout/2.3.0/knockout-min',
-          jquery: 'https://code.jquery.com/jquery-1.10.1.min'
+          text: 'lib/vendor/text',
+          ko: 'lib/vendor/knockout-2.3.0',
+          jquery: 'lib/vendor/jquery-1.12.4.min'
       },
       shim: {
         "vendor/buzz.min": {
