@@ -78,48 +78,4 @@ class GridGenerator {
         return puzzle
     }
 
-    /**
-     * Returns the starting location and orientation of the specified words
-     * within the puzzle. Any words that are not found are returned in the
-     * notFound array.
-     *
-     * Returns
-     *   x position of start of word
-     *   y position of start of word
-     *   orientation of word
-     *   word
-     *   overlap (always equal to word.length)
-     *
-     * @param {[[String]]} puzzle: The current state of the puzzle
-     * @param {[String]} words: The list of words to find
-     * @api public
-     */
-    solve(puzzle, words) {
-        let options = {
-                height: puzzle.length,
-                width: puzzle[0].length,
-                orientations: this.grid.allOrientations,
-                preferOverlap: true
-            },
-            found = [],
-            notFound = []
-
-        for (let i = 0, len = words.length; i < len; i++) {
-            let word = words[i],
-                locations = this.grid.findBestLocations(puzzle, options, word, 'solve')
-
-            if (locations.length > 0 && locations[0].overlap === word.length) {
-                locations[0].word = word
-                found.push(locations[0])
-            } else {
-                notFound.push(word)
-            }
-        }
-
-        return {
-            found: found,
-            notFound: notFound
-        }
-    }
-
 }

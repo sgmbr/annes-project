@@ -6,7 +6,6 @@ class Quiz {
         this.questions = []
         this.options = {}
         this.grid = []
-        this.answers = []
         this.passingScore = 0
         this.score = 0
         this.scorePerWord = 0

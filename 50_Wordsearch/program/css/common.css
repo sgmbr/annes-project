@@ -34,7 +34,7 @@ body {
     bottom: 10rem;
     border: 8px solid #8CB3E4;
     background: #fff;
-    z-index: 99;
+    z-index: 1000;
     margin: 10%;
     padding: 1rem;
 }
