@@ -41,7 +41,15 @@ class GridGenerator {
 
         // copy and sort the words by length, inserting words into the puzzle
         // from longest to shortest works out the best
-        wordList = words.slice(0).sort((a, b) => (a.length < b.length) ? 1 : 0 )
+        wordList = words.slice(0).sort((a, b) => {
+            if (a.length < b.length) {
+                return 1
+            }
+            if (a.length > b.length) {
+                return -1
+            }
+            return 0
+        })
 
         // initialize the options
         let options = {
