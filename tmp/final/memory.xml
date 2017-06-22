@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="iso-8859-1"?>
+<match title= '' numberofmemoryquestions= '8' numberofflipquestions= '8' backgroundimage='' backgroundname=''>
+<pair  ><question  >sulfuric acid </question><answer>H<sub>2</sub>SO<sub>4</sub></answer></pair>
+<pair  ><question  >hydrochloric acid</question><answer>HCl</answer></pair>
+<pair  ><question  >nitric acid</question><answer>HNO<sub>3</sub></answer></pair>
+<pair  ><question  >sodium hydroxide</question><answer>NaOH</answer></pair>
+<pair  ><question  >calcium hydroxide</question><answer>Ca(OH)<sub>2</sub></answer></pair>
+<pair  ><question  >potassium hydroxide</question><answer>KOH</answer></pair>
+
+<pair  ><question  >1</question><answer>one</answer></pair>
+<pair  ><question  >2</question><answer>two</answer></pair>
+<pair  ><question  >3</question><answer>three</answer></pair>
+<pair  ><question  >4</question><answer>four</answer></pair>
+<pair  ><question  >5</question><answer>five</answer></pair>
+<pair  ><question  >6</question><answer>six</answer></pair>
+<pair  ><question  >7</question><answer>seven</answer></pair>
+<pair  ><question  >8</question><answer>eight</answer></pair>
+</match>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Memory Game</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/game.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+	<script type="text/javascript" src="lib/jquery-3.2.0.min.js"></script>
+	<script  type="text/javascript" src="lib/jquery-ui.min.js"></script>
+	<script  type="text/javascript" src="lib/jquery.ui.touch-punch.min.js"></script>
+	<script  type="text/javascript" src="lib/buzz.js"></script>
+	<script  type="text/javascript" src="lib/jquery.flip.js"></script>
+	<script  type="text/javascript" src="js/report.js"></script>
+	<script type="text/javascript" src="js/tile.js"></script>
+	<script type="text/javascript" src="js/memoryModel.js"></script>
+	<script type="text/javascript" src="js/game.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div id = "game">
+				<!-- ko with: memoryModel -->
+				<div id="answer-zone" class="clearfix" >					
+					<!-- ko foreach: memoryTiles -->
+					<div class="card-wrap">
+						<div class="answer-tile col-md-3 col-xs-3 col-xxs-6" data-bind="click: $root.attemptAnswer">
+							<div class="card-front-wrapper" >
+								<div class="card">
+								</div>
+							</div>
+
+							<div class="card-back-wrapper" style="display: none;">
+								<div class="card back">
+									<span class="answer-text" data-bind="html: shownValue"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+						<!-- /ko -->
+				</div>
+				<!-- /ko -->
+			
+				<div id="final-message">
+					<h2 data-bind="text: $root.finalMessage"></h2>
+				</div>
+				<br>
+				<br>
+				<p>Your score is:<span data-bind="text: score"></span></p>
+				<button id='btn-restart' data-bind="click: restartGame">Restart</button>
+				<button id="btn-submit" data-bind="click: finish">Submit</button>
+						
+			</div>
+
+		</div>
+		
+	</div>
+</body>
+
+</html>
