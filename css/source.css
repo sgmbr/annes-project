@@ -1,0 +1,317 @@
+﻿/* css reset */
+* {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+html {
+    display: block;
+}
+
+body {
+    font-size: 1rem;
+    font-family: Geneva, Arial;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 2.4rem;
+    font-family: Verdana, sans-serif;
+    color: #950F00;
+}
+
+button, input[type="button"] {
+	height:25px;
+    min-width: 50px;
+	font-weight: bold;
+	line-height:1px;
+    vertical-align: middle;
+    border-radius: 100px;
+	background-color: #FFF;
+	background: #FFF;
+	border: solid #FFDADC;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+canvas {
+    border: solid 3px #938596;
+}
+
+/* list */
+ol {
+    margin-left: 3rem;
+    color: #950F00;
+    font-weight: bold;
+}
+
+ol li:before {
+    counter-increment: item;
+    color: #950F00;
+    font-weight: bold;
+}
+
+
+/* table */
+table {
+    border-width: 0.1rem;
+    border-color: #aaa;
+    border-spacing: 0;
+}
+
+th {
+    vertical-align:middle;
+    padding: 0.6rem;
+    color: #950F00;
+    font-weight: bold;
+}
+
+td {
+    vertical-align:middle;
+    padding: 0.6rem;
+    color: #000;
+}
+
+img {
+    max-width: 100%;
+}
+
+#container {
+    float: none;
+    width: auto;
+}
+
+/* font */
+b {
+    font-weight:bold;
+}
+
+i {
+    font-style: italic;
+}
+
+u {
+    font-style: underline;
+}
+
+sup { 
+    font-size: xx-small;
+    vertical-align: super;
+}
+
+sub { 
+    font-size: xx-small;
+    vertical-align: sub;
+}
+
+/* navigation bar */
+#small { 
+    letter-spacing: -8px;
+}
+
+#medium {
+    letter-spacing: -5px;
+}
+
+#sup, #sub{
+	margin-top:2px;
+	padding-bottom:7px;
+    border-radius:0px;
+    width: 30px;
+}
+
+.nav {
+    float:left;
+    background-color:#938596;
+    height:375px;
+    width:120px;
+    padding-top:15px; 
+    padding-bottom:15px;
+	padding-left:10px;
+	padding-right:5px;
+}
+
+.nav button {
+   margin: 2px;
+}
+
+/* canvas */
+#divCanvasPartA {
+    position:relative; 
+    float:left;
+}
+
+#divCanvasPartB {
+    position: absolute;
+}
+
+/* classes */
+.note {
+    color: #F00;
+}
+
+.question {
+    color: #000;
+    font-weight: normal;
+}
+
+.answer {
+    color: #F00;
+}
+
+.criteria {
+    color: #007C3A;
+}
+
+.hidden {
+    display: none;
+}
+
+.showInline {
+    display: inline;
+}
+
+.showBlock {
+    display: block;
+}
+
+.answerField{
+    min-height: 2rem;
+    font-size: 1.4rem;
+    font-family: DejaVu sans;
+    background-color: #FFDADC;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-color: #0063C0;
+    overflow: hidden;
+}
+
+.thickOff {
+	color: #000;
+}
+
+.thickOn {
+	color: #FFF;
+	background-color: #54697C;
+}
+
+.blackOff{
+	width:60px;
+	color: #000;
+	border-color:#000;
+}
+
+.blackOn {
+	width:60px;
+	color: #FFF;
+	background-color: #000;
+}
+
+.blueOff {
+	width:50px;
+	color: #0000cc;
+	border-color:#0000cc;
+}
+
+.blueOn {
+	width:50px;
+	color: #FFF;
+	background-color: #0000cc;
+}
+
+.greenOff {
+	width:60px;
+	color: #287E28;
+	border-color:#287E28;
+}
+
+.greenOn {
+	width:60px;
+	color: #FFF;
+	background-color: #287E28;
+}
+
+.redOff {
+	width:50px;
+	color: #cc0000;
+	border-color:#cc0000;
+}
+
+.redOn {
+	width:50px;
+	color: #FFF;
+	background-color: #cc0000;
+}
+
+.inactive {
+	width:70px;
+	disabled = true;
+}
+
+.active {
+	width:70px;
+	disabled = false;
+}
+
+/* result div */
+#result {
+    display: none;
+    position: relative;
+    width: 40rem;
+    height: 10rem;
+    margin-left: 3.8rem;
+    margin-top: -10rem;
+    background-color: #FFF;
+    border-style: solid;
+    border-width: 0.2rem;
+    border-color: #0063C0;
+    z-index: 99;
+}
+
+#resultText {
+    font-weight: bold;
+	margin: 1rem;
+}
+
+/* format box */
+#sidebar {
+    background-color: #FFF;
+    width: 10rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 0;
+    border: solid #000;
+    z-index: 99;
+}
+
+.format {
+    position: relative;
+    margin: auto;
+    clear: both;
+    border: solid 3px ;
+}
+
+#sup, #sub {
+    width: 1.2rem;
+}
+
+@media screen and (max-width: 640px) {   
+    table {
+		overflow-x: auto;
+		display: block;
+	}
+    
+    .nav {
+        width: 5rem;
+        height: 19rem;
+    }
+    
+    .nav button {
+        min-width: 0;
+        width: 2rem;
+        font-size: 0.5rem;
+        text-align: center;
+    }
+}

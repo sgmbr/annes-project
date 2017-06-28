@@ -1,0 +1,271 @@
+﻿<!--HTML5 declarations-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+
+<title>1C1 Balanced and unbalanced forces</title>
+<link rel="stylesheet" href="css/source.css?v=1.0">
+<link rel="stylesheet" href="StyleSheet.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--[if lt IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<!--Side-scrolling toolbar/text format box-->
+<div id="sidebar">
+<!-- Data URIs -->
+<img class="format" id="b" style="border: solid; border-color: #FFF; border-width: 3;" src="data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAInhI+pa+H9mJy0LhdgtrxzDG5WGFVk6aXqyk6Y9kXvKKNuLbb6zgMFADs=" /><br>
+<img class="format" id="i" style="border: solid; border-color: #FFF; border-width: 3;" src="data:image/gif;base64,R0lGODlhFgAWAKEDAAAAAF9vj5WIbf///yH5BAEAAAMALAAAAAAWABYAAAIjnI+py+0Po5x0gXvruEKHrF2BB1YiCWgbMFIYpsbyTNd2UwAAOw==" /><br>
+<img class="format" id="u" style="border: solid; border-color: #FFF; border-width: 3;" src="data:image/gif;base64,R0lGODlhFgAWAKECAAAAAF9vj////////yH5BAEAAAIALAAAAAAWABYAAAIrlI+py+0Po5zUgAsEzvEeL4Ea15EiJJ5PSqJmuwKBEKgxVuXWtun+DwxCCgA7" />
+<img class="format" id="sup" style="border: solid; border-color: #FFF; border-width: 3;" src="data:image/gif;base64,R0lGODlhFgAUAPcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//MAP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8zZv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zMzMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xmAMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lmzJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kAAGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YAzGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPMADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMzZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDMzADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBmAAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAP7+/v39/fz8/Pv7+/r6+vn5+fj4+Pf39/X19fPz8xwcHBgYGBEREQoKCv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAOYALAAAAAAWABQAAAifAM0JHCgQgMGDBwkqHIiwIYCFCx0ihGgOGzaDFi1m+wbgmkePCy0CuJgtG4Bu3Dp+vLbwI8KP2jyqjOjSoEyVMxVuw2nzWs+c5g6m9EhOpc+dEg966+nSpMFuSb1tM/kR3EFs2rhx0+YQJVSP5Qxu+3Yx6cmhHsX5NMjR7E6XH8MBSGnW6FIA427WrXnwY9m6gCUGDZyQIOGGEA8/FBgQADs="/>
+<img class="format" id="sub" style="border: solid; border-color: #FFF; border-width: 3;" src="data:image/gif;base64,R0lGODlhFgAUAPcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//MAP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8zZv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zMzMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xmAMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lmzJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kAAGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YAzGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPMADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMzZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDMzADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBmAAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAP7+/v39/fz8/Pv7+/r6+vn5+fj4+Pf39/X19fPz8xwcHBgYGBEREQoKCv///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAOYALAAAAAAWABQAAAiLAM0JHGgOgMGDBwkqJIiw4cKHDSMCWCix4kSFAK5pPKjxWsSF2zJ6NLjxo0JuIsmJ9BgS4UJvJDt6zHawm8GBB71to9kR3EFs2rhx0xaxG7duHcux/IbNIgCjK8WNBPDNaciOK8OtLNmwI0wA4zbKnMoRa0yPYsk6LStybcS0buPKrYgx7kOBdgUGBAA7"/>
+</div>
+
+<div id="container">
+<!--This code is for the instructions that shows when Instructions button is pressed.-->
+    <button id="btnShowInstruction">Instructions</button>
+    <div id="divInstruction" class="hidden">
+    <h3>Instructions</h3>
+    Type your answers to the questions in the fields provided.
+    <br/>
+    Use the formatting box on the left to write chemical formula correctly. (The correct size and position of numbers is important — you will lose marks in exams if you get them wrong.) Either type the formula (H2O), select the number  and click on the X<sub>n</sub> button to turn it into a subscript (H<sub>2</sub>O), or click on the required button before typing the character.
+    <br/>
+    After you have answered the questions, click the <b>Show answer</b> button and mark your work by clicking the tick boxes that match your answers. When you have marked all the questions, click the <b>Submit</b> button to send your score to Moodle.
+    <br/>
+    It is possible for you to click all the boxes and give yourself a score of 100%, even when you could not answer the questions correctly. If you do this though, your teacher will think you understand and you will not get the help you need.
+    <button id="btnHideInstruction">Hide instructions</button>
+    </div>
+
+<!--Generated HTML code begins here-->	
+    <h1>1C1 Balanced and unbalanced forces</h1>        
+    <ol>
+        <!-- Q1 -->
+        <li><span class="question">An unbalanced force acting on an object will change its
+            <input name="1txt" style="width:100px; height:20px;" class="answerField">
+            <div name="1answer" class="hidden">
+                <input name="1firstBox" type="checkbox">
+                <span class="answer">shape</span>
+            </div>
+            ,
+            <input name="1txt" style="width:100px; height:20px;" class="answerField">
+            <div name="1answer" class="hidden">
+                <input name="1firstBox" type="checkbox">
+                <span class="answer">speed</span>
+            </div>
+            or
+            <input name="1txt" style="width:100px; height:20px;" class="answerField">
+            <div name="1answer" class="hidden">
+                <input name="1firstBox" type="checkbox">
+                <span class="answer">direction</span>
+            </div>
+            <input name="1txt" style="width:50px; height:20px;" class="answerField">
+            <div name="1answer" class="hidden">
+                <input name="1firstBox" type="checkbox">
+                <span class="answer">of</span>
+            </div>
+            <input name="1txt" style="width:100px; height:20px;" class="answerField">
+            <div name="1answer" class="hidden">
+                <input name="1firstBox" type="checkbox">
+                <span class="answer">motion</span>
+            </div>
+            . If these things are not changing then
+            <input name="1txt" style="width:50px; height:20px;" class="answerField">
+            <div name="1answer" class="hidden">
+                <input name="1firstBox" type="checkbox">
+                <span class="answer">no</span>
+            </div>
+            unbalanced force is acting. Any forces which are acting upon on it must be
+            <input name="1txt" style="width:100px; height:20px;" class="answerField">
+            <div name="1answer" class="hidden">
+                <input name="1firstBox" type="checkbox">
+                <span class="answer">balanced</span>
+            </div>
+            by opposing forces.</span>
+        </li>
+        
+        <!-- Q1 show answer button -->
+        <input id="1Button" type="button" value="Show Answer" />
+
+        <!-- Q2 -->
+        <li><span class="question">Decide whether these objects have a net force acting on them.</span></li>
+        <!-- lower-case ordered list -->
+        <ol type="a">
+            <li>            
+                <span class="question">A boat tied up at a wharf.</span>
+                <input name="2txt" style="width:100px; height:20px;" class="answerField">
+                <div name="2answer" class="hidden">
+                    <input name="2firstBox" type="checkbox">
+                    <span class="answer">No.</span>
+                </div>
+            </li>
+            <li>
+                <span class="question">A cyclist who is 'freewheeling' (ie not pedalling) along a straight, flat road.</span>
+                <input name="2txt" style="width:100px; height:20px;" class="answerField">
+                <div name="2answer" class="hidden">
+                    <input name="2firstBox" type="checkbox">
+                    <span class="answer">Yes (air resistance).</span>
+                </div>
+            </li>
+            <li>
+                <span class="question">A basketball which has been thrown up and has stopped at the top of its flight.</span>
+                <input name="2txt" style="width:100px; height:20px;" class="answerField">
+                <div name="2answer" class="hidden">
+                    <input name="2firstBox" type="checkbox">
+                    <span class="answer">Yes (gravity).</span>
+                </div>
+            </li>
+            <li>
+                <span class="question">A sky-diver floating down using a parachute at a constant speed of 2 m s<sup>-1</sup>.</span>
+                <input name="2txt" style="width:100px; height:20px;" class="answerField">
+                <div name="2answer" class="hidden">
+                    <input name="2firstBox" type="checkbox">
+                    <span class="answer">No.</span>
+                </div>
+            </li>
+            <li>
+                <span class="question">A car accelerating from 13 m s<sup>-1</sup> to 15 m s<sup>-1</sup>.</span>
+                <input name="2txt" style="width:100px; height:20px;" class="answerField">
+                <div name="2answer" class="hidden">
+                    <input name="2firstBox" type="checkbox">
+                    <span class="answer">Yes (engine power).</span>
+                </div>
+            </li>
+            
+            <input id="2Button" type="button" value="Show Answer" />
+        </ol>               
+        
+        <!-- Q3 -->
+        <li><span class="question">Add arrows to represent the size and direction of the forces acting on each of these objects. The arrows should touch the objects. Name each force.</span></li>
+        <span class="note"> Note: Length of arrow indicates strength of force, so support and gravity arrows on each object should be the same length, as with friction and thrust arrows on the bird.</span>
+        <ol type="a">
+            <li>
+                <p id="3draw"></p>
+                <div id="divCanvasPartA">
+                    <div id="divCanvasPartB">
+                        <canvas id="3canvas">
+                            <img id="3img" src="res/cup.png"></img>
+                            Your browser does not support the HTML5 canvas tag.                            
+                        </canvas>
+                    </div>            
+                </div>
+                <span name="3answer" class="hidden"></span>
+            </li>
+            <p style="clear:both"></p>
+            <div name="3answer" class="hidden">
+                <img name="3img" src="res/cup1.png" alt="Cup"></img>
+                <input name="3firstBox" type="checkbox">
+            </div>
+            <li>
+                <p id="3draw"></p>
+                <div id="divCanvasPartA">
+                    <div id="divCanvasPartB">
+                        <canvas id="33canvas">
+                            <img id="3img" src="res/bird.png"></img>
+                            Your browser does not support the HTML5 canvas tag.                            
+                        </canvas>
+                    </div>            
+                </div>
+                <span name="3answer" class="hidden"></span>
+            </li>
+            <p style="clear:both"></p>
+            <div name="3answer" class="hidden">
+                <img name="3img" src="res/bird1.png" alt="Bird"></img>
+                <input name="3firstBox" type="checkbox">
+            </div>
+            <li>
+                <p id="3draw"></p>
+                <div id="divCanvasPartA">
+                    <div id="divCanvasPartB">
+                        <canvas id="333canvas">
+                            <img id="3img" src="res/bowlingball.png"></img>
+                            Your browser does not support the HTML5 canvas tag.                            
+                        </canvas>
+                    </div>            
+                </div>
+                <span name="3answer" class="hidden"></span>
+            </li>
+            <p style="clear:both"></p>
+            <div name="3answer" class="hidden">
+                <img name="3img" src="res/bowlingball1.png" alt="Bowling ball"></img>
+                <input name="3firstBox" type="checkbox">
+            </div>
+            <input id="3Button" type="button" value="Show Answer" />
+        </ol>
+        
+        <!-- Q4 -->
+        <li><span class="question">Between the orbits of Jupiter and Mars there are thousands of asteroids. Most are rocks the size of a mountain or small hill. It is likely that some of these rocks contain valuable minerals. Instead of mining them, perhaps people will simply attach rockets to the asteroids and send them back to Earth or Mars for processing.</span></li>
+        <ol type="a">
+            <li>
+                <span class="question">Decide in which direction each of these asteroids will move.</span>
+                <table>
+                    <tr align="center">
+                        <th></th>
+                        <td>
+                            <img name="4img" src="res/asteroid.png" alt="Asteroid"></img>
+                        </td>
+                        <th></th>
+                        <td>
+                            <img name="4img" src="res/asteroid1.png" alt="Asteroid"></img>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>i</th>
+                        <td>
+                            <p name="4txt" style="width:300px; height:20px;" class="answerField" contenteditable="true"></p>                        
+                            <div name="4answer" class="hidden">                    
+                                <input name="4firstBox" type="checkbox">
+                                <span class="answer">No motion: forces are balanced.</span>
+                            </div>
+                        </td>
+                        <th>ii</th>
+                        <td>
+                            <p name="4txt" style="width:300px; height:20px;" class="answerField" contenteditable="true"></p>                        
+                            <div name="4answer" class="hidden">                    
+                                <input name="4firstBox" type="checkbox">
+                                <span class="answer">Acceleration to the right.</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <span class="question">Once the rockets have finished firing, how long will the asteroids keep moving for? Why?</span>
+                <p name="4txt" style="width:600px; height:120px;" class="answerField" contenteditable="true"></p>        
+                <div name="4answer" class="hidden">                    
+                    <input name="4firstBox" type="checkbox">
+                    <span class="answer">They will keep moving at a constant speed until they come under the influence of another force.</span>
+                </div>
+            </li>
+            <input id="4Button" type="button" value="Show Answer" />
+        </ol>
+    </ol>
+<!--Generated HTML code ends here-->
+
+    <!--This code is for the popup box that shows when Submit is pressed.-->
+    <div id="result"></div>
+    <br>
+    <!--This code means display the score here.-->
+    <p id="totalScore"></p>
+    <input id="submit"  type="button" value="Submit"></input>
+</div>
+
+<script src="lib/jquery-3.2.0.min.js"></script>
+<script src="lib/jquery-ui.min.js"></script>
+<script src="lib/jquery.ui.touch-punch.min.js"></script>
+<script src="src/canvas.js?v=1.0"></script>
+<script src="src/view.js?v=1.0"></script>
+<script src="src/quiz.js?v=1.0"></script>
+<script src="src/controller.js?v=1.0"></script>
+<script src="src/main.js?v=1.0"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
