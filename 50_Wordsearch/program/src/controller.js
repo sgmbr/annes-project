@@ -201,20 +201,6 @@ class Controller {
         }
     }
 
-    static getLineOrientation(orientation) {
-        let lineOrientaiton = {
-            'horizontal':    'horizontal',
-            'horizontalBack':'horizontal',
-            'vertical':      'vertical',
-            'verticalUp':    'vertical',
-            'diagonal':      'diagonal',
-            'diagonalUp':    'diagonalup',
-            'diagonalBack':  'diagonalup',
-            'diagonalUpBack':'diagonal'
-        }
-        return lineOrientaiton[orientation]
-    }
-
     /**
      * Event that handles mouse up on a square. Checks to see if a valid word
      * was created and updates the class of the letters and word if it was. Then
@@ -232,9 +218,7 @@ class Controller {
                 question.answered = true
                 Controller.myQuiz.addQuizScore(Controller.myQuiz.scorePerWord)
 
-                let lineOrientaiton = Controller.getLineOrientation(question.orientation)
-
-                Controller.myView.found(question.word, lineOrientaiton)
+                Controller.myView.found(question.word, question.orientation)
                 Controller.myView.showSelectedWord(question.word, question.meaning)
             }
         }

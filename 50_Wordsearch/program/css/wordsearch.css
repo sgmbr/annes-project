@@ -86,9 +86,16 @@ button::-moz-focus-inner {
     z-index: 100;
 }
 
+.cheat {
+    position: absolute;
+    background: rgba(255, 0, 255, 0.3);
+    transform-origin: 0 100%;
+    z-index: 100;
+}
 
 /* horizontal */
-.line.horizontal {
+.horizontal,
+.horizontalBack {
     top: 40%;
     left: 0;
     width: 100%;
@@ -96,14 +103,16 @@ button::-moz-focus-inner {
 }
 
 /* vertical */
-.line.vertical {
+.vertical,
+.verticalUp {
     top: 0;
     left: 40%;
     width: 20%;
     height: 100%;
 }
 
-.line.diagonal {
+.diagonal,
+.diagonalUpBack {
     top: 0;
     left: 0;
     width: 142%;
@@ -111,7 +120,8 @@ button::-moz-focus-inner {
     transform: rotate(45deg);
 }
 
-.line.diagonalup {
+.diagonalUp,
+.diagonalBack {
     bottom: 0;
     left: 0;
     width: 142%;

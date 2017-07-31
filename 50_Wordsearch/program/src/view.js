@@ -147,7 +147,7 @@ class View {
     }
 
     static removeSelectedAll() {
-        $('.selected').removeClass('selected');
+        $('.selected').removeClass('selected')
     }
 
     static found(word, orientation) {
@@ -158,25 +158,27 @@ class View {
     }
 
     static complete() {
-        $('.puzzleSquare').addClass('complete');
+        $('.puzzleSquare').addClass('complete')
     }
 
     static showSelectedWord(word, meaning) {
-        $('#selected-word').html(word);
-        $('#selected-meaning').html(meaning);
+        $('#selected-word').html(word)
+        $('#selected-meaning').html(meaning)
     }
 
     static showAnswer(word, orientation, x, y, next) {
         if (!$('.' + word).hasClass('wordFound')) {
             for (let i = 0, size = word.length; i < size; i++) {
+                let line = document.createElement('div')
+                line.classList.add('cheat', orientation)
                 var nextPos = next(x, y, i);
-                $('[x="' + nextPos.x + '"][y="' + nextPos.y + '"]').addClass('solved');
+                $('[x="' + nextPos.x + '"][y="' + nextPos.y + '"]').append(line)
             }
         }
     }
 
     static hideAnswer() {
-        $('.puzzleSquare').removeClass('solved');
+        $('.cheat').remove()
     }
 
     static updateCurrentScore(score) {
